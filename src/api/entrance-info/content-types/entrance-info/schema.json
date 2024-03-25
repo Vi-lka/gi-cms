@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "entrance_infos",
+  "info": {
+    "singularName": "entrance-info",
+    "pluralName": "entrance-infos",
+    "displayName": "Entrance info",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.text-images",
+        "content.text"
+      ],
+      "required": true
+    },
+    "linkName": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    }
+  }
+}

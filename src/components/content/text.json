@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "medium",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    }
+  }
+}

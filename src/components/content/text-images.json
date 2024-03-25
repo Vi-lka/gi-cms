@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_content_text_images",
+  "info": {
+    "displayName": "Text_Images",
+    "icon": "medium",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "alignImages": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right",
+      "required": true
+    }
+  }
+}
