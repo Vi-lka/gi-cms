@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_additional_contacts",
+  "info": {
+    "displayName": "Contacts",
+    "icon": "book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "required": false
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "email": {
+      "type": "email",
+      "maxLength": 255,
+      "required": false
+    },
+    "location": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "unique": false,
+      "regex": "^\\/?[-a-z0-9_]{1,512}"
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    }
+  }
+}

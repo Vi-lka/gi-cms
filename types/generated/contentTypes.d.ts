@@ -590,6 +590,51 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginReactIconsIconlibrary extends Schema.CollectionType {
+  collectionName: 'iconlibrary';
+  info: {
+    singularName: 'iconlibrary';
+    pluralName: 'iconlibraries';
+    displayName: 'IconLibrary';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    abbreviation: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 3;
+      }>;
+    isEnabled: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::react-icons.iconlibrary',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::react-icons.iconlibrary',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginPublisherAction extends Schema.CollectionType {
   collectionName: 'actions';
   info: {
@@ -891,20 +936,30 @@ export interface ApiEntranceInfoEntranceInfo extends Schema.SingleType {
   info: {
     singularName: 'entrance-info';
     pluralName: 'entrance-infos';
-    displayName: 'Entrance info';
+    displayName: '\u041F\u043E\u0441\u0442\u0443\u043F\u043B\u0435\u043D\u0438\u0435';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    content: Attribute.DynamicZone<['content.text-images', 'content.text']> &
-      Attribute.Required;
-    linkName: Attribute.String &
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.collection-all',
+        'content.contacts',
+        'content.icons-block',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-images'
+      ]
+    > &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -972,6 +1027,7 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::react-icons.iconlibrary': PluginReactIconsIconlibrary;
       'plugin::publisher.action': PluginPublisherAction;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;

@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_content_icons_block_items",
+  "info": {
+    "displayName": "IconsBlockItem",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "iconReact": {
+      "type": "customField",
+      "customField": "plugin::react-icons.icon"
+    },
+    "iconCustom": {
+      "type": "enumeration",
+      "enum": [
+        "video-call",
+        "presentation",
+        "man-desktop",
+        "businessman",
+        "certificate",
+        "budget",
+        "deadline",
+        "authentication",
+        "graph"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 300
+    }
+  }
+}

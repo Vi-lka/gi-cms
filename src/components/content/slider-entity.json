@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_content_slider_entities",
+  "info": {
+    "displayName": "SliderEntity",
+    "icon": "manyToMany"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "regex": "^\\/?[-a-z0-9_]{1,512}"
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "educational_programs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::educational-program.educational-program"
+    }
+  }
+}

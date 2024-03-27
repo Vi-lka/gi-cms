@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_icon_selects",
+  "info": {
+    "displayName": "IconSelect",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "video-call",
+        "presentation",
+        "man-desktop",
+        "businessman",
+        "certificate",
+        "budget",
+        "deadline",
+        "authentication",
+        "graph"
+      ],
+      "required": true
+    }
+  }
+}

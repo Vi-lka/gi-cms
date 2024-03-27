@@ -4,7 +4,7 @@
   "info": {
     "singularName": "entrance-info",
     "pluralName": "entrance-infos",
-    "displayName": "Entrance info",
+    "displayName": "Поступление",
     "description": ""
   },
   "options": {
@@ -12,17 +12,22 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
     "content": {
       "type": "dynamiczone",
       "components": [
-        "content.text-images",
-        "content.text"
+        "content.collection-all",
+        "content.contacts",
+        "content.icons-block",
+        "content.slider-entity",
+        "content.slider-photos",
+        "content.text-block",
+        "content.text-images"
       ],
-      "required": true
-    },
-    "linkName": {
-      "type": "string",
-      "maxLength": 255,
       "required": true
     }
   }

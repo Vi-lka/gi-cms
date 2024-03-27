@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_content_slider_photos",
+  "info": {
+    "displayName": "SliderPhotos",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "unique": false,
+      "regex": "^\\/?[-a-z0-9_]{1,512}"
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    }
+  }
+}

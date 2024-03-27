@@ -3,7 +3,7 @@ module.exports = ({ env }) => ({
   graphql: {
     config: {
       endpoint: '/graphql',
-      depthLimit: 10,
+      depthLimit: 100,
       amountLimit: 1000,
     },
   },
@@ -25,6 +25,7 @@ module.exports = ({ env }) => ({
           serverPublicHostname: env('PUBLIC_URL', 'http://localhost:1337')
     },
   },
+  "react-icons": true,
   'drag-drop-content-types': {
     enabled: true
   },

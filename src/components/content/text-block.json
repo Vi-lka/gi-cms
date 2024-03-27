@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_for_pages_text_blocks",
+  "info": {
+    "displayName": "TextBlock",
+    "icon": "medium",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "required": false
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "required": false,
+      "regex": "^\\/?[-a-z0-9_]{1,512}",
+      "unique": false
+    },
+    "text": {
+      "type": "blocks",
+      "required": true
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255,
+      "unique": false
+    }
+  }
+}

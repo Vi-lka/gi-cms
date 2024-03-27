@@ -2489,7 +2489,7 @@
     react-query "3.39.3"
     react-select "5.7.0"
 
-"@strapi/helper-plugin@^4.6.0":
+"@strapi/helper-plugin@^4.16.2", "@strapi/helper-plugin@^4.6.0":
   version "4.21.0"
   resolved "https://registry.yarnpkg.com/@strapi/helper-plugin/-/helper-plugin-4.21.0.tgz#11b8424a9b1314784886783f400095e3fb25e5f9"
   integrity sha512-z3NquhJqm4+4wDICKn3QZKZE3qR7yEc7ZiaNfiu4nSt5j31cFumA89Bo8zZrvNuPSGYdVy/CwN58ora+OWObUQ==
@@ -2510,7 +2510,7 @@
   resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.15.0.tgz#02e81e5ddca08ee7f6f260e3876efc7c5216c21e"
   integrity sha512-DhUO6H1HNp5eu12TgBNsBhObSCgrf6uyCI6KYkPmSgIheQ2v66o3aOKtS+qK96WQTi9sNWnNDAs6KnIL+fAGeQ==
 
-"@strapi/icons@^1.13.1", "@strapi/icons@^1.6.3":
+"@strapi/icons@^1.13.0", "@strapi/icons@^1.13.1", "@strapi/icons@^1.6.3":
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.16.0.tgz#0b98dfa805a370423ad945208c07d00962209bd3"
   integrity sha512-sa7MTlhHpbpFCS5ZIlgLQQtG4s5W7ojGFr6CsjwtFdezrvBLbY5ZGmVByghK7b3XoZ1bNYk1AiGdcxMQvCu+vw==
@@ -9120,6 +9120,11 @@ react-helmet@6.1.0, react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
+react-icons@4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.8.0.tgz#621e900caa23b912f737e41be57f27f6b2bff445"
+  integrity sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==
+
 react-intl@6.4.1:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.4.1.tgz#01e4bd5497cb93d87146e966d8eda25851d4d9b6"
@@ -10176,6 +10181,11 @@ strapi-plugin-import-export-entries@^1.23.1:
     node-fetch "2.6.9"
     react-singleton-hook "3.3.0"
 
+strapi-plugin-multi-select@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-multi-select/-/strapi-plugin-multi-select-1.2.3.tgz#7ee98bb005c4f550ea0ce77d892f93a88dd7ba63"
+  integrity sha512-l5y5N3Hi1RcfRAtmQcAIn5u81amAQ+azWKgLcdzI1i3Hm5AZRCcZbtNDXb4ETsZUw7jvktRrD7F5QYOwzc8fiw==
+
 strapi-plugin-publisher@^1.5.7:
   version "1.5.7"
   resolved "https://registry.yarnpkg.com/strapi-plugin-publisher/-/strapi-plugin-publisher-1.5.7.tgz#7732c026a09de9db7aaaee128532ba677c2765e7"
@@ -10189,6 +10199,17 @@ strapi-plugin-publisher@^1.5.7:
     prop-types "^15.8.1"
     react-query "^3.39.3"
     yup "^0.32.9"
+
+strapi-plugin-react-icons@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-react-icons/-/strapi-plugin-react-icons-0.2.2.tgz#cd37f94a55ce49a8b8adea35ca0311390693933a"
+  integrity sha512-zGgdAU8w/62dDWG9qNdBePVyO+g5cz2ZcDC5h0FOSbPRUXppswp7DPgY0B9fDQiXi7y/ooFpe6WeON99cXsKmQ==
+  dependencies:
+    "@strapi/design-system" "^1.13.1"
+    "@strapi/helper-plugin" "^4.16.2"
+    "@strapi/icons" "^1.13.0"
+    prop-types "^15.8.1"
+    react-icons "4.8.0"
 
 stream-chain@2.2.5, stream-chain@^2.2.5:
   version "2.2.5"

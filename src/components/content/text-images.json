@@ -1,7 +1,7 @@
 {
   "collectionName": "components_content_text_images",
   "info": {
-    "displayName": "Text_Images",
+    "displayName": "TextImages",
     "icon": "medium",
     "description": ""
   },
@@ -31,6 +31,16 @@
       ],
       "default": "right",
       "required": true
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "regex": "^\\/?[-a-z0-9_]{1,512}",
+      "unique": false
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
     }
   }
 }
