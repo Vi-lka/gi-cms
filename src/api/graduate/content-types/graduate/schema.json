@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "graduates",
+  "info": {
+    "singularName": "graduate",
+    "pluralName": "graduates",
+    "displayName": "Graduate",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "additionalInfo": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "educational_programs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::educational-program.educational-program",
+      "inversedBy": "graduates"
+    },
+    "oldPrograms": {
+      "displayName": "oldProgram",
+      "type": "component",
+      "repeatable": true,
+      "component": "graduate.old-program"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

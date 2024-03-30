@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_graduate_old_programs",
+  "info": {
+    "displayName": "OldProgram",
+    "icon": "oneToOne",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "mainName": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "mainCode": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "bachelor",
+        "magistracy",
+        "postgraduate"
+      ],
+      "required": true
+    }
+  }
+}

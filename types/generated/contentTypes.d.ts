@@ -913,6 +913,11 @@ export interface ApiEducationalProgramEducationalProgram
     type: Attribute.Enumeration<['bachelor', 'magistracy', 'postgraduate']> &
       Attribute.Required;
     order: Attribute.Integer & Attribute.Unique;
+    graduates: Attribute.Relation<
+      'api::educational-program.educational-program',
+      'manyToMany',
+      'api::graduate.graduate'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -978,6 +983,56 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
   };
 }
 
+export interface ApiGraduateGraduate extends Schema.CollectionType {
+  collectionName: 'graduates';
+  info: {
+    singularName: 'graduate';
+    pluralName: 'graduates';
+    displayName: 'Graduate';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    additionalInfo: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    educational_programs: Attribute.Relation<
+      'api::graduate.graduate',
+      'manyToMany',
+      'api::educational-program.educational-program'
+    >;
+    oldPrograms: Attribute.Component<'graduate.old-program', true>;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::graduate.graduate',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::graduate.graduate',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSiteDescriptionSiteDescription extends Schema.SingleType {
   collectionName: 'site_descriptions';
   info: {
@@ -1035,6 +1090,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;
       'api::entrance-page.entrance-page': ApiEntrancePageEntrancePage;
+      'api::graduate.graduate': ApiGraduateGraduate;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
     }
   }

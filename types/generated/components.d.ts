@@ -216,6 +216,36 @@ export interface ContentTextImages extends Schema.Component {
   };
 }
 
+export interface GraduateOldProgram extends Schema.Component {
+  collectionName: 'components_graduate_old_programs';
+  info: {
+    displayName: 'OldProgram';
+    icon: 'oneToOne';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    code: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    mainName: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    mainCode: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    type: Attribute.Enumeration<['bachelor', 'magistracy', 'postgraduate']> &
+      Attribute.Required;
+  };
+}
+
 export interface ItemsEduProgSlider extends Schema.Component {
   collectionName: 'components_items_edu_prog_sliders';
   info: {
@@ -306,6 +336,7 @@ declare module '@strapi/types' {
       'content.slider-photos': ContentSliderPhotos;
       'content.text-block': ContentTextBlock;
       'content.text-images': ContentTextImages;
+      'graduate.old-program': GraduateOldProgram;
       'items.edu-prog-slider': ItemsEduProgSlider;
       'items.icon-select': ItemsIconSelect;
       'items.icons-block-item': ItemsIconsBlockItem;

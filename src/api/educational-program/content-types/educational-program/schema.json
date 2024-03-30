@@ -54,6 +54,12 @@
     "order": {
       "type": "integer",
       "unique": true
+    },
+    "graduates": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::graduate.graduate",
+      "mappedBy": "educational_programs"
     }
   }
 }
