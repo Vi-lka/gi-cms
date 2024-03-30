@@ -74,6 +74,7 @@ export interface ContentIconsBlock extends Schema.Component {
   info: {
     displayName: 'IconsBlock';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -101,6 +102,14 @@ export interface ContentIconsBlock extends Schema.Component {
         },
         number
       >;
+    moreTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    moreLink: Attribute.Text;
+    alignImage: Attribute.Enumeration<['left', 'right']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'left'>;
   };
 }
 

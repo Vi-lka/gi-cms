@@ -931,12 +931,12 @@ export interface ApiEducationalProgramEducationalProgram
   };
 }
 
-export interface ApiEntranceInfoEntranceInfo extends Schema.SingleType {
-  collectionName: 'entrance_infos';
+export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
+  collectionName: 'entrance_pages';
   info: {
-    singularName: 'entrance-info';
-    pluralName: 'entrance-infos';
-    displayName: '\u041F\u043E\u0441\u0442\u0443\u043F\u043B\u0435\u043D\u0438\u0435';
+    singularName: 'entrance-page';
+    pluralName: 'entrance-pages';
+    displayName: '/entrance';
     description: '';
   };
   options: {
@@ -964,13 +964,13 @@ export interface ApiEntranceInfoEntranceInfo extends Schema.SingleType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::entrance-info.entrance-info',
+      'api::entrance-page.entrance-page',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::entrance-info.entrance-info',
+      'api::entrance-page.entrance-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1034,7 +1034,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;
-      'api::entrance-info.entrance-info': ApiEntranceInfoEntranceInfo;
+      'api::entrance-page.entrance-page': ApiEntrancePageEntrancePage;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
     }
   }

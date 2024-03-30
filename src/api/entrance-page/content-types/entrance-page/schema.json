@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "entrance_infos",
+  "collectionName": "entrance_pages",
   "info": {
-    "singularName": "entrance-info",
-    "pluralName": "entrance-infos",
-    "displayName": "Поступление",
+    "singularName": "entrance-page",
+    "pluralName": "entrance-pages",
+    "displayName": "/entrance",
     "description": ""
   },
   "options": {

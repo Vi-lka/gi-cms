@@ -2,7 +2,8 @@
   "collectionName": "components_content_icons_blocks",
   "info": {
     "displayName": "IconsBlock",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -20,11 +21,12 @@
       "maxLength": 255
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "backgroundOn": {
       "type": "boolean",
@@ -42,6 +44,23 @@
       "component": "items.icons-block-item",
       "required": true,
       "min": 1
+    },
+    "moreTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "moreLink": {
+      "type": "text",
+      "regex": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%.,_\\+~#=]{1,256}(?:.[a-zA-Z0-9()]{1,6})\\b(?:[-a-zA-Z0-9()@:%_\\+.,~#?&\\/=]*)$"
+    },
+    "alignImage": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "required": true,
+      "default": "left"
     }
   }
 }
