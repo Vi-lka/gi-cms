@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_footer_contacts",
+  "info": {
+    "displayName": "Contacts",
+    "icon": "book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "email": {
+      "type": "email"
+    },
+    "iconReact": {
+      "type": "customField",
+      "customField": "plugin::react-icons.icon"
+    },
+    "iconCustom": {
+      "type": "enumeration",
+      "enum": [
+        "video-call",
+        "presentation",
+        "man-desktop",
+        "businessman",
+        "certificate",
+        "budget",
+        "deadline",
+        "authentication",
+        "graph"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "maxLength": 255
+    }
+  }
+}

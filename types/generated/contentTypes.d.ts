@@ -983,6 +983,48 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
   };
 }
 
+export interface ApiFooterFooter extends Schema.SingleType {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    subtitle: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    contacts: Attribute.Component<'footer.contacts', true>;
+    logos: Attribute.Component<'footer.logos', true>;
+    copyright: Attribute.Text;
+    socialNetworks: Attribute.Component<'footer.social-network', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGraduateGraduate extends Schema.CollectionType {
   collectionName: 'graduates';
   info: {
@@ -1090,6 +1132,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;
       'api::entrance-page.entrance-page': ApiEntrancePageEntrancePage;
+      'api::footer.footer': ApiFooterFooter;
       'api::graduate.graduate': ApiGraduateGraduate;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
     }

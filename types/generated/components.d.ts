@@ -216,6 +216,88 @@ export interface ContentTextImages extends Schema.Component {
   };
 }
 
+export interface FooterContacts extends Schema.Component {
+  collectionName: 'components_footer_contacts';
+  info: {
+    displayName: 'Contacts';
+    icon: 'book';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    phone: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    email: Attribute.Email;
+    iconReact: Attribute.String &
+      Attribute.CustomField<'plugin::react-icons.icon'>;
+    iconCustom: Attribute.Enumeration<
+      [
+        'video-call',
+        'presentation',
+        'man-desktop',
+        'businessman',
+        'certificate',
+        'budget',
+        'deadline',
+        'authentication',
+        'graph'
+      ]
+    >;
+    location: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
+export interface FooterLogos extends Schema.Component {
+  collectionName: 'components_footer_logos';
+  info: {
+    displayName: 'Logos';
+    icon: 'information';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    link: Attribute.Text;
+    imageDark: Attribute.Media & Attribute.Required;
+  };
+}
+
+export interface FooterSocialNetwork extends Schema.Component {
+  collectionName: 'components_footer_social_networks';
+  info: {
+    displayName: 'SocialNetwork';
+    icon: 'chartBubble';
+    description: '';
+  };
+  attributes: {
+    iconReact: Attribute.String &
+      Attribute.CustomField<'plugin::react-icons.icon'>;
+    iconCustom: Attribute.Enumeration<
+      [
+        'video-call',
+        'presentation',
+        'man-desktop',
+        'businessman',
+        'certificate',
+        'budget',
+        'deadline',
+        'authentication',
+        'graph'
+      ]
+    >;
+    image: Attribute.Media;
+    imageDark: Attribute.Media;
+    link: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface GraduateOldProgram extends Schema.Component {
   collectionName: 'components_graduate_old_programs';
   info: {
@@ -336,6 +418,9 @@ declare module '@strapi/types' {
       'content.slider-photos': ContentSliderPhotos;
       'content.text-block': ContentTextBlock;
       'content.text-images': ContentTextImages;
+      'footer.contacts': FooterContacts;
+      'footer.logos': FooterLogos;
+      'footer.social-network': FooterSocialNetwork;
       'graduate.old-program': GraduateOldProgram;
       'items.edu-prog-slider': ItemsEduProgSlider;
       'items.icon-select': ItemsIconSelect;

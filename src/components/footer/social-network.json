@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_footer_social_networks",
+  "info": {
+    "displayName": "SocialNetwork",
+    "icon": "chartBubble",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "iconReact": {
+      "type": "customField",
+      "customField": "plugin::react-icons.icon"
+    },
+    "iconCustom": {
+      "type": "enumeration",
+      "enum": [
+        "video-call",
+        "presentation",
+        "man-desktop",
+        "businessman",
+        "certificate",
+        "budget",
+        "deadline",
+        "authentication",
+        "graph"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageDark": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "required": true,
+      "regex": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%.,_\\+~#=]{1,256}(?:.[a-zA-Z0-9()]{1,6})\\b(?:[-a-zA-Z0-9()@:%_\\+.,~#?&\\/=]*)$"
+    }
+  }
+}
