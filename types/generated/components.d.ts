@@ -279,19 +279,6 @@ export interface FooterSocialNetwork extends Schema.Component {
   attributes: {
     iconReact: Attribute.String &
       Attribute.CustomField<'plugin::react-icons.icon'>;
-    iconCustom: Attribute.Enumeration<
-      [
-        'video-call',
-        'presentation',
-        'man-desktop',
-        'businessman',
-        'certificate',
-        'budget',
-        'deadline',
-        'authentication',
-        'graph'
-      ]
-    >;
     image: Attribute.Media;
     imageDark: Attribute.Media;
     link: Attribute.String & Attribute.Required;

@@ -11,20 +11,6 @@
       "type": "customField",
       "customField": "plugin::react-icons.icon"
     },
-    "iconCustom": {
-      "type": "enumeration",
-      "enum": [
-        "video-call",
-        "presentation",
-        "man-desktop",
-        "businessman",
-        "certificate",
-        "budget",
-        "deadline",
-        "authentication",
-        "graph"
-      ]
-    },
     "image": {
       "type": "media",
       "multiple": false,
