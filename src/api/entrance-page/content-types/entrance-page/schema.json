@@ -26,7 +26,8 @@
         "content.slider-entity",
         "content.slider-photos",
         "content.text-block",
-        "content.text-images"
+        "content.text-images",
+        "content.text-grid"
       ],
       "required": true
     }

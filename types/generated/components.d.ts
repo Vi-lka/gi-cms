@@ -118,6 +118,7 @@ export interface ContentSliderEntity extends Schema.Component {
   info: {
     displayName: 'SliderEntity';
     icon: 'manyToMany';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -136,6 +137,11 @@ export interface ContentSliderEntity extends Schema.Component {
       'content.slider-entity',
       'oneToMany',
       'api::educational-program.educational-program'
+    >;
+    employees: Attribute.Relation<
+      'content.slider-entity',
+      'oneToMany',
+      'api::employee.employee'
     >;
   };
 }
@@ -188,11 +194,47 @@ export interface ContentTextBlock extends Schema.Component {
   };
 }
 
+export interface ContentTextGrid extends Schema.Component {
+  collectionName: 'components_content_text_grids';
+  info: {
+    displayName: 'TextGrid';
+    icon: 'grid';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    items: Attribute.Component<'items.text-grid-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    buttonTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    buttonLink: Attribute.Text;
+  };
+}
+
 export interface ContentTextImages extends Schema.Component {
   collectionName: 'components_content_text_images';
   info: {
     displayName: 'TextImages';
-    icon: 'medium';
+    icon: 'picture';
     description: '';
   };
   attributes: {
@@ -395,6 +437,23 @@ export interface ItemsIconsBlockItem extends Schema.Component {
   };
 }
 
+export interface ItemsTextGridItem extends Schema.Component {
+  collectionName: 'components_items_text_grid_items';
+  info: {
+    displayName: 'TextGridItem';
+    icon: 'italic';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    text: Attribute.Blocks & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -404,6 +463,7 @@ declare module '@strapi/types' {
       'content.slider-entity': ContentSliderEntity;
       'content.slider-photos': ContentSliderPhotos;
       'content.text-block': ContentTextBlock;
+      'content.text-grid': ContentTextGrid;
       'content.text-images': ContentTextImages;
       'footer.contacts': FooterContacts;
       'footer.logos': FooterLogos;
@@ -412,6 +472,7 @@ declare module '@strapi/types' {
       'items.edu-prog-slider': ItemsEduProgSlider;
       'items.icon-select': ItemsIconSelect;
       'items.icons-block-item': ItemsIconsBlockItem;
+      'items.text-grid-item': ItemsTextGridItem;
     }
   }
 }

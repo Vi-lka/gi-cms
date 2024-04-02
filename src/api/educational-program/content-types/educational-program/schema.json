@@ -60,6 +60,19 @@
       "relation": "manyToMany",
       "target": "api::graduate.graduate",
       "mappedBy": "educational_programs"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.collection-all",
+        "content.contacts",
+        "content.icons-block",
+        "content.slider-entity",
+        "content.slider-photos",
+        "content.text-block",
+        "content.text-images",
+        "content.text-grid"
+      ]
     }
   }
 }

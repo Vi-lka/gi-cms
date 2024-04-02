@@ -918,6 +918,18 @@ export interface ApiEducationalProgramEducationalProgram
       'manyToMany',
       'api::graduate.graduate'
     >;
+    content: Attribute.DynamicZone<
+      [
+        'content.collection-all',
+        'content.contacts',
+        'content.icons-block',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-images',
+        'content.text-grid'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -929,6 +941,76 @@ export interface ApiEducationalProgramEducationalProgram
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::educational-program.educational-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEmployeeEmployee extends Schema.CollectionType {
+  collectionName: 'employees';
+  info: {
+    singularName: 'employee';
+    pluralName: 'employees';
+    displayName: 'Employee';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    image: Attribute.Media;
+    email: Attribute.Email;
+    phone: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    location: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    hashtags: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::hashtag.hashtag'
+    >;
+    content: Attribute.DynamicZone<
+      [
+        'content.collection-all',
+        'content.contacts',
+        'content.icons-block',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-images',
+        'content.text-grid'
+      ]
+    >;
+    post: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::employee.employee',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::employee.employee',
       'oneToOne',
       'admin::user'
     > &
@@ -961,7 +1043,8 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.slider-entity',
         'content.slider-photos',
         'content.text-block',
-        'content.text-images'
+        'content.text-images',
+        'content.text-grid'
       ]
     > &
       Attribute.Required;
@@ -1075,12 +1158,54 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
   };
 }
 
+export interface ApiHashtagHashtag extends Schema.CollectionType {
+  collectionName: 'hashtags';
+  info: {
+    singularName: 'hashtag';
+    pluralName: 'hashtags';
+    displayName: 'hashtag';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    employees: Attribute.Relation<
+      'api::hashtag.hashtag',
+      'manyToMany',
+      'api::employee.employee'
+    >;
+    slug: Attribute.UID<'api::hashtag.hashtag', 'title'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hashtag.hashtag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hashtag.hashtag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMainPageMainPage extends Schema.SingleType {
   collectionName: 'main_pages';
   info: {
     singularName: 'main-page';
     pluralName: 'main-pages';
     displayName: '/';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1094,7 +1219,8 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.slider-entity',
         'content.slider-photos',
         'content.text-block',
-        'content.text-images'
+        'content.text-images',
+        'content.text-grid'
       ]
     > &
       Attribute.Required;
@@ -1172,9 +1298,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;
+      'api::employee.employee': ApiEmployeeEmployee;
       'api::entrance-page.entrance-page': ApiEntrancePageEntrancePage;
       'api::footer.footer': ApiFooterFooter;
       'api::graduate.graduate': ApiGraduateGraduate;
+      'api::hashtag.hashtag': ApiHashtagHashtag;
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
     }

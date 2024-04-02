@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employees",
+  "info": {
+    "singularName": "employee",
+    "pluralName": "employees",
+    "displayName": "Employee",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "location": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "hashtags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hashtag.hashtag",
+      "inversedBy": "employees"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.collection-all",
+        "content.contacts",
+        "content.icons-block",
+        "content.slider-entity",
+        "content.slider-photos",
+        "content.text-block",
+        "content.text-images",
+        "content.text-grid"
+      ]
+    },
+    "post": {
+      "type": "string",
+      "maxLength": 255
+    }
+  }
+}

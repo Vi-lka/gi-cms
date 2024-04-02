@@ -4,7 +4,8 @@
   "info": {
     "singularName": "main-page",
     "pluralName": "main-pages",
-    "displayName": "/"
+    "displayName": "/",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,7 +21,8 @@
         "content.slider-entity",
         "content.slider-photos",
         "content.text-block",
-        "content.text-images"
+        "content.text-images",
+        "content.text-grid"
       ],
       "required": true
     }

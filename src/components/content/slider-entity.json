@@ -2,7 +2,8 @@
   "collectionName": "components_content_slider_entities",
   "info": {
     "displayName": "SliderEntity",
-    "icon": "manyToMany"
+    "icon": "manyToMany",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -23,6 +24,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::educational-program.educational-program"
+    },
+    "employees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::employee.employee"
     }
   }
 }
