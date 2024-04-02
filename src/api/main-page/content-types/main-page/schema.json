@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_pages",
+  "info": {
+    "singularName": "main-page",
+    "pluralName": "main-pages",
+    "displayName": "/"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.collection-all",
+        "content.contacts",
+        "content.icons-block",
+        "content.slider-entity",
+        "content.slider-photos",
+        "content.text-block",
+        "content.text-images"
+      ],
+      "required": true
+    }
+  }
+}

@@ -1075,6 +1075,47 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
   };
 }
 
+export interface ApiMainPageMainPage extends Schema.SingleType {
+  collectionName: 'main_pages';
+  info: {
+    singularName: 'main-page';
+    pluralName: 'main-pages';
+    displayName: '/';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.DynamicZone<
+      [
+        'content.collection-all',
+        'content.contacts',
+        'content.icons-block',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-images'
+      ]
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-page.main-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-page.main-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSiteDescriptionSiteDescription extends Schema.SingleType {
   collectionName: 'site_descriptions';
   info: {
@@ -1134,6 +1175,7 @@ declare module '@strapi/types' {
       'api::entrance-page.entrance-page': ApiEntrancePageEntrancePage;
       'api::footer.footer': ApiFooterFooter;
       'api::graduate.graduate': ApiGraduateGraduate;
+      'api::main-page.main-page': ApiMainPageMainPage;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
     }
   }
