@@ -1,15 +1,15 @@
 version: '3'
 
 services:
-  gi-cms:
-    container_name: gi-cms
+  hi-cms:
+    container_name: hi-cms
     build: .
-    image: gi-cms:latest
+    image: hi-cms:latest
     restart: unless-stopped
     env_file: .env
     environment:
       DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_HOST: gi-cmsDB
+      DATABASE_HOST: hi-cmsDB
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PORT: ${DATABASE_PORT}
@@ -28,12 +28,12 @@ services:
     ports:
       - '1337:1337'
     networks:
-      - gi-net
+      - hi-net
     depends_on:
-      - gi-cmsDB
+      - hi-cmsDB
       
-  gi-cmsDB:
-    container_name: gi-cmsDB
+  hi-cmsDB:
+    container_name: hi-cmsDB
     platform: linux/amd64 #for platform error on Apple M1 chips
     restart: unless-stopped
     env_file: .env
@@ -43,18 +43,18 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
-      - gi-cms-data:/var/lib/postgresql/data/ #using a volume
+      - hi-cms-data:/var/lib/postgresql/data/ #using a volume
       #- ./data:/var/lib/postgresql/data/ # if you want to use a bind folder
 
     ports:
       - '5432:5432'
     networks:
-      - gi-net
+      - hi-net
 
 volumes:
-  gi-cms-data:
+  hi-cms-data:
 
 networks:
-  gi-net:
-    name: gi-net
+  hi-net:
+    name: hi-net
     external: true
