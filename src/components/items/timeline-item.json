@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_items_timeline_items",
+  "info": {
+    "displayName": "TimelineItem",
+    "icon": "layer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "text": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

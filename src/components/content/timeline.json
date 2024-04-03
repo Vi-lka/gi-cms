@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_content_timelines",
+  "info": {
+    "displayName": "Timeline",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "regex": "^\\/?[-a-z0-9_]{1,512}"
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "subTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "line": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.timeline-item"
+    }
+  }
+}

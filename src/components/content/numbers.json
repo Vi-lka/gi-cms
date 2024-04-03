@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_content_numbers",
+  "info": {
+    "displayName": "Numbers",
+    "icon": "typhoon",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "regex": "^\\/?[-a-z0-9_]{1,512}"
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "subTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.numbers-item",
+      "required": true,
+      "min": 1
+    }
+  }
+}

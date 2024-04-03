@@ -927,7 +927,9 @@ export interface ApiEducationalProgramEducationalProgram
         'content.slider-photos',
         'content.text-block',
         'content.text-images',
-        'content.text-grid'
+        'content.text-grid',
+        'content.numbers',
+        'content.timeline'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -993,7 +995,9 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.slider-photos',
         'content.text-block',
         'content.text-images',
-        'content.text-grid'
+        'content.text-grid',
+        'content.numbers',
+        'content.timeline'
       ]
     >;
     post: Attribute.String &
@@ -1044,7 +1048,9 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.slider-photos',
         'content.text-block',
         'content.text-images',
-        'content.text-grid'
+        'content.text-grid',
+        'content.numbers',
+        'content.timeline'
       ]
     > &
       Attribute.Required;
@@ -1220,7 +1226,9 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.slider-photos',
         'content.text-block',
         'content.text-images',
-        'content.text-grid'
+        'content.text-grid',
+        'content.numbers',
+        'content.timeline'
       ]
     > &
       Attribute.Required;

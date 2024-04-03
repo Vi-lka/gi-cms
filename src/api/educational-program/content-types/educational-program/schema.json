@@ -71,7 +71,9 @@
         "content.slider-photos",
         "content.text-block",
         "content.text-images",
-        "content.text-grid"
+        "content.text-grid",
+        "content.numbers",
+        "content.timeline"
       ]
     }
   }

@@ -113,6 +113,41 @@ export interface ContentIconsBlock extends Schema.Component {
   };
 }
 
+export interface ContentNumbers extends Schema.Component {
+  collectionName: 'components_content_numbers';
+  info: {
+    displayName: 'Numbers';
+    icon: 'typhoon';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    subTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    items: Attribute.Component<'items.numbers-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+  };
+}
+
 export interface ContentSliderEntity extends Schema.Component {
   collectionName: 'components_content_slider_entities';
   info: {
@@ -255,6 +290,34 @@ export interface ContentTextImages extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+  };
+}
+
+export interface ContentTimeline extends Schema.Component {
+  collectionName: 'components_content_timelines';
+  info: {
+    displayName: 'Timeline';
+    icon: 'filter';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    subTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    line: Attribute.Component<'items.timeline-item', true>;
   };
 }
 
@@ -437,6 +500,27 @@ export interface ItemsIconsBlockItem extends Schema.Component {
   };
 }
 
+export interface ItemsNumbersItem extends Schema.Component {
+  collectionName: 'components_items_numbers_items';
+  info: {
+    displayName: 'NumbersItem';
+    icon: 'typhoon';
+    description: '';
+  };
+  attributes: {
+    number: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    icon: Attribute.String & Attribute.CustomField<'plugin::react-icons.icon'>;
+  };
+}
+
 export interface ItemsTextGridItem extends Schema.Component {
   collectionName: 'components_items_text_grid_items';
   info: {
@@ -454,17 +538,35 @@ export interface ItemsTextGridItem extends Schema.Component {
   };
 }
 
+export interface ItemsTimelineItem extends Schema.Component {
+  collectionName: 'components_items_timeline_items';
+  info: {
+    displayName: 'TimelineItem';
+    icon: 'layer';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    text: Attribute.Blocks & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;
       'content.icons-block': ContentIconsBlock;
+      'content.numbers': ContentNumbers;
       'content.slider-entity': ContentSliderEntity;
       'content.slider-photos': ContentSliderPhotos;
       'content.text-block': ContentTextBlock;
       'content.text-grid': ContentTextGrid;
       'content.text-images': ContentTextImages;
+      'content.timeline': ContentTimeline;
       'footer.contacts': FooterContacts;
       'footer.logos': FooterLogos;
       'footer.social-network': FooterSocialNetwork;
@@ -472,7 +574,9 @@ declare module '@strapi/types' {
       'items.edu-prog-slider': ItemsEduProgSlider;
       'items.icon-select': ItemsIconSelect;
       'items.icons-block-item': ItemsIconsBlockItem;
+      'items.numbers-item': ItemsNumbersItem;
       'items.text-grid-item': ItemsTextGridItem;
+      'items.timeline-item': ItemsTimelineItem;
     }
   }
 }
