@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "main_pages",
+  "collectionName": "just_waits",
   "info": {
-    "singularName": "main-page",
-    "pluralName": "main-pages",
-    "displayName": "/",
+    "singularName": "just-wait",
+    "pluralName": "just-waits",
+    "displayName": "/just-wait",
     "description": ""
   },
   "options": {
@@ -12,18 +12,23 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
     "content": {
       "type": "dynamiczone",
       "components": [
         "content.collection-all",
         "content.contacts",
         "content.icons-block",
+        "content.numbers",
         "content.slider-entity",
         "content.slider-photos",
         "content.text-block",
-        "content.text-images",
         "content.text-grid",
-        "content.numbers",
+        "content.text-images",
         "content.timeline",
         "content.files"
       ],

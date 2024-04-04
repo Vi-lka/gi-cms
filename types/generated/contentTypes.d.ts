@@ -929,7 +929,8 @@ export interface ApiEducationalProgramEducationalProgram
         'content.text-images',
         'content.text-grid',
         'content.numbers',
-        'content.timeline'
+        'content.timeline',
+        'content.files'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -997,7 +998,8 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.text-images',
         'content.text-grid',
         'content.numbers',
-        'content.timeline'
+        'content.timeline',
+        'content.files'
       ]
     >;
     post: Attribute.String &
@@ -1050,7 +1052,8 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.text-images',
         'content.text-grid',
         'content.numbers',
-        'content.timeline'
+        'content.timeline',
+        'content.files'
       ]
     > &
       Attribute.Required;
@@ -1205,6 +1208,57 @@ export interface ApiHashtagHashtag extends Schema.CollectionType {
   };
 }
 
+export interface ApiJustWaitJustWait extends Schema.SingleType {
+  collectionName: 'just_waits';
+  info: {
+    singularName: 'just-wait';
+    pluralName: 'just-waits';
+    displayName: '/just-wait';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.collection-all',
+        'content.contacts',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline',
+        'content.files'
+      ]
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::just-wait.just-wait',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::just-wait.just-wait',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMainPageMainPage extends Schema.SingleType {
   collectionName: 'main_pages';
   info: {
@@ -1228,7 +1282,8 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.text-images',
         'content.text-grid',
         'content.numbers',
-        'content.timeline'
+        'content.timeline',
+        'content.files'
       ]
     > &
       Attribute.Required;
@@ -1311,6 +1366,7 @@ declare module '@strapi/types' {
       'api::footer.footer': ApiFooterFooter;
       'api::graduate.graduate': ApiGraduateGraduate;
       'api::hashtag.hashtag': ApiHashtagHashtag;
+      'api::just-wait.just-wait': ApiJustWaitJustWait;
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
     }

@@ -69,6 +69,36 @@ export interface ContentContacts extends Schema.Component {
   };
 }
 
+export interface ContentFiles extends Schema.Component {
+  collectionName: 'components_content_files';
+  info: {
+    displayName: 'Files';
+    icon: 'attachment';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    items: Attribute.Component<'items.files-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+  };
+}
+
 export interface ContentIconsBlock extends Schema.Component {
   collectionName: 'components_content_icons_blocks';
   info: {
@@ -440,6 +470,22 @@ export interface ItemsEduProgSlider extends Schema.Component {
   };
 }
 
+export interface ItemsFilesItem extends Schema.Component {
+  collectionName: 'components_items_files_items';
+  info: {
+    displayName: 'FilesItem';
+    icon: 'attachment';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    file: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface ItemsIconSelect extends Schema.Component {
   collectionName: 'components_content_icon_selects';
   info: {
@@ -559,6 +605,7 @@ declare module '@strapi/types' {
     export interface Components {
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;
+      'content.files': ContentFiles;
       'content.icons-block': ContentIconsBlock;
       'content.numbers': ContentNumbers;
       'content.slider-entity': ContentSliderEntity;
@@ -572,6 +619,7 @@ declare module '@strapi/types' {
       'footer.social-network': FooterSocialNetwork;
       'graduate.old-program': GraduateOldProgram;
       'items.edu-prog-slider': ItemsEduProgSlider;
+      'items.files-item': ItemsFilesItem;
       'items.icon-select': ItemsIconSelect;
       'items.icons-block-item': ItemsIconsBlockItem;
       'items.numbers-item': ItemsNumbersItem;
