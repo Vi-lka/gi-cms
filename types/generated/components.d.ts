@@ -99,6 +99,50 @@ export interface ContentFiles extends Schema.Component {
   };
 }
 
+export interface ContentFormBlock extends Schema.Component {
+  collectionName: 'components_content_form_blocks';
+  info: {
+    displayName: 'FormBlock';
+    icon: 'question';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    list: Attribute.Component<'items.form-block-item', true>;
+    image: Attribute.Media;
+    imageDark: Attribute.Media;
+    color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    colorDark: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    buttonTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    formTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    formDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    buttonLink: Attribute.Text;
+    inNewTab: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ContentIconsBlock extends Schema.Component {
   collectionName: 'components_content_icons_blocks';
   info: {
@@ -486,6 +530,39 @@ export interface ItemsFilesItem extends Schema.Component {
   };
 }
 
+export interface ItemsFormBlockItem extends Schema.Component {
+  collectionName: 'components_content_form_block_items';
+  info: {
+    displayName: 'FormBlockItem';
+    icon: 'question';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    iconCustom: Attribute.Enumeration<
+      [
+        'video-call',
+        'presentation',
+        'man-desktop',
+        'businessman',
+        'certificate',
+        'budget',
+        'deadline',
+        'authentication',
+        'graph'
+      ]
+    >;
+    iconReact: Attribute.String &
+      Attribute.CustomField<'plugin::react-icons.icon'>;
+    image: Attribute.Media;
+    imageDark: Attribute.Media;
+  };
+}
+
 export interface ItemsIconSelect extends Schema.Component {
   collectionName: 'components_content_icon_selects';
   info: {
@@ -606,6 +683,7 @@ declare module '@strapi/types' {
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;
       'content.files': ContentFiles;
+      'content.form-block': ContentFormBlock;
       'content.icons-block': ContentIconsBlock;
       'content.numbers': ContentNumbers;
       'content.slider-entity': ContentSliderEntity;
@@ -620,6 +698,7 @@ declare module '@strapi/types' {
       'graduate.old-program': GraduateOldProgram;
       'items.edu-prog-slider': ItemsEduProgSlider;
       'items.files-item': ItemsFilesItem;
+      'items.form-block-item': ItemsFormBlockItem;
       'items.icon-select': ItemsIconSelect;
       'items.icons-block-item': ItemsIconsBlockItem;
       'items.numbers-item': ItemsNumbersItem;

@@ -1,0 +1,77 @@
+{
+  "collectionName": "components_content_form_blocks",
+  "info": {
+    "displayName": "FormBlock",
+    "icon": "question",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "regex": "^\\/?[-a-z0-9_]{1,512}"
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.form-block-item",
+      "required": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageDark": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "colorDark": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "buttonTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "formTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "formDescription": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "buttonLink": {
+      "type": "text",
+      "regex": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%.,_\\+~#=]{1,256}(?:.[a-zA-Z0-9()]{1,6})\\b(?:[-a-zA-Z0-9()@:%_\\+.,~#?&\\/=]*)$",
+      "required": false
+    },
+    "inNewTab": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -930,7 +930,8 @@ export interface ApiEducationalProgramEducationalProgram
         'content.text-grid',
         'content.numbers',
         'content.timeline',
-        'content.files'
+        'content.files',
+        'content.form-block'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -999,7 +1000,8 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.text-grid',
         'content.numbers',
         'content.timeline',
-        'content.files'
+        'content.files',
+        'content.form-block'
       ]
     >;
     post: Attribute.String &
@@ -1053,7 +1055,8 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.text-grid',
         'content.numbers',
         'content.timeline',
-        'content.files'
+        'content.files',
+        'content.form-block'
       ]
     > &
       Attribute.Required;
@@ -1237,7 +1240,8 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.files'
+        'content.files',
+        'content.form-block'
       ]
     > &
       Attribute.Required;
@@ -1283,7 +1287,8 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.text-grid',
         'content.numbers',
         'content.timeline',
-        'content.files'
+        'content.files',
+        'content.form-block'
       ]
     > &
       Attribute.Required;

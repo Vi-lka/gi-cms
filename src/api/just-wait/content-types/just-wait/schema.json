@@ -30,7 +30,8 @@
         "content.text-grid",
         "content.text-images",
         "content.timeline",
-        "content.files"
+        "content.files",
+        "content.form-block"
       ],
       "required": true
     }

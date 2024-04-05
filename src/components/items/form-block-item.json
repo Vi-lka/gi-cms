@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_content_form_block_items",
+  "info": {
+    "displayName": "FormBlockItem",
+    "icon": "question",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "iconCustom": {
+      "type": "enumeration",
+      "enum": [
+        "video-call",
+        "presentation",
+        "man-desktop",
+        "businessman",
+        "certificate",
+        "budget",
+        "deadline",
+        "authentication",
+        "graph"
+      ]
+    },
+    "iconReact": {
+      "type": "customField",
+      "customField": "plugin::react-icons.icon"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageDark": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
