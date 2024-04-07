@@ -874,6 +874,92 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiDpoDpo extends Schema.SingleType {
+  collectionName: 'dpos';
+  info: {
+    singularName: 'dpo';
+    pluralName: 'dpos';
+    displayName: '/dpo';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.collection-all',
+        'content.contacts',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::dpo.dpo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::dpo.dpo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
+  collectionName: 'dpo_courses';
+  info: {
+    singularName: 'dpo-course';
+    pluralName: 'dpo-courses';
+    displayName: 'DpoCourse';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    dateStart: Attribute.Date;
+    dateEnd: Attribute.Date;
+    hours: Attribute.Integer;
+    price: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dpo-course.dpo-course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dpo-course.dpo-course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEducationalProgramEducationalProgram
   extends Schema.CollectionType {
   collectionName: 'educational_programs';
@@ -1365,6 +1451,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::dpo.dpo': ApiDpoDpo;
+      'api::dpo-course.dpo-course': ApiDpoCourseDpoCourse;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::entrance-page.entrance-page': ApiEntrancePageEntrancePage;

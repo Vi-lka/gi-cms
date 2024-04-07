@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dpo_courses",
+  "info": {
+    "singularName": "dpo-course",
+    "pluralName": "dpo-courses",
+    "displayName": "DpoCourse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "dateStart": {
+      "type": "date"
+    },
+    "dateEnd": {
+      "type": "date"
+    },
+    "hours": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

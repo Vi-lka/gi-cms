@@ -631,16 +631,12 @@ export interface ItemsNumbersItem extends Schema.Component {
     description: '';
   };
   attributes: {
-    number: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
     icon: Attribute.String & Attribute.CustomField<'plugin::react-icons.icon'>;
+    number: Attribute.Integer & Attribute.Required;
   };
 }
 
