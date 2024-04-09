@@ -72,6 +72,11 @@
     "inNewTab": {
       "type": "boolean",
       "default": false
+    },
+    "largeTitles": {
+      "type": "boolean",
+      "default": false,
+      "required": false
     }
   }
 }

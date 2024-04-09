@@ -5,6 +5,7 @@ export interface ContentCollectionAll extends Schema.Component {
   info: {
     displayName: 'CollectionAll';
     icon: 'apps';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -25,7 +26,7 @@ export interface ContentCollectionAll extends Schema.Component {
         'plugin::multi-select.multi-select',
         [
           '\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B:educational-programs',
-          '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E:additional-edu',
+          '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E:dpo-courses',
           '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438:graduates',
           '\u041F\u0440\u0435\u043F\u043E\u0434\u0430\u0432\u0430\u0442\u0435\u043B\u0438:lecturers'
         ]
@@ -140,6 +141,7 @@ export interface ContentFormBlock extends Schema.Component {
       }>;
     buttonLink: Attribute.Text;
     inNewTab: Attribute.Boolean & Attribute.DefaultTo<false>;
+    largeTitles: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -560,6 +562,10 @@ export interface ItemsFormBlockItem extends Schema.Component {
       Attribute.CustomField<'plugin::react-icons.icon'>;
     image: Attribute.Media;
     imageDark: Attribute.Media;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 

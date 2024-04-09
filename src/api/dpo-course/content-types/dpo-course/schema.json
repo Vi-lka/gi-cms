@@ -4,7 +4,8 @@
   "info": {
     "singularName": "dpo-course",
     "pluralName": "dpo-courses",
-    "displayName": "DpoCourse"
+    "displayName": "DpoCourse",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -30,11 +31,43 @@
       "maxLength": 255
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "unique": true
+    },
+    "location": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.collection-all",
+        "content.contacts",
+        "content.files",
+        "content.form-block",
+        "content.icons-block",
+        "content.numbers",
+        "content.slider-entity",
+        "content.slider-photos",
+        "content.text-block",
+        "content.text-grid",
+        "content.text-images",
+        "content.timeline"
       ],
-      "type": "media",
-      "multiple": false
+      "required": false
     }
   }
 }

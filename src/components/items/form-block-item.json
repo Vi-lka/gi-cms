@@ -45,6 +45,10 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 300
     }
   }
 }

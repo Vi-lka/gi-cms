@@ -924,6 +924,7 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
     singularName: 'dpo-course';
     pluralName: 'dpo-courses';
     displayName: 'DpoCourse';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -942,6 +943,29 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         maxLength: 255;
       }>;
     image: Attribute.Media;
+    slug: Attribute.UID<'api::dpo-course.dpo-course', 'title'> &
+      Attribute.Required;
+    order: Attribute.Integer & Attribute.Unique;
+    location: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.collection-all',
+        'content.contacts',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
