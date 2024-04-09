@@ -60,7 +60,8 @@
         "content.numbers",
         "content.timeline",
         "content.files",
-        "content.form-block"
+        "content.form-block",
+        "content.accordion"
       ]
     },
     "post": {

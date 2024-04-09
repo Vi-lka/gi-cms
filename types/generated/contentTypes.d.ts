@@ -904,7 +904,8 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline'
+        'content.timeline',
+        'content.accordion'
       ]
     > &
       Attribute.Required;
@@ -963,7 +964,8 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline'
+        'content.timeline',
+        'content.accordion'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1041,7 +1043,8 @@ export interface ApiEducationalProgramEducationalProgram
         'content.numbers',
         'content.timeline',
         'content.files',
-        'content.form-block'
+        'content.form-block',
+        'content.accordion'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1111,7 +1114,8 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.numbers',
         'content.timeline',
         'content.files',
-        'content.form-block'
+        'content.form-block',
+        'content.accordion'
       ]
     >;
     post: Attribute.String &
@@ -1166,7 +1170,8 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.numbers',
         'content.timeline',
         'content.files',
-        'content.form-block'
+        'content.form-block',
+        'content.accordion'
       ]
     > &
       Attribute.Required;
@@ -1351,7 +1356,8 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.text-images',
         'content.timeline',
         'content.files',
-        'content.form-block'
+        'content.form-block',
+        'content.accordion'
       ]
     > &
       Attribute.Required;
@@ -1398,7 +1404,8 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.numbers',
         'content.timeline',
         'content.files',
-        'content.form-block'
+        'content.form-block',
+        'content.accordion'
       ]
     > &
       Attribute.Required;

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_content_accordions",
+  "info": {
+    "displayName": "Accordion",
+    "icon": "server",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "regex": "^\\/?[-a-z0-9_]{1,512}"
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.accordion-item",
+      "required": true,
+      "min": 1
+    }
+  }
+}

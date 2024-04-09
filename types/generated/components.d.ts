@@ -1,5 +1,36 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ContentAccordion extends Schema.Component {
+  collectionName: 'components_content_accordions';
+  info: {
+    displayName: 'Accordion';
+    icon: 'server';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    items: Attribute.Component<'items.accordion-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+  };
+}
+
 export interface ContentCollectionAll extends Schema.Component {
   collectionName: 'components_content_collection_alls';
   info: {
@@ -496,6 +527,22 @@ export interface GraduateOldProgram extends Schema.Component {
   };
 }
 
+export interface ItemsAccordionItem extends Schema.Component {
+  collectionName: 'components_items_accordion_items';
+  info: {
+    displayName: 'AccordionItem';
+    icon: 'server';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    text: Attribute.Blocks & Attribute.Required;
+  };
+}
+
 export interface ItemsEduProgSlider extends Schema.Component {
   collectionName: 'components_items_edu_prog_sliders';
   info: {
@@ -682,6 +729,7 @@ export interface ItemsTimelineItem extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'content.accordion': ContentAccordion;
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;
       'content.files': ContentFiles;
@@ -698,6 +746,7 @@ declare module '@strapi/types' {
       'footer.logos': FooterLogos;
       'footer.social-network': FooterSocialNetwork;
       'graduate.old-program': GraduateOldProgram;
+      'items.accordion-item': ItemsAccordionItem;
       'items.edu-prog-slider': ItemsEduProgSlider;
       'items.files-item': ItemsFilesItem;
       'items.form-block-item': ItemsFormBlockItem;
