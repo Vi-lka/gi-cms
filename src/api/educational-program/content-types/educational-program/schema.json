@@ -4,18 +4,27 @@
   "info": {
     "singularName": "educational-program",
     "pluralName": "educational-programs",
-    "displayName": "Educational program",
+    "displayName": "Образовательные программы",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",
       "maxLength": 255,
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "code": {
       "type": "string",
@@ -23,7 +32,12 @@
     },
     "mainName": {
       "type": "string",
-      "maxLength": 255
+      "maxLength": 255,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "mainCode": {
       "type": "string",
@@ -32,7 +46,12 @@
     "slug": {
       "type": "uid",
       "targetField": "title",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "image": {
       "type": "media",
@@ -53,7 +72,7 @@
     },
     "order": {
       "type": "integer",
-      "unique": true
+      "unique": false
     },
     "graduates": {
       "type": "relation",
@@ -77,7 +96,12 @@
         "content.files",
         "content.form-block",
         "content.accordion"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

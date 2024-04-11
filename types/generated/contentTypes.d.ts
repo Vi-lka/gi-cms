@@ -885,9 +885,19 @@ export interface ApiDpoDpo extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -908,7 +918,12 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.accordion'
       ]
     > &
-      Attribute.Required;
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -916,6 +931,12 @@ export interface ApiDpoDpo extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::dpo.dpo', 'oneToOne', 'admin::user'> &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::dpo.dpo',
+      'oneToMany',
+      'api::dpo.dpo'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -924,15 +945,25 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
   info: {
     singularName: 'dpo-course';
     pluralName: 'dpo-courses';
-    displayName: 'DpoCourse';
+    displayName: '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -945,9 +976,19 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
       }>;
     image: Attribute.Media;
     slug: Attribute.UID<'api::dpo-course.dpo-course', 'title'> &
-      Attribute.Required;
-    order: Attribute.Integer & Attribute.Unique;
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    order: Attribute.Integer;
     location: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -967,7 +1008,12 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.timeline',
         'content.accordion'
       ]
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -983,6 +1029,12 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::dpo-course.dpo-course',
+      'oneToMany',
+      'api::dpo-course.dpo-course'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -992,15 +1044,25 @@ export interface ApiEducationalProgramEducationalProgram
   info: {
     singularName: 'educational-program';
     pluralName: 'educational-programs';
-    displayName: 'Educational program';
+    displayName: '\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -1009,6 +1071,11 @@ export interface ApiEducationalProgramEducationalProgram
         maxLength: 255;
       }>;
     mainName: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -1020,11 +1087,16 @@ export interface ApiEducationalProgramEducationalProgram
       'api::educational-program.educational-program',
       'title'
     > &
-      Attribute.Required;
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     image: Attribute.Media;
     type: Attribute.Enumeration<['bachelor', 'magistracy', 'postgraduate']> &
       Attribute.Required;
-    order: Attribute.Integer & Attribute.Unique;
+    order: Attribute.Integer;
     graduates: Attribute.Relation<
       'api::educational-program.educational-program',
       'manyToMany',
@@ -1046,7 +1118,12 @@ export interface ApiEducationalProgramEducationalProgram
         'content.form-block',
         'content.accordion'
       ]
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1062,6 +1139,12 @@ export interface ApiEducationalProgramEducationalProgram
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::educational-program.educational-program',
+      'oneToMany',
+      'api::educational-program.educational-program'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1070,19 +1153,34 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
   info: {
     singularName: 'employee';
     pluralName: 'employees';
-    displayName: 'Employee';
+    displayName: '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
     description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 500;
       }>;
@@ -1093,6 +1191,11 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         maxLength: 255;
       }>;
     location: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -1117,8 +1220,18 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.form-block',
         'content.accordion'
       ]
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     post: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -1137,6 +1250,12 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::employee.employee',
+      'oneToMany',
+      'api::employee.employee'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1151,9 +1270,19 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -1174,7 +1303,12 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.accordion'
       ]
     > &
-      Attribute.Required;
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1190,6 +1324,12 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::entrance-page.entrance-page',
+      'oneToMany',
+      'api::entrance-page.entrance-page'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1204,19 +1344,54 @@ export interface ApiFooterFooter extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
     subtitle: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
-    contacts: Attribute.Component<'footer.contacts', true>;
-    logos: Attribute.Component<'footer.logos', true>;
-    copyright: Attribute.Text;
-    socialNetworks: Attribute.Component<'footer.social-network', true>;
+    contacts: Attribute.Component<'footer.contacts', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logos: Attribute.Component<'footer.logos', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    copyright: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    socialNetworks: Attribute.Component<'footer.social-network', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1232,6 +1407,12 @@ export interface ApiFooterFooter extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::footer.footer'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1240,23 +1421,43 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
   info: {
     singularName: 'graduate';
     pluralName: 'graduates';
-    displayName: 'Graduate';
+    displayName: '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
     description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 500;
       }>;
     additionalInfo: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 500;
       }>;
@@ -1265,7 +1466,12 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
       'manyToMany',
       'api::educational-program.educational-program'
     >;
-    oldPrograms: Attribute.Component<'graduate.old-program', true>;
+    oldPrograms: Attribute.Component<'graduate.old-program', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1282,6 +1488,12 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::graduate.graduate',
+      'oneToMany',
+      'api::graduate.graduate'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1290,15 +1502,25 @@ export interface ApiHashtagHashtag extends Schema.CollectionType {
   info: {
     singularName: 'hashtag';
     pluralName: 'hashtags';
-    displayName: 'hashtag';
+    displayName: '#\u0425\u044D\u0448\u0442\u0435\u0433\u0438';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
       Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -1307,7 +1529,13 @@ export interface ApiHashtagHashtag extends Schema.CollectionType {
       'manyToMany',
       'api::employee.employee'
     >;
-    slug: Attribute.UID<'api::hashtag.hashtag', 'title'> & Attribute.Required;
+    slug: Attribute.UID<'api::hashtag.hashtag', 'title'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1323,6 +1551,12 @@ export interface ApiHashtagHashtag extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::hashtag.hashtag',
+      'oneToMany',
+      'api::hashtag.hashtag'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1337,9 +1571,19 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -1360,7 +1604,12 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.accordion'
       ]
     > &
-      Attribute.Required;
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1376,6 +1625,12 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::just-wait.just-wait',
+      'oneToMany',
+      'api::just-wait.just-wait'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1390,6 +1645,11 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     content: Attribute.DynamicZone<
       [
@@ -1408,7 +1668,12 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.accordion'
       ]
     > &
-      Attribute.Required;
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1424,6 +1689,12 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::main-page.main-page',
+      'oneToMany',
+      'api::main-page.main-page'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1438,9 +1709,19 @@ export interface ApiSiteDescriptionSiteDescription extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -1459,6 +1740,12 @@ export interface ApiSiteDescriptionSiteDescription extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::site-description.site-description',
+      'oneToMany',
+      'api::site-description.site-description'
+    >;
+    locale: Attribute.String;
   };
 }
 

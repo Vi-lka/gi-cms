@@ -4,18 +4,27 @@
   "info": {
     "singularName": "hashtag",
     "pluralName": "hashtags",
-    "displayName": "hashtag",
+    "displayName": "#Хэштеги",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",
       "maxLength": 255,
-      "unique": true
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "employees": {
       "type": "relation",
@@ -26,7 +35,12 @@
     "slug": {
       "type": "uid",
       "targetField": "title",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

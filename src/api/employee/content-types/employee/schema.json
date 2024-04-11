@@ -4,22 +4,36 @@
   "info": {
     "singularName": "employee",
     "pluralName": "employees",
-    "displayName": "Employee",
+    "displayName": "Сотрудники",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",
       "required": true,
-      "maxLength": 255
+      "maxLength": 255,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "description": {
       "type": "text",
-      "maxLength": 500
+      "maxLength": 500,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "image": {
       "type": "media",
@@ -38,7 +52,12 @@
     },
     "location": {
       "type": "string",
-      "maxLength": 255
+      "maxLength": 255,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "hashtags": {
       "type": "relation",
@@ -62,11 +81,21 @@
         "content.files",
         "content.form-block",
         "content.accordion"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "post": {
       "type": "string",
-      "maxLength": 255
+      "maxLength": 255,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

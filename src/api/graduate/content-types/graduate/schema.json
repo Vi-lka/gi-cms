@@ -4,26 +4,45 @@
   "info": {
     "singularName": "graduate",
     "pluralName": "graduates",
-    "displayName": "Graduate",
+    "displayName": "Выпускники",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",
       "maxLength": 255,
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "description": {
       "type": "text",
-      "maxLength": 500
+      "maxLength": 500,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "additionalInfo": {
       "type": "text",
-      "maxLength": 500
+      "maxLength": 500,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "educational_programs": {
       "type": "relation",
@@ -35,7 +54,12 @@
       "displayName": "oldProgram",
       "type": "component",
       "repeatable": true,
-      "component": "graduate.old-program"
+      "component": "graduate.old-program",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "image": {
       "allowedTypes": [
