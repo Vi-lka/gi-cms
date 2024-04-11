@@ -15,6 +15,10 @@
     "iconCustom": {
       "type": "enumeration",
       "enum": [
+        "deal",
+        "science",
+        "idea",
+        "healthy_mind",
         "video-call",
         "presentation",
         "man-desktop",

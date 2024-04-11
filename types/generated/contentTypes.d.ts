@@ -1560,6 +1560,80 @@ export interface ApiHashtagHashtag extends Schema.CollectionType {
   };
 }
 
+export interface ApiHeroAboutHeroAbout extends Schema.SingleType {
+  collectionName: 'hero_abouts';
+  info: {
+    singularName: 'hero-about';
+    pluralName: 'hero-abouts';
+    displayName: 'Hero About';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    icons: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    items: Attribute.Component<'items.icons-block-item', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          max: 4;
+        },
+        number
+      >;
+    link: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hero-about.hero-about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hero-about.hero-about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::hero-about.hero-about',
+      'oneToMany',
+      'api::hero-about.hero-about'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiJustWaitJustWait extends Schema.SingleType {
   collectionName: 'just_waits';
   info: {
@@ -1777,6 +1851,7 @@ declare module '@strapi/types' {
       'api::footer.footer': ApiFooterFooter;
       'api::graduate.graduate': ApiGraduateGraduate;
       'api::hashtag.hashtag': ApiHashtagHashtag;
+      'api::hero-about.hero-about': ApiHeroAboutHeroAbout;
       'api::just-wait.just-wait': ApiJustWaitJustWait;
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;

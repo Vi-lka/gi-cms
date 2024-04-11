@@ -449,6 +449,10 @@ export interface FooterContacts extends Schema.Component {
       Attribute.CustomField<'plugin::react-icons.icon'>;
     iconCustom: Attribute.Enumeration<
       [
+        'deal',
+        'science',
+        'idea',
+        'healthy_mind',
         'video-call',
         'presentation',
         'man-desktop',
@@ -594,6 +598,10 @@ export interface ItemsFormBlockItem extends Schema.Component {
       }>;
     iconCustom: Attribute.Enumeration<
       [
+        'deal',
+        'science',
+        'idea',
+        'healthy_mind',
         'video-call',
         'presentation',
         'man-desktop',
@@ -626,6 +634,10 @@ export interface ItemsIconSelect extends Schema.Component {
   attributes: {
     icon: Attribute.Enumeration<
       [
+        'deal',
+        'science',
+        'idea',
+        'healthy_mind',
         'video-call',
         'presentation',
         'man-desktop',
@@ -653,6 +665,10 @@ export interface ItemsIconsBlockItem extends Schema.Component {
       Attribute.CustomField<'plugin::react-icons.icon'>;
     iconCustom: Attribute.Enumeration<
       [
+        'deal',
+        'science',
+        'idea',
+        'healthy_mind',
         'video-call',
         'presentation',
         'man-desktop',
