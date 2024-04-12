@@ -1270,7 +1270,7 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
   info: {
     singularName: 'entrance-page';
     pluralName: 'entrance-pages';
-    displayName: '/entrance';
+    displayName: '/admission';
     description: '';
   };
   options: {
@@ -1819,7 +1819,7 @@ export interface ApiNavBarNavBar extends Schema.SingleType {
           localized: true;
         };
       }>;
-    entrance: Attribute.Component<'items.nav-bar-item'> &
+    admission: Attribute.Component<'items.nav-bar-item'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

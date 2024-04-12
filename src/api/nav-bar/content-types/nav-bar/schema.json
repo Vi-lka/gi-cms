@@ -47,7 +47,7 @@
       },
       "component": "items.nav-bar-item"
     },
-    "entrance": {
+    "admission": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
