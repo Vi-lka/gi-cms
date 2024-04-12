@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_nav_nav_bar_fields",
+  "info": {
+    "displayName": "NavBarFields",
+    "icon": "layer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "navBarImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "navBarTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "navBarDescription": {
+      "type": "text",
+      "maxLength": 80
+    }
+  }
+}

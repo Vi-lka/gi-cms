@@ -27,6 +27,10 @@
       "type": "string",
       "maxLength": 255,
       "unique": false
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
     }
   }
 }

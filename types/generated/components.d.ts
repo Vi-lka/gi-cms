@@ -28,6 +28,10 @@ export interface ContentAccordion extends Schema.Component {
         },
         number
       >;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -62,6 +66,10 @@ export interface ContentCollectionAll extends Schema.Component {
           '\u041F\u0440\u0435\u043F\u043E\u0434\u0430\u0432\u0430\u0442\u0435\u043B\u0438:lecturers'
         ]
       >;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -98,6 +106,10 @@ export interface ContentContacts extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -106,6 +118,7 @@ export interface ContentFiles extends Schema.Component {
   info: {
     displayName: 'Files';
     icon: 'attachment';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -128,6 +141,10 @@ export interface ContentFiles extends Schema.Component {
         },
         number
       >;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -173,6 +190,10 @@ export interface ContentFormBlock extends Schema.Component {
     buttonLink: Attribute.Text;
     inNewTab: Attribute.Boolean & Attribute.DefaultTo<false>;
     largeTitles: Attribute.Boolean & Attribute.DefaultTo<false>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -217,6 +238,10 @@ export interface ContentIconsBlock extends Schema.Component {
     alignImage: Attribute.Enumeration<['left', 'right']> &
       Attribute.Required &
       Attribute.DefaultTo<'left'>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -252,6 +277,10 @@ export interface ContentNumbers extends Schema.Component {
         },
         number
       >;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -285,6 +314,10 @@ export interface ContentSliderEntity extends Schema.Component {
       'oneToMany',
       'api::employee.employee'
     >;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -309,6 +342,10 @@ export interface ContentSliderPhotos extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -330,6 +367,10 @@ export interface ContentTextBlock extends Schema.Component {
       }>;
     text: Attribute.Blocks & Attribute.Required;
     linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkDescription: Attribute.Text &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -369,6 +410,10 @@ export interface ContentTextGrid extends Schema.Component {
         maxLength: 255;
       }>;
     buttonLink: Attribute.Text;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -394,6 +439,10 @@ export interface ContentTextImages extends Schema.Component {
         maxLength: 255;
       }>;
     linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkDescription: Attribute.Text &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
@@ -425,6 +474,10 @@ export interface ContentTimeline extends Schema.Component {
         maxLength: 255;
       }>;
     line: Attribute.Component<'items.timeline-item', true>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
   };
 }
 
@@ -692,6 +745,40 @@ export interface ItemsIconsBlockItem extends Schema.Component {
   };
 }
 
+export interface ItemsNavBarItem extends Schema.Component {
+  collectionName: 'components_items_nav_bar_items';
+  info: {
+    displayName: 'NavBarItem';
+    icon: 'oneWay';
+    description: '';
+  };
+  attributes: {
+    subLinks: Attribute.Component<'items.nav-bar-sub-item', true> &
+      Attribute.Required;
+  };
+}
+
+export interface ItemsNavBarSubItem extends Schema.Component {
+  collectionName: 'components_items_nav_bar_sub_items';
+  info: {
+    displayName: 'NavBarSubItem';
+    icon: 'oneWay';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
 export interface ItemsNumbersItem extends Schema.Component {
   collectionName: 'components_items_numbers_items';
   info: {
@@ -742,6 +829,26 @@ export interface ItemsTimelineItem extends Schema.Component {
   };
 }
 
+export interface NavNavBarFields extends Schema.Component {
+  collectionName: 'components_nav_nav_bar_fields';
+  info: {
+    displayName: 'NavBarFields';
+    icon: 'layer';
+    description: '';
+  };
+  attributes: {
+    navBarImage: Attribute.Media;
+    navBarTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    navBarDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -768,9 +875,12 @@ declare module '@strapi/types' {
       'items.form-block-item': ItemsFormBlockItem;
       'items.icon-select': ItemsIconSelect;
       'items.icons-block-item': ItemsIconsBlockItem;
+      'items.nav-bar-item': ItemsNavBarItem;
+      'items.nav-bar-sub-item': ItemsNavBarSubItem;
       'items.numbers-item': ItemsNumbersItem;
       'items.text-grid-item': ItemsTextGridItem;
       'items.timeline-item': ItemsTimelineItem;
+      'nav.nav-bar-fields': NavNavBarFields;
     }
   }
 }

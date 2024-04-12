@@ -2,7 +2,8 @@
   "collectionName": "components_content_files",
   "info": {
     "displayName": "Files",
-    "icon": "attachment"
+    "icon": "attachment",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -25,6 +26,10 @@
       "component": "items.files-item",
       "required": true,
       "min": 1
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
     }
   }
 }

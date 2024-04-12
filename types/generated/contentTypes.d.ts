@@ -924,6 +924,12 @@ export interface ApiDpoDpo extends Schema.SingleType {
           localized: true;
         };
       }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1304,6 +1310,12 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
       ]
     > &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1772,6 +1784,95 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
   };
 }
 
+export interface ApiNavBarNavBar extends Schema.SingleType {
+  collectionName: 'nav_bars';
+  info: {
+    singularName: 'nav-bar';
+    pluralName: 'nav-bars';
+    displayName: 'NavBar';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    info: Attribute.Component<'items.nav-bar-item'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    structure: Attribute.Component<'items.nav-bar-item'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    education: Attribute.Component<'items.nav-bar-item'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    entrance: Attribute.Component<'items.nav-bar-item'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    dpo: Attribute.Component<'items.nav-bar-item'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    science: Attribute.Component<'items.nav-bar-item'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    projects: Attribute.Component<'items.nav-bar-item'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    journals: Attribute.Component<'items.nav-bar-item'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::nav-bar.nav-bar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::nav-bar.nav-bar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::nav-bar.nav-bar',
+      'oneToMany',
+      'api::nav-bar.nav-bar'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiSiteDescriptionSiteDescription extends Schema.SingleType {
   collectionName: 'site_descriptions';
   info: {
@@ -1854,6 +1955,7 @@ declare module '@strapi/types' {
       'api::hero-about.hero-about': ApiHeroAboutHeroAbout;
       'api::just-wait.just-wait': ApiJustWaitJustWait;
       'api::main-page.main-page': ApiMainPageMainPage;
+      'api::nav-bar.nav-bar': ApiNavBarNavBar;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
     }
   }

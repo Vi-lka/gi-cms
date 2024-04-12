@@ -30,6 +30,10 @@
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
     }
   }
 }

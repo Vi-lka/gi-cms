@@ -49,6 +49,16 @@
           "localized": true
         }
       }
+    },
+    "navBarConfig": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "nav.nav-bar-fields"
     }
   }
 }

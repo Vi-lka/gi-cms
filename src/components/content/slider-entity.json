@@ -29,6 +29,10 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::employee.employee"
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
     }
   }
 }

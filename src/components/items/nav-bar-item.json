@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_items_nav_bar_items",
+  "info": {
+    "displayName": "NavBarItem",
+    "icon": "oneWay",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "subLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.nav-bar-sub-item",
+      "required": true
+    }
+  }
+}

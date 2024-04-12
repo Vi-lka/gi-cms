@@ -30,6 +30,10 @@
       "component": "items.numbers-item",
       "required": true,
       "min": 1
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
     }
   }
 }

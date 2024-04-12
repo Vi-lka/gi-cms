@@ -42,6 +42,10 @@
     "linkTitle": {
       "type": "string",
       "maxLength": 255
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
     }
   }
 }

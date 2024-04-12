@@ -26,6 +26,10 @@
       "component": "items.accordion-item",
       "required": true,
       "min": 1
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
     }
   }
 }
