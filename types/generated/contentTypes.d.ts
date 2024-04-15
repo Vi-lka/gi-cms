@@ -874,6 +874,98 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
+  collectionName: 'additional_pages';
+  info: {
+    singularName: 'additional-page';
+    pluralName: 'additional-pages';
+    displayName: 'Additional Pages';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.collection-all',
+        'content.contacts',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.UID<'api::additional-page.additional-page', 'title'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    additional_pages: Attribute.Relation<
+      'api::additional-page.additional-page',
+      'oneToMany',
+      'api::additional-page.additional-page'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::additional-page.additional-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::additional-page.additional-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::additional-page.additional-page',
+      'oneToMany',
+      'api::additional-page.additional-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDpoDpo extends Schema.SingleType {
   collectionName: 'dpos';
   info: {
@@ -1944,6 +2036,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::additional-page.additional-page': ApiAdditionalPageAdditionalPage;
       'api::dpo.dpo': ApiDpoDpo;
       'api::dpo-course.dpo-course': ApiDpoCourseDpoCourse;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;
