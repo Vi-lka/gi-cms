@@ -879,7 +879,7 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
   info: {
     singularName: 'additional-page';
     pluralName: 'additional-pages';
-    displayName: 'Additional Pages';
+    displayName: '\u0414\u043E\u043F. \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B';
     description: '';
   };
   options: {
@@ -1881,7 +1881,7 @@ export interface ApiNavBarNavBar extends Schema.SingleType {
   info: {
     singularName: 'nav-bar';
     pluralName: 'nav-bars';
-    displayName: 'NavBar';
+    displayName: 'NavBar (\u0414\u043E\u043F)';
     description: '';
   };
   options: {

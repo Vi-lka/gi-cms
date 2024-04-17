@@ -5,6 +5,8 @@ module.exports = ({ env }) => ({
       endpoint: '/graphql',
       depthLimit: 100,
       amountLimit: 1000,
+      defaultLimit: 10000,
+      maxLimit: 10000,
     },
   },
   "apollo-sandbox": {
