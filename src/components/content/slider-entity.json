@@ -33,6 +33,16 @@
     "linkDescription": {
       "type": "text",
       "maxLength": 255
+    },
+    "graduates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::graduate.graduate"
+    },
+    "dpo_courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dpo-course.dpo-course"
     }
   }
 }

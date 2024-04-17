@@ -318,6 +318,16 @@ export interface ContentSliderEntity extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    graduates: Attribute.Relation<
+      'content.slider-entity',
+      'oneToMany',
+      'api::graduate.graduate'
+    >;
+    dpo_courses: Attribute.Relation<
+      'content.slider-entity',
+      'oneToMany',
+      'api::dpo-course.dpo-course'
+    >;
   };
 }
 
