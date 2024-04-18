@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_employee_metas",
+  "info": {
+    "displayName": "meta",
+    "icon": "quote",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "post": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "degree": {
+      "type": "string",
+      "required": false,
+      "maxLength": 255
+    },
+    "degreeShort": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "rank": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "rankShort": {
+      "type": "string",
+      "maxLength": 50
+    }
+  }
+}

@@ -63,7 +63,7 @@ export interface ContentCollectionAll extends Schema.Component {
           '\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B:educational-programs',
           '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E:dpo-courses',
           '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438:graduates',
-          '\u041F\u0440\u0435\u043F\u043E\u0434\u0430\u0432\u0430\u0442\u0435\u043B\u0438:lecturers'
+          '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees'
         ]
       >;
     linkDescription: Attribute.Text &
@@ -491,6 +491,37 @@ export interface ContentTimeline extends Schema.Component {
   };
 }
 
+export interface EmployeeMeta extends Schema.Component {
+  collectionName: 'components_employee_metas';
+  info: {
+    displayName: 'meta';
+    icon: 'quote';
+    description: '';
+  };
+  attributes: {
+    post: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    degree: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    degreeShort: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    rank: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    rankShort: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+  };
+}
+
 export interface FooterContacts extends Schema.Component {
   collectionName: 'components_footer_contacts';
   info: {
@@ -875,6 +906,7 @@ declare module '@strapi/types' {
       'content.text-grid': ContentTextGrid;
       'content.text-images': ContentTextImages;
       'content.timeline': ContentTimeline;
+      'employee.meta': EmployeeMeta;
       'footer.contacts': FooterContacts;
       'footer.logos': FooterLogos;
       'footer.social-network': FooterSocialNetwork;
