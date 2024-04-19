@@ -63,7 +63,8 @@ export interface ContentCollectionAll extends Schema.Component {
           '\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B:educational-programs',
           '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E:dpo-courses',
           '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438:graduates',
-          '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees'
+          '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees',
+          '\u041A\u0430\u0444\u0435\u0434\u0440\u044B:departments'
         ]
       >;
     linkDescription: Attribute.Text &

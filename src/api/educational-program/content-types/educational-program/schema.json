@@ -4,7 +4,7 @@
   "info": {
     "singularName": "educational-program",
     "pluralName": "educational-programs",
-    "displayName": "Образовательные программы",
+    "displayName": "~E: Образовательные программы",
     "description": ""
   },
   "options": {
@@ -102,6 +102,12 @@
           "localized": true
         }
       }
+    },
+    "department": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department.department",
+      "inversedBy": "educationalPrograms"
     }
   }
 }

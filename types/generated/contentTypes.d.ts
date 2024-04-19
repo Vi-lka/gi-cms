@@ -966,6 +966,121 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
   };
 }
 
+export interface ApiDepartmentDepartment extends Schema.CollectionType {
+  collectionName: 'departments';
+  info: {
+    singularName: 'department';
+    pluralName: 'departments';
+    displayName: '~S: \u041A\u0430\u0444\u0435\u0434\u0440\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    slug: Attribute.UID<'api::department.department', 'title'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    url: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    email: Attribute.Email &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    phone: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    location: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    educationalPrograms: Attribute.Relation<
+      'api::department.department',
+      'oneToMany',
+      'api::educational-program.educational-program'
+    >;
+    head: Attribute.Relation<
+      'api::department.department',
+      'oneToOne',
+      'api::employee.employee'
+    >;
+    employees: Attribute.Relation<
+      'api::department.department',
+      'manyToMany',
+      'api::employee.employee'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::department.department',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::department.department',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::department.department',
+      'oneToMany',
+      'api::department.department'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDpoDpo extends Schema.SingleType {
   collectionName: 'dpos';
   info: {
@@ -1043,7 +1158,7 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
   info: {
     singularName: 'dpo-course';
     pluralName: 'dpo-courses';
-    displayName: '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E';
+    displayName: '~E: \u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E';
     description: '';
   };
   options: {
@@ -1151,7 +1266,7 @@ export interface ApiEducationalProgramEducationalProgram
   info: {
     singularName: 'educational-program';
     pluralName: 'educational-programs';
-    displayName: '\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B';
+    displayName: '~E: \u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B';
     description: '';
   };
   options: {
@@ -1231,6 +1346,11 @@ export interface ApiEducationalProgramEducationalProgram
           localized: true;
         };
       }>;
+    department: Attribute.Relation<
+      'api::educational-program.educational-program',
+      'manyToOne',
+      'api::department.department'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1260,7 +1380,7 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
   info: {
     singularName: 'employee';
     pluralName: 'employees';
-    displayName: '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438';
+    displayName: '~P: \u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438';
     description: '';
   };
   options: {
@@ -1361,6 +1481,16 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    head_in_department: Attribute.Relation<
+      'api::employee.employee',
+      'oneToOne',
+      'api::department.department'
+    >;
+    departments: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::department.department'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1553,7 +1683,7 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
   info: {
     singularName: 'graduate';
     pluralName: 'graduates';
-    displayName: '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438';
+    displayName: '~P: \u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438';
     description: '';
   };
   options: {
@@ -1634,8 +1764,8 @@ export interface ApiHashtagHashtag extends Schema.CollectionType {
   info: {
     singularName: 'hashtag';
     pluralName: 'hashtags';
-    displayName: '#\u0425\u044D\u0448\u0442\u0435\u0433\u0438';
-    description: '';
+    displayName: '~P: #\u0425\u044D\u0448\u0442\u0435\u0433\u0438';
+    description: '\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u043B\u044F\u044E\u0442\u0441\u044F \u043A \u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438';
   };
   options: {
     draftAndPublish: true;
@@ -2044,6 +2174,86 @@ export interface ApiSiteDescriptionSiteDescription extends Schema.SingleType {
   };
 }
 
+export interface ApiStructureStructure extends Schema.SingleType {
+  collectionName: 'structures';
+  info: {
+    singularName: 'structure';
+    pluralName: 'structures';
+    displayName: '/structure';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.collection-all',
+        'content.contacts',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::structure.structure',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::structure.structure',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::structure.structure',
+      'oneToMany',
+      'api::structure.structure'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -2065,6 +2275,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::additional-page.additional-page': ApiAdditionalPageAdditionalPage;
+      'api::department.department': ApiDepartmentDepartment;
       'api::dpo.dpo': ApiDpoDpo;
       'api::dpo-course.dpo-course': ApiDpoCourseDpoCourse;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;
@@ -2078,6 +2289,7 @@ declare module '@strapi/types' {
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::nav-bar.nav-bar': ApiNavBarNavBar;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
+      'api::structure.structure': ApiStructureStructure;
     }
   }
 }

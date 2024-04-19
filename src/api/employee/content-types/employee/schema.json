@@ -4,7 +4,7 @@
   "info": {
     "singularName": "employee",
     "pluralName": "employees",
-    "displayName": "Сотрудники",
+    "displayName": "~P: Сотрудники",
     "description": ""
   },
   "options": {
@@ -126,6 +126,18 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "head_in_department": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::department.department",
+      "mappedBy": "head"
+    },
+    "departments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::department.department",
+      "mappedBy": "employees"
     }
   }
 }

@@ -4,8 +4,8 @@
   "info": {
     "singularName": "hashtag",
     "pluralName": "hashtags",
-    "displayName": "#Хэштеги",
-    "description": ""
+    "displayName": "~P: #Хэштеги",
+    "description": "Прикрепляются к Сотрудники"
   },
   "options": {
     "draftAndPublish": true
