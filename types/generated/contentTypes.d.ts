@@ -1057,6 +1057,28 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'manyToMany',
       'api::employee.employee'
     >;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.collection-all',
+        'content.contacts',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
