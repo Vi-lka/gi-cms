@@ -12,24 +12,6 @@
       "required": true,
       "maxLength": 50
     },
-    "iconCustom": {
-      "type": "enumeration",
-      "enum": [
-        "deal",
-        "science",
-        "idea",
-        "healthy_mind",
-        "video-call",
-        "presentation",
-        "man-desktop",
-        "businessman",
-        "certificate",
-        "budget",
-        "deadline",
-        "authentication",
-        "graph"
-      ]
-    },
     "iconReact": {
       "type": "customField",
       "customField": "plugin::react-icons.icon"

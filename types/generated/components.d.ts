@@ -542,23 +542,6 @@ export interface FooterContacts extends Schema.Component {
     email: Attribute.Email;
     iconReact: Attribute.String &
       Attribute.CustomField<'plugin::react-icons.icon'>;
-    iconCustom: Attribute.Enumeration<
-      [
-        'deal',
-        'science',
-        'idea',
-        'healthy_mind',
-        'video-call',
-        'presentation',
-        'man-desktop',
-        'businessman',
-        'certificate',
-        'budget',
-        'deadline',
-        'authentication',
-        'graph'
-      ]
-    >;
     location: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
@@ -691,23 +674,6 @@ export interface ItemsFormBlockItem extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 50;
       }>;
-    iconCustom: Attribute.Enumeration<
-      [
-        'deal',
-        'science',
-        'idea',
-        'healthy_mind',
-        'video-call',
-        'presentation',
-        'man-desktop',
-        'businessman',
-        'certificate',
-        'budget',
-        'deadline',
-        'authentication',
-        'graph'
-      ]
-    >;
     iconReact: Attribute.String &
       Attribute.CustomField<'plugin::react-icons.icon'>;
     image: Attribute.Media;
@@ -758,23 +724,6 @@ export interface ItemsIconsBlockItem extends Schema.Component {
   attributes: {
     iconReact: Attribute.String &
       Attribute.CustomField<'plugin::react-icons.icon'>;
-    iconCustom: Attribute.Enumeration<
-      [
-        'deal',
-        'science',
-        'idea',
-        'healthy_mind',
-        'video-call',
-        'presentation',
-        'man-desktop',
-        'businessman',
-        'certificate',
-        'budget',
-        'deadline',
-        'authentication',
-        'graph'
-      ]
-    >;
     title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{

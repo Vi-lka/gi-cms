@@ -11,24 +11,6 @@
       "type": "customField",
       "customField": "plugin::react-icons.icon"
     },
-    "iconCustom": {
-      "type": "enumeration",
-      "enum": [
-        "deal",
-        "science",
-        "idea",
-        "healthy_mind",
-        "video-call",
-        "presentation",
-        "man-desktop",
-        "businessman",
-        "certificate",
-        "budget",
-        "deadline",
-        "authentication",
-        "graph"
-      ]
-    },
     "title": {
       "type": "string",
       "maxLength": 255,
