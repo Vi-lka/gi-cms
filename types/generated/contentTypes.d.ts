@@ -1006,36 +1006,6 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    url: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    email: Attribute.Email &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    phone: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    location: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
     order: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1078,6 +1048,51 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+      }>;
+    type: Attribute.Enumeration<['Administration', 'Science', 'Education']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'Education'>;
+    media: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description_title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contacts: Attribute.Component<'structure.contacts'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    shortTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

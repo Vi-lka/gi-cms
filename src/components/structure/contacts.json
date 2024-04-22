@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_structure_contacts",
+  "info": {
+    "displayName": "Contacts",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "text",
+      "regex": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%.,_\\+~#=]{1,256}(?:.[a-zA-Z0-9()]{1,6})\\b(?:[-a-zA-Z0-9()@:%_\\+.,~#?&\\/=]*)$"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "location": {
+      "type": "string",
+      "maxLength": 255
+    }
+  }
+}

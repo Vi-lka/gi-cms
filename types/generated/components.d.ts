@@ -842,6 +842,26 @@ export interface NavNavBarFields extends Schema.Component {
   };
 }
 
+export interface StructureContacts extends Schema.Component {
+  collectionName: 'components_structure_contacts';
+  info: {
+    displayName: 'Contacts';
+    icon: 'book';
+  };
+  attributes: {
+    url: Attribute.Text;
+    email: Attribute.Email;
+    phone: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    location: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -875,6 +895,7 @@ declare module '@strapi/types' {
       'items.text-grid-item': ItemsTextGridItem;
       'items.timeline-item': ItemsTimelineItem;
       'nav.nav-bar-fields': NavNavBarFields;
+      'structure.contacts': StructureContacts;
     }
   }
 }
