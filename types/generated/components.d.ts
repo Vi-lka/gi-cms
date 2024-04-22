@@ -733,6 +733,8 @@ export interface ItemsIconsBlockItem extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
+    image: Attribute.Media;
+    imageDark: Attribute.Media;
   };
 }
 
