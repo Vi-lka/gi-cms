@@ -26,8 +26,7 @@
         "Образовательные программы:educational-programs",
         "Курсы ДПО:dpo-courses",
         "Выпускники:graduates",
-        "Сотрудники:employees",
-        "Кафедры:departments"
+        "Сотрудники:employees"
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"

@@ -921,7 +921,8 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline'
+        'content.timeline',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.Required &
@@ -971,7 +972,7 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
   info: {
     singularName: 'department';
     pluralName: 'departments';
-    displayName: '~S: \u041A\u0430\u0444\u0435\u0434\u0440\u044B';
+    displayName: '~S: \u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B (\u043F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u044F)';
     description: '';
   };
   options: {
@@ -1041,7 +1042,8 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline'
+        'content.timeline',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1049,14 +1051,6 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    type: Attribute.Enumeration<['Administration', 'Science', 'Education']> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<'Education'>;
     media: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1094,6 +1088,11 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 50;
       }>;
+    type: Attribute.Relation<
+      'api::department.department',
+      'manyToOne',
+      'api::department-type.department-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1113,6 +1112,71 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'api::department.department',
       'oneToMany',
       'api::department.department'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiDepartmentTypeDepartmentType extends Schema.CollectionType {
+  collectionName: 'department_types';
+  info: {
+    singularName: 'department-type';
+    pluralName: 'department-types';
+    displayName: '~S: \u0422\u0438\u043F\u044B \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440 (\u043F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u0439)';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    departments: Attribute.Relation<
+      'api::department-type.department-type',
+      'oneToMany',
+      'api::department.department'
+    >;
+    category: Attribute.Enumeration<
+      ['Administration', 'Science', 'Education']
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::department-type.department-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::department-type.department-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::department-type.department-type',
+      'oneToMany',
+      'api::department-type.department-type'
     >;
     locale: Attribute.String;
   };
@@ -1159,7 +1223,8 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.accordion'
+        'content.accordion',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.Required &
@@ -1256,7 +1321,8 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.accordion'
+        'content.accordion',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1375,7 +1441,8 @@ export interface ApiEducationalProgramEducationalProgram
         'content.timeline',
         'content.files',
         'content.form-block',
-        'content.accordion'
+        'content.accordion',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1482,7 +1549,8 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.timeline',
         'content.files',
         'content.form-block',
-        'content.accordion'
+        'content.accordion',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1593,7 +1661,8 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.timeline',
         'content.files',
         'content.form-block',
-        'content.accordion'
+        'content.accordion',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.Required &
@@ -1974,7 +2043,8 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.timeline',
         'content.files',
         'content.form-block',
-        'content.accordion'
+        'content.accordion',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.Required &
@@ -2038,7 +2108,8 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.timeline',
         'content.files',
         'content.form-block',
-        'content.accordion'
+        'content.accordion',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.Required &
@@ -2258,7 +2329,8 @@ export interface ApiStructureStructure extends Schema.SingleType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline'
+        'content.timeline',
+        'content.collection-all-structure'
       ]
     > &
       Attribute.Required &
@@ -2313,6 +2385,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::additional-page.additional-page': ApiAdditionalPageAdditionalPage;
       'api::department.department': ApiDepartmentDepartment;
+      'api::department-type.department-type': ApiDepartmentTypeDepartmentType;
       'api::dpo.dpo': ApiDpoDpo;
       'api::dpo-course.dpo-course': ApiDpoCourseDpoCourse;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;

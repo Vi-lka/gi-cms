@@ -4,7 +4,7 @@
   "info": {
     "singularName": "department",
     "pluralName": "departments",
-    "displayName": "~S: Кафедры",
+    "displayName": "~S: Структуры (подразделения)",
     "description": ""
   },
   "options": {
@@ -95,23 +95,9 @@
         "content.text-block",
         "content.text-grid",
         "content.text-images",
-        "content.timeline"
+        "content.timeline",
+        "content.collection-all-structure"
       ]
-    },
-    "type": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Administration",
-        "Science",
-        "Education"
-      ],
-      "default": "Education",
-      "required": true
     },
     "media": {
       "type": "media",
@@ -165,6 +151,12 @@
       "type": "string",
       "maxLength": 50,
       "required": true
+    },
+    "type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department-type.department-type",
+      "inversedBy": "departments"
     }
   }
 }

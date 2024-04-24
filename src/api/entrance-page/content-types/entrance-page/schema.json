@@ -41,7 +41,8 @@
         "content.timeline",
         "content.files",
         "content.form-block",
-        "content.accordion"
+        "content.accordion",
+        "content.collection-all-structure"
       ],
       "required": true,
       "pluginOptions": {

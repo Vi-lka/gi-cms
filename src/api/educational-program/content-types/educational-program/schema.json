@@ -95,7 +95,8 @@
         "content.timeline",
         "content.files",
         "content.form-block",
-        "content.accordion"
+        "content.accordion",
+        "content.collection-all-structure"
       ],
       "pluginOptions": {
         "i18n": {

@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "department_types",
+  "info": {
+    "singularName": "department-type",
+    "pluralName": "department-types",
+    "displayName": "~S: Типы структур (подразделений)",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "departments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::department.department",
+      "mappedBy": "type"
+    },
+    "category": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Administration",
+        "Science",
+        "Education"
+      ],
+      "required": true
+    }
+  }
+}
