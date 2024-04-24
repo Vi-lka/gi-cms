@@ -1093,6 +1093,11 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'manyToOne',
       'api::department-type.department-type'
     >;
+    dpoCourses: Attribute.Relation<
+      'api::department.department',
+      'oneToMany',
+      'api::dpo-course.dpo-course'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1339,6 +1344,21 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
+    department: Attribute.Relation<
+      'api::dpo-course.dpo-course',
+      'manyToOne',
+      'api::department.department'
+    >;
+    employees: Attribute.Relation<
+      'api::dpo-course.dpo-course',
+      'manyToMany',
+      'api::employee.employee'
+    >;
+    graduates: Attribute.Relation<
+      'api::dpo-course.dpo-course',
+      'manyToMany',
+      'api::graduate.graduate'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1454,6 +1474,11 @@ export interface ApiEducationalProgramEducationalProgram
       'api::educational-program.educational-program',
       'manyToOne',
       'api::department.department'
+    >;
+    employees: Attribute.Relation<
+      'api::educational-program.educational-program',
+      'manyToMany',
+      'api::employee.employee'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1595,6 +1620,16 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       'api::employee.employee',
       'manyToMany',
       'api::department.department'
+    >;
+    educationalPrograms: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::educational-program.educational-program'
+    >;
+    dpoCourses: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::dpo-course.dpo-course'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1841,6 +1876,11 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
         };
       }>;
     image: Attribute.Media;
+    dpoCourses: Attribute.Relation<
+      'api::graduate.graduate',
+      'manyToMany',
+      'api::dpo-course.dpo-course'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -103,6 +103,24 @@
       },
       "type": "text",
       "maxLength": 300
+    },
+    "department": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department.department",
+      "inversedBy": "dpoCourses"
+    },
+    "employees": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::employee.employee",
+      "inversedBy": "dpoCourses"
+    },
+    "graduates": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::graduate.graduate",
+      "inversedBy": "dpoCourses"
     }
   }
 }

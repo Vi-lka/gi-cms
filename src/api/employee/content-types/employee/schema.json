@@ -139,6 +139,18 @@
       "relation": "manyToMany",
       "target": "api::department.department",
       "mappedBy": "employees"
+    },
+    "educationalPrograms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::educational-program.educational-program",
+      "mappedBy": "employees"
+    },
+    "dpoCourses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dpo-course.dpo-course",
+      "mappedBy": "employees"
     }
   }
 }

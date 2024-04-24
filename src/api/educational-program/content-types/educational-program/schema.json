@@ -109,6 +109,12 @@
       "relation": "manyToOne",
       "target": "api::department.department",
       "inversedBy": "educationalPrograms"
+    },
+    "employees": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::employee.employee",
+      "inversedBy": "educationalPrograms"
     }
   }
 }

@@ -157,6 +157,12 @@
       "relation": "manyToOne",
       "target": "api::department-type.department-type",
       "inversedBy": "departments"
+    },
+    "dpoCourses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dpo-course.dpo-course",
+      "mappedBy": "department"
     }
   }
 }
