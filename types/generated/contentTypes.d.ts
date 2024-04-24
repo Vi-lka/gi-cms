@@ -922,7 +922,8 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.collection-all-connected'
       ]
     > &
       Attribute.Required &
