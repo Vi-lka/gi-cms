@@ -86,7 +86,8 @@
         "content.text-images",
         "content.timeline",
         "content.accordion",
-        "content.collection-all-structure"
+        "content.collection-all-structure",
+        "content.collection-all-connected"
       ],
       "required": false,
       "pluginOptions": {

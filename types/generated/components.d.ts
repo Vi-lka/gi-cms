@@ -35,6 +35,44 @@ export interface ContentAccordion extends Schema.Component {
   };
 }
 
+export interface ContentCollectionAllConnected extends Schema.Component {
+  collectionName: 'components_content_collection_all_connecteds';
+  info: {
+    displayName: 'CollectionAllConnected';
+    icon: 'apps';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    entity: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          '\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B:educational-programs',
+          '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E:dpo-courses',
+          '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438:graduates',
+          '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees'
+        ]
+      >;
+  };
+}
+
 export interface ContentCollectionAllStructure extends Schema.Component {
   collectionName: 'components_content_collection_all_structures';
   info: {
@@ -324,7 +362,7 @@ export interface ContentSliderEntity extends Schema.Component {
   collectionName: 'components_content_slider_entities';
   info: {
     displayName: 'SliderEntity';
-    icon: 'manyToMany';
+    icon: 'oneToMany';
     description: '';
   };
   attributes: {
@@ -901,6 +939,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'content.accordion': ContentAccordion;
+      'content.collection-all-connected': ContentCollectionAllConnected;
       'content.collection-all-structure': ContentCollectionAllStructure;
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;

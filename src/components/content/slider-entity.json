@@ -2,7 +2,7 @@
   "collectionName": "components_content_slider_entities",
   "info": {
     "displayName": "SliderEntity",
-    "icon": "manyToMany",
+    "icon": "oneToMany",
     "description": ""
   },
   "options": {},
