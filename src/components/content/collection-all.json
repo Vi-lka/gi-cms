@@ -34,6 +34,10 @@
     "linkDescription": {
       "type": "text",
       "maxLength": 255
+    },
+    "connected": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

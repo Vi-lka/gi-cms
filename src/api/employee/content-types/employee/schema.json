@@ -81,8 +81,7 @@
         "content.files",
         "content.form-block",
         "content.accordion",
-        "content.collection-all-structure",
-        "content.collection-all-connected"
+        "content.collection-all-structure"
       ],
       "pluginOptions": {
         "i18n": {

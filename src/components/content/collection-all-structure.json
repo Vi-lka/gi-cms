@@ -47,6 +47,10 @@
       ],
       "default": "classic",
       "required": true
+    },
+    "connected": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
