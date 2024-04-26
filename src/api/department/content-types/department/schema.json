@@ -29,12 +29,14 @@
     "slug": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
-      "type": "uid",
-      "targetField": "title",
-      "required": true
+      "type": "string",
+      "maxLength": 255,
+      "required": true,
+      "unique": false,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "image": {
       "type": "media",

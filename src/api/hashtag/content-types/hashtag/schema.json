@@ -33,14 +33,16 @@
       "mappedBy": "hashtags"
     },
     "slug": {
-      "type": "uid",
-      "targetField": "title",
-      "required": true,
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
-      }
+      },
+      "type": "string",
+      "maxLength": 255,
+      "required": true,
+      "unique": false,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     }
   }
 }

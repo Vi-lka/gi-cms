@@ -47,16 +47,6 @@
         "images"
       ]
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "order": {
       "type": "integer",
       "unique": false
@@ -121,6 +111,18 @@
       "relation": "manyToMany",
       "target": "api::graduate.graduate",
       "inversedBy": "dpoCourses"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "maxLength": 255,
+      "required": true,
+      "unique": false,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     }
   }
 }

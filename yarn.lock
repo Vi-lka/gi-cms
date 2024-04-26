@@ -4938,6 +4938,11 @@ csvtojson@2.0.10:
     lodash "^4.17.3"
     strip-bom "^2.0.0"
 
+custom-slug@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/custom-slug/-/custom-slug-2.1.1.tgz#0795efcdfa19a90f9cbd697ebb4bee89b66e6368"
+  integrity sha512-GYrNQKAdvfQQSiH7tuiZJmrHEBvLEro9py10aAlOeEiLgyYFIERa8KFLyxVTC65QUKRCnIr80unc80UZHtldIA==
+
 date-fns-tz@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/date-fns-tz/-/date-fns-tz-2.0.0.tgz#1b14c386cb8bc16fc56fe333d4fc34ae1d1099d5"
@@ -9979,6 +9984,11 @@ slate@0.94.1:
     immer "^9.0.6"
     is-plain-object "^5.0.0"
     tiny-warning "^1.0.3"
+
+slugify@^1.6.6:
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.6.6.tgz#2d4ac0eacb47add6af9e04d3be79319cbcc7924b"
+  integrity sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==
 
 snake-case@^2.1.0:
   version "2.1.0"

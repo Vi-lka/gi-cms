@@ -931,12 +931,15 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    slug: Attribute.UID<'api::additional-page.additional-page', 'title'> &
+    slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     additional_pages: Attribute.Relation<
       'api::additional-page.additional-page',
@@ -994,12 +997,15 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    slug: Attribute.UID<'api::department.department', 'title'> &
+    slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     image: Attribute.Media &
       Attribute.SetPluginOptions<{
@@ -1295,13 +1301,6 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         maxLength: 255;
       }>;
     image: Attribute.Media;
-    slug: Attribute.UID<'api::dpo-course.dpo-course', 'title'> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     order: Attribute.Integer;
     location: Attribute.String &
       Attribute.SetPluginOptions<{
@@ -1359,6 +1358,16 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
       'manyToMany',
       'api::graduate.graduate'
     >;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1428,15 +1437,15 @@ export interface ApiEducationalProgramEducationalProgram
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    slug: Attribute.UID<
-      'api::educational-program.educational-program',
-      'title'
-    > &
+    slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     image: Attribute.Media;
     type: Attribute.Enumeration<['bachelor', 'magistracy', 'postgraduate']> &
@@ -1937,12 +1946,15 @@ export interface ApiHashtagHashtag extends Schema.CollectionType {
       'manyToMany',
       'api::employee.employee'
     >;
-    slug: Attribute.UID<'api::hashtag.hashtag', 'title'> &
+    slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
