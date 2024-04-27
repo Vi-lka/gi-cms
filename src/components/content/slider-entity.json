@@ -43,6 +43,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::dpo-course.dpo-course"
+    },
+    "departments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::department.department"
     }
   }
 }

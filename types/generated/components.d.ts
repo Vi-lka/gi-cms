@@ -366,6 +366,11 @@ export interface ContentSliderEntity extends Schema.Component {
       'oneToMany',
       'api::dpo-course.dpo-course'
     >;
+    departments: Attribute.Relation<
+      'content.slider-entity',
+      'oneToMany',
+      'api::department.department'
+    >;
   };
 }
 
