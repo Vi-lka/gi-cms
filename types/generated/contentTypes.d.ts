@@ -1540,6 +1540,16 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     description: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {

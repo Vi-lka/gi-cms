@@ -26,6 +26,18 @@
         }
       }
     },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "maxLength": 255,
+      "required": true,
+      "unique": false,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
     "description": {
       "type": "text",
       "maxLength": 500,
