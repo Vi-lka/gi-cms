@@ -46,6 +46,21 @@
     "linkDescription": {
       "type": "text",
       "maxLength": 255
+    },
+    "secondTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "additionalText": {
+      "type": "blocks"
+    },
+    "alignContacts": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "left"
     }
   }
 }

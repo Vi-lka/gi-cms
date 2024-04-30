@@ -148,6 +148,13 @@ export interface ContentContacts extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    secondTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    additionalText: Attribute.Blocks;
+    alignContacts: Attribute.Enumeration<['left', 'right']> &
+      Attribute.DefaultTo<'left'>;
   };
 }
 
@@ -467,6 +474,7 @@ export interface ContentTextGrid extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    bigTitles: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 

@@ -38,6 +38,10 @@
     "linkDescription": {
       "type": "text",
       "maxLength": 255
+    },
+    "bigTitles": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
