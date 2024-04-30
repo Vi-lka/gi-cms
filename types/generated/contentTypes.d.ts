@@ -1674,6 +1674,87 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
   };
 }
 
+export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
+  collectionName: 'employees_pages';
+  info: {
+    singularName: 'employees-page';
+    pluralName: 'employees-pages';
+    displayName: '/structure/employees';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.collection-all-structure',
+        'content.collection-all',
+        'content.contacts',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::employees-page.employees-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::employees-page.employees-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::employees-page.employees-page',
+      'oneToMany',
+      'api::employees-page.employees-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
   collectionName: 'entrance_pages';
   info: {
@@ -2452,6 +2533,7 @@ declare module '@strapi/types' {
       'api::dpo-course.dpo-course': ApiDpoCourseDpoCourse;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;
       'api::employee.employee': ApiEmployeeEmployee;
+      'api::employees-page.employees-page': ApiEmployeesPageEmployeesPage;
       'api::entrance-page.entrance-page': ApiEntrancePageEntrancePage;
       'api::footer.footer': ApiFooterFooter;
       'api::graduate.graduate': ApiGraduateGraduate;
