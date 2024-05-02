@@ -93,7 +93,8 @@
         "content.files",
         "content.form-block",
         "content.accordion",
-        "content.collection-all-structure"
+        "content.collection-all-structure",
+        "content.bento-grid"
       ],
       "pluginOptions": {
         "i18n": {

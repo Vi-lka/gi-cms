@@ -922,7 +922,8 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.Required &
@@ -1049,7 +1050,8 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1235,7 +1237,8 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.text-images',
         'content.timeline',
         'content.accordion',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.Required &
@@ -1326,7 +1329,8 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.text-images',
         'content.timeline',
         'content.accordion',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1471,7 +1475,8 @@ export interface ApiEducationalProgramEducationalProgram
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1594,7 +1599,8 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1722,7 +1728,8 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline'
+        'content.timeline',
+        'content.bento-grid'
       ]
     > &
       Attribute.Required &
@@ -1797,7 +1804,8 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.Required &
@@ -2187,7 +2195,8 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.Required &
@@ -2252,7 +2261,8 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.Required &
@@ -2473,7 +2483,8 @@ export interface ApiStructureStructure extends Schema.SingleType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.collection-all-structure'
+        'content.collection-all-structure',
+        'content.bento-grid'
       ]
     > &
       Attribute.Required &

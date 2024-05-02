@@ -721,7 +721,7 @@ export interface ItemsBentoItem extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    description: Attribute.Blocks;
+    textDescription: Attribute.Blocks;
     iconReact: Attribute.String &
       Attribute.CustomField<'plugin::react-icons.icon'>;
     image: Attribute.Media;

@@ -12,7 +12,7 @@
       "required": true,
       "maxLength": 255
     },
-    "description": {
+    "textDescription": {
       "type": "blocks"
     },
     "iconReact": {
@@ -20,11 +20,12 @@
       "customField": "plugin::react-icons.icon"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
