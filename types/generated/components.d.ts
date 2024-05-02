@@ -35,6 +35,42 @@ export interface ContentAccordion extends Schema.Component {
   };
 }
 
+export interface ContentBentoGrid extends Schema.Component {
+  collectionName: 'components_content_bento_grids';
+  info: {
+    displayName: 'BentoGrid';
+    icon: 'dashboard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    items: Attribute.Component<'items.bento-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 10;
+        },
+        number
+      >;
+  };
+}
+
 export interface ContentCollectionAllStructure extends Schema.Component {
   collectionName: 'components_content_collection_all_structures';
   info: {
@@ -672,6 +708,26 @@ export interface ItemsAccordionItem extends Schema.Component {
   };
 }
 
+export interface ItemsBentoItem extends Schema.Component {
+  collectionName: 'components_items_bento_items';
+  info: {
+    displayName: 'BentoItem';
+    icon: 'dashboard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    description: Attribute.Blocks;
+    iconReact: Attribute.String &
+      Attribute.CustomField<'plugin::react-icons.icon'>;
+    image: Attribute.Media;
+  };
+}
+
 export interface ItemsEduProgSlider extends Schema.Component {
   collectionName: 'components_items_edu_prog_sliders';
   info: {
@@ -933,6 +989,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'content.accordion': ContentAccordion;
+      'content.bento-grid': ContentBentoGrid;
       'content.collection-all-structure': ContentCollectionAllStructure;
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;
@@ -952,6 +1009,7 @@ declare module '@strapi/types' {
       'footer.social-network': FooterSocialNetwork;
       'graduate.old-program': GraduateOldProgram;
       'items.accordion-item': ItemsAccordionItem;
+      'items.bento-item': ItemsBentoItem;
       'items.edu-prog-slider': ItemsEduProgSlider;
       'items.files-item': ItemsFilesItem;
       'items.form-block-item': ItemsFormBlockItem;

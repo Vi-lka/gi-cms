@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_content_bento_grids",
+  "info": {
+    "displayName": "BentoGrid",
+    "icon": "dashboard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "regex": "^\\/?[-a-z0-9_]{1,512}"
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.bento-item",
+      "required": true,
+      "min": 1,
+      "max": 10
+    }
+  }
+}

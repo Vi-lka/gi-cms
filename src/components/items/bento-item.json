@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_items_bento_items",
+  "info": {
+    "displayName": "BentoItem",
+    "icon": "dashboard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "iconReact": {
+      "type": "customField",
+      "customField": "plugin::react-icons.icon"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
