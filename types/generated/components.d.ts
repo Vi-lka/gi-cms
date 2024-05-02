@@ -550,10 +550,6 @@ export interface EmployeeMeta extends Schema.Component {
     description: '';
   };
   attributes: {
-    post: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
     degree: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
@@ -570,6 +566,7 @@ export interface EmployeeMeta extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 50;
       }>;
+    posts: Attribute.Component<'structure.post', true>;
   };
 }
 
@@ -912,6 +909,26 @@ export interface StructureContacts extends Schema.Component {
   };
 }
 
+export interface StructurePost extends Schema.Component {
+  collectionName: 'components_structure_posts';
+  info: {
+    displayName: 'Post';
+    icon: 'alien';
+  };
+  attributes: {
+    post: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    department: Attribute.Relation<
+      'structure.post',
+      'oneToOne',
+      'api::department.department'
+    >;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -947,6 +964,7 @@ declare module '@strapi/types' {
       'items.timeline-item': ItemsTimelineItem;
       'nav.nav-bar-fields': NavNavBarFields;
       'structure.contacts': StructureContacts;
+      'structure.post': StructurePost;
     }
   }
 }

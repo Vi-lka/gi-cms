@@ -7,10 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "post": {
-      "type": "string",
-      "maxLength": 255
-    },
     "degree": {
       "type": "string",
       "required": false,
@@ -27,6 +23,13 @@
     "rankShort": {
       "type": "string",
       "maxLength": 50
+    },
+    "posts": {
+      "displayName": "Post",
+      "type": "component",
+      "repeatable": true,
+      "component": "structure.post",
+      "required": false
     }
   }
 }

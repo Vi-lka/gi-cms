@@ -57,7 +57,7 @@
           "localized": false
         }
       },
-      "type": "integer"
+      "type": "biginteger"
     },
     "educationalPrograms": {
       "type": "relation",

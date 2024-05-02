@@ -1013,7 +1013,7 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    order: Attribute.Integer &
+    order: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
