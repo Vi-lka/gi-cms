@@ -144,6 +144,8 @@ export interface ContentCollectionAll extends Schema.Component {
         maxLength: 255;
       }>;
     connected: Attribute.Boolean & Attribute.DefaultTo<false>;
+    showSearch: Attribute.Boolean & Attribute.DefaultTo<false>;
+    showFilters: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 

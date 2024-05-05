@@ -38,6 +38,14 @@
     "connected": {
       "type": "boolean",
       "default": false
+    },
+    "showSearch": {
+      "type": "boolean",
+      "default": false
+    },
+    "showFilters": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
