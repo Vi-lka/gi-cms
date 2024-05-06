@@ -105,6 +105,7 @@ export interface ContentCollectionAllStructure extends Schema.Component {
       Attribute.Required &
       Attribute.DefaultTo<'classic'>;
     connected: Attribute.Boolean & Attribute.DefaultTo<false>;
+    showSearch: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
