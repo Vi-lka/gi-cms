@@ -26,7 +26,8 @@
         "Образовательные программы:educational-programs",
         "Курсы ДПО:dpo-courses",
         "Выпускники:graduates",
-        "Сотрудники:employees"
+        "Сотрудники:employees",
+        "Структуры(Подразделения):departments"
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"
@@ -46,6 +47,18 @@
     "showFilters": {
       "type": "boolean",
       "default": false
+    },
+    "departmentsConfig": {
+      "displayName": "structureConfig",
+      "type": "component",
+      "repeatable": false,
+      "component": "config.structure-config"
+    },
+    "employeesConfig": {
+      "displayName": "employeesConfig",
+      "type": "component",
+      "repeatable": false,
+      "component": "config.employees-config"
     }
   }
 }

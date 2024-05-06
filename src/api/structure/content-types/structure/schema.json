@@ -57,7 +57,6 @@
         "content.text-grid",
         "content.text-images",
         "content.timeline",
-        "content.collection-all-structure",
         "content.bento-grid"
       ],
       "required": true

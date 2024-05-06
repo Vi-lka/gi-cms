@@ -42,7 +42,6 @@
         "content.files",
         "content.form-block",
         "content.accordion",
-        "content.collection-all-structure",
         "content.bento-grid"
       ],
       "required": true,

@@ -1,5 +1,56 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ConfigDepartmentsConfigSlider extends Schema.Component {
+  collectionName: 'components_config_departments_config_sliders';
+  info: {
+    displayName: 'departmentsConfigSlider';
+    icon: 'star';
+    description: '';
+  };
+  attributes: {
+    viewStyle: Attribute.Enumeration<['classic', 'bento']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'bento'>;
+  };
+}
+
+export interface ConfigEmployeesConfig extends Schema.Component {
+  collectionName: 'components_config_employees_configs';
+  info: {
+    displayName: 'employeesConfig';
+    icon: 'star';
+    description: '';
+  };
+  attributes: {
+    showContacts: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    showHashtags: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+  };
+}
+
+export interface ConfigStructureConfig extends Schema.Component {
+  collectionName: 'components_config_structure_configs';
+  info: {
+    displayName: 'structureConfig';
+    icon: 'star';
+    description: '';
+  };
+  attributes: {
+    type: Attribute.Relation<
+      'config.structure-config',
+      'oneToOne',
+      'api::department-type.department-type'
+    >;
+    category: Attribute.Enumeration<['Administration', 'Science', 'Education']>;
+    view: Attribute.Enumeration<['classic', 'bento']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'bento'>;
+  };
+}
+
 export interface ContentAccordion extends Schema.Component {
   collectionName: 'components_content_accordions';
   info: {
@@ -71,44 +122,6 @@ export interface ContentBentoGrid extends Schema.Component {
   };
 }
 
-export interface ContentCollectionAllStructure extends Schema.Component {
-  collectionName: 'components_content_collection_all_structures';
-  info: {
-    displayName: 'CollectionAllStructure';
-    icon: 'apps';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    link: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    linkTitle: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    linkDescription: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    type: Attribute.Relation<
-      'content.collection-all-structure',
-      'oneToOne',
-      'api::department-type.department-type'
-    >;
-    category: Attribute.Enumeration<['Administration', 'Science', 'Education']>;
-    view: Attribute.Enumeration<['classic', 'bento']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'classic'>;
-    connected: Attribute.Boolean & Attribute.DefaultTo<false>;
-    showSearch: Attribute.Boolean & Attribute.DefaultTo<false>;
-  };
-}
-
 export interface ContentCollectionAll extends Schema.Component {
   collectionName: 'components_content_collection_alls';
   info: {
@@ -137,7 +150,8 @@ export interface ContentCollectionAll extends Schema.Component {
           '\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B:educational-programs',
           '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E:dpo-courses',
           '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438:graduates',
-          '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees'
+          '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees',
+          '\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B(\u041F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u044F):departments'
         ]
       >;
     linkDescription: Attribute.Text &
@@ -147,6 +161,8 @@ export interface ContentCollectionAll extends Schema.Component {
     connected: Attribute.Boolean & Attribute.DefaultTo<false>;
     showSearch: Attribute.Boolean & Attribute.DefaultTo<false>;
     showFilters: Attribute.Boolean & Attribute.DefaultTo<false>;
+    departmentsConfig: Attribute.Component<'config.structure-config'>;
+    employeesConfig: Attribute.Component<'config.employees-config'>;
   };
 }
 
@@ -417,6 +433,8 @@ export interface ContentSliderEntity extends Schema.Component {
       'oneToMany',
       'api::department.department'
     >;
+    employeesConfig: Attribute.Component<'config.employees-config'>;
+    departmentsConfig: Attribute.Component<'config.departments-config-slider'>;
   };
 }
 
@@ -991,9 +1009,11 @@ export interface StructurePost extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'config.departments-config-slider': ConfigDepartmentsConfigSlider;
+      'config.employees-config': ConfigEmployeesConfig;
+      'config.structure-config': ConfigStructureConfig;
       'content.accordion': ContentAccordion;
       'content.bento-grid': ContentBentoGrid;
-      'content.collection-all-structure': ContentCollectionAllStructure;
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;
       'content.files': ContentFiles;

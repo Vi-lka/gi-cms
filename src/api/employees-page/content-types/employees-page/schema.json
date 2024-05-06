@@ -45,7 +45,6 @@
       "type": "dynamiczone",
       "components": [
         "content.accordion",
-        "content.collection-all-structure",
         "content.collection-all",
         "content.contacts",
         "content.files",

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_config_departments_config_sliders",
+  "info": {
+    "displayName": "departmentsConfigSlider",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "viewStyle": {
+      "type": "enumeration",
+      "enum": [
+        "classic",
+        "bento"
+      ],
+      "default": "bento",
+      "required": true
+    }
+  }
+}

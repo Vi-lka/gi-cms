@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_config_employees_configs",
+  "info": {
+    "displayName": "employeesConfig",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "showContacts": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "showHashtags": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

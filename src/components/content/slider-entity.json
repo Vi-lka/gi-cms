@@ -48,6 +48,17 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::department.department"
+    },
+    "employeesConfig": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.employees-config"
+    },
+    "departmentsConfig": {
+      "displayName": "departmentsConfigSlider",
+      "type": "component",
+      "repeatable": false,
+      "component": "config.departments-config-slider"
     }
   }
 }

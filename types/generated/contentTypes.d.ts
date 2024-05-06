@@ -922,7 +922,6 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &
@@ -1050,7 +1049,6 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &
@@ -1237,7 +1235,6 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.text-images',
         'content.timeline',
         'content.accordion',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &
@@ -1329,7 +1326,6 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.text-images',
         'content.timeline',
         'content.accordion',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &
@@ -1475,7 +1471,6 @@ export interface ApiEducationalProgramEducationalProgram
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &
@@ -1599,7 +1594,6 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &
@@ -1716,7 +1710,6 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
     content: Attribute.DynamicZone<
       [
         'content.accordion',
-        'content.collection-all-structure',
         'content.collection-all',
         'content.contacts',
         'content.files',
@@ -1804,7 +1797,6 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &
@@ -2195,7 +2187,6 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &
@@ -2261,7 +2252,6 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.files',
         'content.form-block',
         'content.accordion',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &
@@ -2483,7 +2473,6 @@ export interface ApiStructureStructure extends Schema.SingleType {
         'content.text-grid',
         'content.text-images',
         'content.timeline',
-        'content.collection-all-structure',
         'content.bento-grid'
       ]
     > &

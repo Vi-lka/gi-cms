@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_config_structure_configs",
+  "info": {
+    "displayName": "structureConfig",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::department-type.department-type"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Administration",
+        "Science",
+        "Education"
+      ]
+    },
+    "view": {
+      "type": "enumeration",
+      "enum": [
+        "classic",
+        "bento"
+      ],
+      "required": true,
+      "default": "bento"
+    }
+  }
+}
