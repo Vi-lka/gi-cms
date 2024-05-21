@@ -2145,6 +2145,78 @@ export interface ApiHeroAboutHeroAbout extends Schema.SingleType {
   };
 }
 
+export interface ApiInfoInfo extends Schema.SingleType {
+  collectionName: 'infos';
+  info: {
+    singularName: 'info';
+    pluralName: 'infos';
+    displayName: '/info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::info.info', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::info.info', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::info.info',
+      'oneToMany',
+      'api::info.info'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiJustWaitJustWait extends Schema.SingleType {
   collectionName: 'just_waits';
   info: {
@@ -2539,6 +2611,7 @@ declare module '@strapi/types' {
       'api::graduate.graduate': ApiGraduateGraduate;
       'api::hashtag.hashtag': ApiHashtagHashtag;
       'api::hero-about.hero-about': ApiHeroAboutHeroAbout;
+      'api::info.info': ApiInfoInfo;
       'api::just-wait.just-wait': ApiJustWaitJustWait;
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::nav-bar.nav-bar': ApiNavBarNavBar;

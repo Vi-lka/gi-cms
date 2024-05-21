@@ -774,6 +774,7 @@ export interface ItemsFilesItem extends Schema.Component {
   info: {
     displayName: 'FilesItem';
     icon: 'attachment';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -782,6 +783,10 @@ export interface ItemsFilesItem extends Schema.Component {
         maxLength: 255;
       }>;
     file: Attribute.Media & Attribute.Required;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 

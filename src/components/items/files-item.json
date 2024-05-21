@@ -2,7 +2,8 @@
   "collectionName": "components_items_files_items",
   "info": {
     "displayName": "FilesItem",
-    "icon": "attachment"
+    "icon": "attachment",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -12,15 +13,19 @@
       "maxLength": 255
     },
     "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "videos",
         "audios",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 300
     }
   }
 }
