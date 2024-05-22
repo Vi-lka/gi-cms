@@ -1,0 +1,60 @@
+{
+  "collectionName": "components_content_files_grids",
+  "info": {
+    "displayName": "FilesGrid",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "regex": "^\\/?[-a-z0-9_]{1,512}",
+      "maxLength": 255
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.files-item",
+      "required": true,
+      "min": 1
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "titleSecond": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "linkSecond": {
+      "type": "string",
+      "regex": "^\\/?[-a-z0-9_]{1,512}",
+      "maxLength": 255
+    },
+    "linkSecondDescription": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "itemsSecond": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.files-item",
+      "required": true,
+      "min": 1
+    },
+    "linkSecondTitle": {
+      "type": "string",
+      "maxLength": 255
+    }
+  }
+}

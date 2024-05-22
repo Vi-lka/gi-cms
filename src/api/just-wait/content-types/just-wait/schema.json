@@ -27,10 +27,20 @@
       }
     },
     "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "dynamiczone",
       "components": [
+        "content.accordion",
+        "content.bento-grid",
         "content.collection-all",
         "content.contacts",
+        "content.files-grid",
+        "content.files",
+        "content.form-block",
         "content.icons-block",
         "content.numbers",
         "content.slider-entity",
@@ -38,18 +48,9 @@
         "content.text-block",
         "content.text-grid",
         "content.text-images",
-        "content.timeline",
-        "content.files",
-        "content.form-block",
-        "content.accordion",
-        "content.bento-grid"
+        "content.timeline"
       ],
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "required": true
     }
   }
 }

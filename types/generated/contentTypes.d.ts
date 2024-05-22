@@ -907,30 +907,6 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    content: Attribute.DynamicZone<
-      [
-        'content.accordion',
-        'content.collection-all',
-        'content.contacts',
-        'content.files',
-        'content.form-block',
-        'content.icons-block',
-        'content.numbers',
-        'content.slider-entity',
-        'content.slider-photos',
-        'content.text-block',
-        'content.text-grid',
-        'content.text-images',
-        'content.timeline',
-        'content.bento-grid'
-      ]
-    > &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -946,6 +922,31 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
       'oneToMany',
       'api::additional-page.additional-page'
     >;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1034,29 +1035,6 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'manyToMany',
       'api::employee.employee'
     >;
-    content: Attribute.DynamicZone<
-      [
-        'content.accordion',
-        'content.collection-all',
-        'content.contacts',
-        'content.files',
-        'content.form-block',
-        'content.icons-block',
-        'content.numbers',
-        'content.slider-entity',
-        'content.slider-photos',
-        'content.text-block',
-        'content.text-grid',
-        'content.text-images',
-        'content.timeline',
-        'content.bento-grid'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     media: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1104,6 +1082,31 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'oneToMany',
       'api::dpo-course.dpo-course'
     >;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1220,10 +1223,19 @@ export interface ApiDpoDpo extends Schema.SingleType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     content: Attribute.DynamicZone<
       [
+        'content.accordion',
+        'content.bento-grid',
         'content.collection-all',
         'content.contacts',
+        'content.files-grid',
         'content.files',
         'content.form-block',
         'content.icons-block',
@@ -1233,18 +1245,10 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline',
-        'content.accordion',
-        'content.bento-grid'
+        'content.timeline'
       ]
     > &
       Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1311,29 +1315,6 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    content: Attribute.DynamicZone<
-      [
-        'content.collection-all',
-        'content.contacts',
-        'content.files',
-        'content.form-block',
-        'content.icons-block',
-        'content.numbers',
-        'content.slider-entity',
-        'content.slider-photos',
-        'content.text-block',
-        'content.text-grid',
-        'content.text-images',
-        'content.timeline',
-        'content.accordion',
-        'content.bento-grid'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     description: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1367,6 +1348,31 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
       }> &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1456,29 +1462,6 @@ export interface ApiEducationalProgramEducationalProgram
       'manyToMany',
       'api::graduate.graduate'
     >;
-    content: Attribute.DynamicZone<
-      [
-        'content.collection-all',
-        'content.contacts',
-        'content.icons-block',
-        'content.slider-entity',
-        'content.slider-photos',
-        'content.text-block',
-        'content.text-images',
-        'content.text-grid',
-        'content.numbers',
-        'content.timeline',
-        'content.files',
-        'content.form-block',
-        'content.accordion',
-        'content.bento-grid'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     department: Attribute.Relation<
       'api::educational-program.educational-program',
       'manyToOne',
@@ -1489,6 +1472,31 @@ export interface ApiEducationalProgramEducationalProgram
       'manyToMany',
       'api::employee.employee'
     >;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1579,29 +1587,6 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       'manyToMany',
       'api::hashtag.hashtag'
     >;
-    content: Attribute.DynamicZone<
-      [
-        'content.collection-all',
-        'content.contacts',
-        'content.icons-block',
-        'content.slider-entity',
-        'content.slider-photos',
-        'content.text-block',
-        'content.text-images',
-        'content.text-grid',
-        'content.numbers',
-        'content.timeline',
-        'content.files',
-        'content.form-block',
-        'content.accordion',
-        'content.bento-grid'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     meta: Attribute.Component<'employee.meta'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1650,6 +1635,31 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       'manyToMany',
       'api::dpo-course.dpo-course'
     >;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1710,8 +1720,10 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
     content: Attribute.DynamicZone<
       [
         'content.accordion',
+        'content.bento-grid',
         'content.collection-all',
         'content.contacts',
+        'content.files-grid',
         'content.files',
         'content.form-block',
         'content.icons-block',
@@ -1721,8 +1733,7 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline',
-        'content.bento-grid'
+        'content.timeline'
       ]
     > &
       Attribute.Required &
@@ -1782,31 +1793,32 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    content: Attribute.DynamicZone<
-      [
-        'content.collection-all',
-        'content.contacts',
-        'content.icons-block',
-        'content.slider-entity',
-        'content.slider-photos',
-        'content.text-block',
-        'content.text-images',
-        'content.text-grid',
-        'content.numbers',
-        'content.timeline',
-        'content.files',
-        'content.form-block',
-        'content.accordion',
-        'content.bento-grid'
-      ]
-    > &
-      Attribute.Required &
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2151,6 +2163,7 @@ export interface ApiInfoInfo extends Schema.SingleType {
     singularName: 'info';
     pluralName: 'infos';
     displayName: '/info';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2183,6 +2196,7 @@ export interface ApiInfoInfo extends Schema.SingleType {
         'content.bento-grid',
         'content.collection-all',
         'content.contacts',
+        'content.files-grid',
         'content.files',
         'content.form-block',
         'content.icons-block',
@@ -2246,8 +2260,13 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
       }>;
     content: Attribute.DynamicZone<
       [
+        'content.accordion',
+        'content.bento-grid',
         'content.collection-all',
         'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -2255,11 +2274,7 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline',
-        'content.files',
-        'content.form-block',
-        'content.accordion',
-        'content.bento-grid'
+        'content.timeline'
       ]
     > &
       Attribute.Required &
@@ -2311,20 +2326,21 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
   attributes: {
     content: Attribute.DynamicZone<
       [
+        'content.accordion',
+        'content.bento-grid',
         'content.collection-all',
         'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
         'content.icons-block',
+        'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
         'content.text-block',
-        'content.text-images',
         'content.text-grid',
-        'content.numbers',
-        'content.timeline',
-        'content.files',
-        'content.form-block',
-        'content.accordion',
-        'content.bento-grid'
+        'content.text-images',
+        'content.timeline'
       ]
     > &
       Attribute.Required &
@@ -2501,6 +2517,7 @@ export interface ApiNewNew extends Schema.CollectionType {
         'content.bento-grid',
         'content.collection-all',
         'content.contacts',
+        'content.files-grid',
         'content.files',
         'content.form-block',
         'content.icons-block',
@@ -2541,6 +2558,7 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
     singularName: 'news-page';
     pluralName: 'news-pages';
     displayName: '/info/news';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2573,6 +2591,7 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
         'content.bento-grid',
         'content.collection-all',
         'content.contacts',
+        'content.files-grid',
         'content.files',
         'content.form-block',
         'content.icons-block',
@@ -2702,8 +2721,10 @@ export interface ApiStructureStructure extends Schema.SingleType {
     content: Attribute.DynamicZone<
       [
         'content.accordion',
+        'content.bento-grid',
         'content.collection-all',
         'content.contacts',
+        'content.files-grid',
         'content.files',
         'content.form-block',
         'content.icons-block',
@@ -2713,8 +2734,7 @@ export interface ApiStructureStructure extends Schema.SingleType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline',
-        'content.bento-grid'
+        'content.timeline'
       ]
     > &
       Attribute.Required &

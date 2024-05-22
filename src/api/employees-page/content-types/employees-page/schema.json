@@ -45,8 +45,10 @@
       "type": "dynamiczone",
       "components": [
         "content.accordion",
+        "content.bento-grid",
         "content.collection-all",
         "content.contacts",
+        "content.files-grid",
         "content.files",
         "content.form-block",
         "content.icons-block",
@@ -56,8 +58,7 @@
         "content.text-block",
         "content.text-grid",
         "content.text-images",
-        "content.timeline",
-        "content.bento-grid"
+        "content.timeline"
       ],
       "required": true
     }

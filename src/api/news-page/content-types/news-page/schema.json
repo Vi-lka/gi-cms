@@ -4,7 +4,8 @@
   "info": {
     "singularName": "news-page",
     "pluralName": "news-pages",
-    "displayName": "/info/news"
+    "displayName": "/info/news",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -47,6 +48,7 @@
         "content.bento-grid",
         "content.collection-all",
         "content.contacts",
+        "content.files-grid",
         "content.files",
         "content.form-block",
         "content.icons-block",

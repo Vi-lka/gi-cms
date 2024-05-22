@@ -229,6 +229,65 @@ export interface ContentContacts extends Schema.Component {
   };
 }
 
+export interface ContentFilesGrid extends Schema.Component {
+  collectionName: 'components_content_files_grids';
+  info: {
+    displayName: 'FilesGrid';
+    icon: 'grid';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    items: Attribute.Component<'items.files-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    titleSecond: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkSecond: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkSecondDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    itemsSecond: Attribute.Component<'items.files-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    linkSecondTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
 export interface ContentFiles extends Schema.Component {
   collectionName: 'components_content_files';
   info: {
@@ -1047,6 +1106,7 @@ declare module '@strapi/types' {
       'content.bento-grid': ContentBentoGrid;
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;
+      'content.files-grid': ContentFilesGrid;
       'content.files': ContentFiles;
       'content.form-block': ContentFormBlock;
       'content.icons-block': ContentIconsBlock;
