@@ -31,6 +31,20 @@ export interface ConfigEmployeesConfig extends Schema.Component {
   };
 }
 
+export interface ConfigNewsConfig extends Schema.Component {
+  collectionName: 'components_config_news_configs';
+  info: {
+    displayName: 'NewsConfig';
+    icon: 'clock';
+  };
+  attributes: {
+    count: Attribute.Integer & Attribute.Required;
+    showGoToAllButton: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+  };
+}
+
 export interface ConfigStructureConfig extends Schema.Component {
   collectionName: 'components_config_structure_configs';
   info: {
@@ -151,7 +165,8 @@ export interface ContentCollectionAll extends Schema.Component {
           '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E:dpo-courses',
           '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438:graduates',
           '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees',
-          '\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B(\u041F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u044F):departments'
+          '\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B(\u041F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u044F):departments',
+          '\u041D\u043E\u0432\u043E\u0441\u0442\u0438:news'
         ]
       >;
     linkDescription: Attribute.Text &
@@ -163,6 +178,7 @@ export interface ContentCollectionAll extends Schema.Component {
     showFilters: Attribute.Boolean & Attribute.DefaultTo<false>;
     departmentsConfig: Attribute.Component<'config.structure-config'>;
     employeesConfig: Attribute.Component<'config.employees-config'>;
+    newsConfig: Attribute.Component<'config.news-config'>;
   };
 }
 
@@ -435,6 +451,15 @@ export interface ContentSliderEntity extends Schema.Component {
     >;
     employeesConfig: Attribute.Component<'config.employees-config'>;
     departmentsConfig: Attribute.Component<'config.departments-config-slider'>;
+    news: Attribute.Relation<
+      'content.slider-entity',
+      'oneToMany',
+      'api::new.new'
+    >;
+    titleAll: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
   };
 }
 
@@ -1016,6 +1041,7 @@ declare module '@strapi/types' {
     export interface Components {
       'config.departments-config-slider': ConfigDepartmentsConfigSlider;
       'config.employees-config': ConfigEmployeesConfig;
+      'config.news-config': ConfigNewsConfig;
       'config.structure-config': ConfigStructureConfig;
       'content.accordion': ContentAccordion;
       'content.bento-grid': ContentBentoGrid;

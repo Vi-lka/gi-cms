@@ -27,7 +27,8 @@
         "Курсы ДПО:dpo-courses",
         "Выпускники:graduates",
         "Сотрудники:employees",
-        "Структуры(Подразделения):departments"
+        "Структуры(Подразделения):departments",
+        "Новости:news"
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"
@@ -59,6 +60,12 @@
       "type": "component",
       "repeatable": false,
       "component": "config.employees-config"
+    },
+    "newsConfig": {
+      "displayName": "NewsConfig",
+      "type": "component",
+      "repeatable": false,
+      "component": "config.news-config"
     }
   }
 }

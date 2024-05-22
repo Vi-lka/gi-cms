@@ -59,6 +59,15 @@
       "type": "component",
       "repeatable": false,
       "component": "config.departments-config-slider"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::new.new"
+    },
+    "titleAll": {
+      "type": "string",
+      "maxLength": 50
     }
   }
 }

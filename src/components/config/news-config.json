@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_config_news_configs",
+  "info": {
+    "displayName": "NewsConfig",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "count": {
+      "type": "integer",
+      "required": true
+    },
+    "showGoToAllButton": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
