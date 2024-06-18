@@ -1008,7 +1008,7 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    image: Attribute.Media &
+    image: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1035,7 +1035,7 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'manyToMany',
       'api::employee.employee'
     >;
-    media: Attribute.Media &
+    media: Attribute.Media<'images' | 'videos', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1304,7 +1304,7 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     order: Attribute.Integer;
     location: Attribute.String &
       Attribute.SetPluginOptions<{
@@ -1453,7 +1453,7 @@ export interface ApiEducationalProgramEducationalProgram
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     type: Attribute.Enumeration<['bachelor', 'magistracy', 'postgraduate']> &
       Attribute.Required;
     order: Attribute.Integer;
@@ -1567,7 +1567,7 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 500;
       }>;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     email: Attribute.Email;
     phone: Attribute.String &
       Attribute.SetMinMaxLength<{
@@ -1987,7 +1987,7 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     dpoCourses: Attribute.Relation<
       'api::graduate.graduate',
       'manyToMany',
@@ -2100,7 +2100,7 @@ export interface ApiHeroAboutHeroAbout extends Schema.SingleType {
     };
   };
   attributes: {
-    icons: Attribute.Media &
+    icons: Attribute.Media<'images', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2489,7 +2489,7 @@ export interface ApiNewNew extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    image: Attribute.Media &
+    image: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

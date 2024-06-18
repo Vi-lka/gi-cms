@@ -206,7 +206,7 @@ export interface ContentContacts extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     link: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
@@ -344,8 +344,8 @@ export interface ContentFormBlock extends Schema.Component {
         maxLength: 255;
       }>;
     list: Attribute.Component<'items.form-block-item', true>;
-    image: Attribute.Media;
-    imageDark: Attribute.Media;
+    image: Attribute.Media<'images'>;
+    imageDark: Attribute.Media<'images'>;
     color: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
     colorDark: Attribute.String &
@@ -392,7 +392,7 @@ export interface ContentIconsBlock extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     backgroundOn: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
@@ -534,7 +534,7 @@ export interface ContentSliderPhotos extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    photos: Attribute.Media & Attribute.Required;
+    photos: Attribute.Media<'images', true> & Attribute.Required;
     link: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
@@ -628,7 +628,7 @@ export interface ContentTextImages extends Schema.Component {
   };
   attributes: {
     text: Attribute.Blocks & Attribute.Required;
-    images: Attribute.Media & Attribute.Required;
+    images: Attribute.Media<'images', true> & Attribute.Required;
     title: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
@@ -745,9 +745,9 @@ export interface FooterLogos extends Schema.Component {
     description: '';
   };
   attributes: {
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media<'images'> & Attribute.Required;
     link: Attribute.Text;
-    imageDark: Attribute.Media & Attribute.Required;
+    imageDark: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
@@ -761,8 +761,8 @@ export interface FooterSocialNetwork extends Schema.Component {
   attributes: {
     iconReact: Attribute.String &
       Attribute.CustomField<'plugin::react-icons.icon'>;
-    image: Attribute.Media;
-    imageDark: Attribute.Media;
+    image: Attribute.Media<'images'>;
+    imageDark: Attribute.Media<'images'>;
     link: Attribute.String & Attribute.Required;
   };
 }
@@ -829,7 +829,7 @@ export interface ItemsBentoItem extends Schema.Component {
     textDescription: Attribute.Blocks;
     iconReact: Attribute.String &
       Attribute.CustomField<'plugin::react-icons.icon'>;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
   };
 }
 
@@ -866,7 +866,8 @@ export interface ItemsFilesItem extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    file: Attribute.Media & Attribute.Required;
+    file: Attribute.Media<'images' | 'videos' | 'audios' | 'files'> &
+      Attribute.Required;
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
         maxLength: 300;
@@ -889,8 +890,8 @@ export interface ItemsFormBlockItem extends Schema.Component {
       }>;
     iconReact: Attribute.String &
       Attribute.CustomField<'plugin::react-icons.icon'>;
-    image: Attribute.Media;
-    imageDark: Attribute.Media;
+    image: Attribute.Media<'images'>;
+    imageDark: Attribute.Media<'images'>;
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
         maxLength: 300;
@@ -946,8 +947,8 @@ export interface ItemsIconsBlockItem extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
-    image: Attribute.Media;
-    imageDark: Attribute.Media;
+    image: Attribute.Media<'images'>;
+    imageDark: Attribute.Media<'images'>;
   };
 }
 
@@ -1043,7 +1044,7 @@ export interface NavNavBarFields extends Schema.Component {
     description: '';
   };
   attributes: {
-    navBarImage: Attribute.Media;
+    navBarImage: Attribute.Media<'images'>;
     navBarTitle: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
