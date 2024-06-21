@@ -38,7 +38,8 @@
         "content.text-block",
         "content.text-grid",
         "content.text-images",
-        "content.timeline"
+        "content.timeline",
+        "content.slider-video"
       ],
       "required": true
     }

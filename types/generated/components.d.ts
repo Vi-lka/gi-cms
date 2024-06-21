@@ -550,6 +550,41 @@ export interface ContentSliderPhotos extends Schema.Component {
   };
 }
 
+export interface ContentSliderVideo extends Schema.Component {
+  collectionName: 'components_content_slider_videos';
+  info: {
+    displayName: 'SliderVideo';
+    icon: 'slideshow';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    items: Attribute.Component<'items.video-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+  };
+}
+
 export interface ContentTextBlock extends Schema.Component {
   collectionName: 'components_for_pages_text_blocks';
   info: {
@@ -1036,6 +1071,23 @@ export interface ItemsTimelineItem extends Schema.Component {
   };
 }
 
+export interface ItemsVideoItem extends Schema.Component {
+  collectionName: 'components_items_video_items';
+  info: {
+    displayName: 'VideoItem';
+    icon: 'slideshow';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    video: Attribute.Media<'videos'>;
+    embed: Attribute.Text;
+  };
+}
+
 export interface NavNavBarFields extends Schema.Component {
   collectionName: 'components_nav_nav_bar_fields';
   info: {
@@ -1114,6 +1166,7 @@ declare module '@strapi/types' {
       'content.numbers': ContentNumbers;
       'content.slider-entity': ContentSliderEntity;
       'content.slider-photos': ContentSliderPhotos;
+      'content.slider-video': ContentSliderVideo;
       'content.text-block': ContentTextBlock;
       'content.text-grid': ContentTextGrid;
       'content.text-images': ContentTextImages;
@@ -1135,6 +1188,7 @@ declare module '@strapi/types' {
       'items.numbers-item': ItemsNumbersItem;
       'items.text-grid-item': ItemsTextGridItem;
       'items.timeline-item': ItemsTimelineItem;
+      'items.video-item': ItemsVideoItem;
       'nav.nav-bar-fields': NavNavBarFields;
       'structure.contacts': StructureContacts;
       'structure.post': StructurePost;

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_items_video_items",
+  "info": {
+    "displayName": "VideoItem",
+    "icon": "slideshow"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "embed": {
+      "type": "text"
+    }
+  }
+}

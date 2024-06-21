@@ -2340,7 +2340,8 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline'
+        'content.timeline',
+        'content.slider-video'
       ]
     > &
       Attribute.Required &
