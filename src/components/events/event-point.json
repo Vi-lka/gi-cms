@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_events_event_points",
+  "info": {
+    "displayName": "EventPoint",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "time": {
+      "type": "datetime",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false,
+      "maxLength": 255
+    },
+    "text": {
+      "type": "blocks"
+    }
+  }
+}

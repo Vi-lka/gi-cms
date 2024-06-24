@@ -28,7 +28,8 @@
         "Выпускники:graduates",
         "Сотрудники:employees",
         "Структуры(Подразделения):departments",
-        "Новости:news"
+        "Новости:news",
+        "Мероприятия:events"
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"

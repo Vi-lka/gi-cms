@@ -166,7 +166,8 @@ export interface ContentCollectionAll extends Schema.Component {
           '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438:graduates',
           '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees',
           '\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B(\u041F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u044F):departments',
-          '\u041D\u043E\u0432\u043E\u0441\u0442\u0438:news'
+          '\u041D\u043E\u0432\u043E\u0441\u0442\u0438:news',
+          '\u041C\u0435\u0440\u043E\u043F\u0440\u0438\u044F\u0442\u0438\u044F:events'
         ]
       >;
     linkDescription: Attribute.Text &
@@ -785,6 +786,22 @@ export interface EmployeeMeta extends Schema.Component {
   };
 }
 
+export interface EventsEventPoint extends Schema.Component {
+  collectionName: 'components_events_event_points';
+  info: {
+    displayName: 'EventPoint';
+    icon: 'clock';
+  };
+  attributes: {
+    time: Attribute.DateTime & Attribute.Required;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    text: Attribute.Blocks;
+  };
+}
+
 export interface FooterContacts extends Schema.Component {
   collectionName: 'components_footer_contacts';
   info: {
@@ -1212,6 +1229,7 @@ declare module '@strapi/types' {
       'content.text-video': ContentTextVideo;
       'content.timeline': ContentTimeline;
       'employee.meta': EmployeeMeta;
+      'events.event-point': EventsEventPoint;
       'footer.contacts': FooterContacts;
       'footer.logos': FooterLogos;
       'footer.social-network': FooterSocialNetwork;

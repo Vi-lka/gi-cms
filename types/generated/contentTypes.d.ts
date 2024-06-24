@@ -1926,6 +1926,12 @@ export interface ApiEventEvent extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    points: Attribute.Component<'events.event-point', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
