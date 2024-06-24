@@ -935,9 +935,11 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -1095,9 +1097,11 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -1242,9 +1246,11 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -1362,9 +1368,11 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -1485,9 +1493,11 @@ export interface ApiEducationalProgramEducationalProgram
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -1648,9 +1658,11 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -1730,9 +1742,11 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -1812,9 +1826,11 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -2203,9 +2219,11 @@ export interface ApiInfoInfo extends Schema.SingleType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -2271,9 +2289,11 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -2337,11 +2357,12 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
-        'content.timeline',
-        'content.slider-video'
+        'content.text-video',
+        'content.timeline'
       ]
     > &
       Attribute.Required &
@@ -2525,9 +2546,11 @@ export interface ApiNewNew extends Schema.CollectionType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -2599,9 +2622,11 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &
@@ -2732,9 +2757,11 @@ export interface ApiStructureStructure extends Schema.SingleType {
         'content.numbers',
         'content.slider-entity',
         'content.slider-photos',
+        'content.slider-video',
         'content.text-block',
         'content.text-grid',
         'content.text-images',
+        'content.text-video',
         'content.timeline'
       ]
     > &

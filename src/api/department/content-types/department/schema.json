@@ -161,9 +161,11 @@
         "content.numbers",
         "content.slider-entity",
         "content.slider-photos",
+        "content.slider-video",
         "content.text-block",
         "content.text-grid",
         "content.text-images",
+        "content.text-video",
         "content.timeline"
       ],
       "required": true

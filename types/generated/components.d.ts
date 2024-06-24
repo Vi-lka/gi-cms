@@ -686,6 +686,45 @@ export interface ContentTextImages extends Schema.Component {
   };
 }
 
+export interface ContentTextVideo extends Schema.Component {
+  collectionName: 'components_content_text_videos';
+  info: {
+    displayName: 'TextVideo';
+    icon: 'slideshow';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    text: Attribute.Blocks & Attribute.Required;
+    alignVideo: Attribute.Enumeration<['left', 'right']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'right'>;
+    items: Attribute.Component<'items.video-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+  };
+}
+
 export interface ContentTimeline extends Schema.Component {
   collectionName: 'components_content_timelines';
   info: {
@@ -1170,6 +1209,7 @@ declare module '@strapi/types' {
       'content.text-block': ContentTextBlock;
       'content.text-grid': ContentTextGrid;
       'content.text-images': ContentTextImages;
+      'content.text-video': ContentTextVideo;
       'content.timeline': ContentTimeline;
       'employee.meta': EmployeeMeta;
       'footer.contacts': FooterContacts;

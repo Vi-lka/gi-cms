@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_content_text_videos",
+  "info": {
+    "displayName": "TextVideo",
+    "icon": "slideshow",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 255,
+      "regex": "^\\/?[-a-z0-9_]{1,512}"
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "text": {
+      "type": "blocks",
+      "required": true
+    },
+    "alignVideo": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.video-item",
+      "required": true,
+      "min": 1
+    }
+  }
+}
