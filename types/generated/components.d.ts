@@ -798,7 +798,7 @@ export interface EventsEventDay extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    day: Attribute.Date & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
     points: Attribute.Component<'events.event-point', true>;
   };
 }

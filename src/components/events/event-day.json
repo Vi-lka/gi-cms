@@ -12,7 +12,7 @@
       "required": false,
       "maxLength": 255
     },
-    "day": {
+    "date": {
       "type": "date",
       "required": true
     },
