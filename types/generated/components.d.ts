@@ -786,14 +786,32 @@ export interface EmployeeMeta extends Schema.Component {
   };
 }
 
+export interface EventsEventDay extends Schema.Component {
+  collectionName: 'components_events_event_days';
+  info: {
+    displayName: 'EventDay';
+    icon: 'clock';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    day: Attribute.Date & Attribute.Required;
+    points: Attribute.Component<'events.event-point', true>;
+  };
+}
+
 export interface EventsEventPoint extends Schema.Component {
   collectionName: 'components_events_event_points';
   info: {
     displayName: 'EventPoint';
     icon: 'clock';
+    description: '';
   };
   attributes: {
-    time: Attribute.DateTime & Attribute.Required;
+    time: Attribute.Time & Attribute.Required;
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
@@ -1229,6 +1247,7 @@ declare module '@strapi/types' {
       'content.text-video': ContentTextVideo;
       'content.timeline': ContentTimeline;
       'employee.meta': EmployeeMeta;
+      'events.event-day': EventsEventDay;
       'events.event-point': EventsEventPoint;
       'footer.contacts': FooterContacts;
       'footer.logos': FooterLogos;

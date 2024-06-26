@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_events_event_days",
+  "info": {
+    "displayName": "EventDay",
+    "icon": "clock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "maxLength": 255
+    },
+    "day": {
+      "type": "date",
+      "required": true
+    },
+    "points": {
+      "type": "component",
+      "repeatable": true,
+      "component": "events.event-point"
+    }
+  }
+}

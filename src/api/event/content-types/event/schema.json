@@ -77,7 +77,7 @@
       "type": "datetime",
       "required": false
     },
-    "points": {
+    "days": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -85,7 +85,8 @@
           "localized": true
         }
       },
-      "component": "events.event-point"
+      "component": "events.event-day",
+      "required": false
     }
   }
 }

@@ -1926,7 +1926,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    points: Attribute.Component<'events.event-point', true> &
+    days: Attribute.Component<'events.event-day', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
