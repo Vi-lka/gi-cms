@@ -19,7 +19,9 @@
     "points": {
       "type": "component",
       "repeatable": true,
-      "component": "events.event-point"
+      "component": "events.event-point",
+      "required": true,
+      "min": 1
     }
   }
 }

@@ -799,7 +799,14 @@ export interface EventsEventDay extends Schema.Component {
         maxLength: 255;
       }>;
     date: Attribute.Date & Attribute.Required;
-    points: Attribute.Component<'events.event-point', true>;
+    points: Attribute.Component<'events.event-point', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
   };
 }
 
