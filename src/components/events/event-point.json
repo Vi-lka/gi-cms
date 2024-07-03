@@ -13,7 +13,7 @@
     },
     "description": {
       "type": "text",
-      "required": false,
+      "required": true,
       "maxLength": 255
     },
     "text": {

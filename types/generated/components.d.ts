@@ -820,6 +820,7 @@ export interface EventsEventPoint extends Schema.Component {
   attributes: {
     time: Attribute.Time & Attribute.Required;
     description: Attribute.Text &
+      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
