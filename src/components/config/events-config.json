@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_config_events_configs",
+  "info": {
+    "displayName": "EventsConfig",
+    "icon": "clock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "view": {
+      "type": "enumeration",
+      "enum": [
+        "classic",
+        "calendar",
+        "bento"
+      ],
+      "default": "calendar",
+      "required": true
+    }
+  }
+}

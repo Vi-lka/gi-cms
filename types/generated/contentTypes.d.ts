@@ -1111,6 +1111,11 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    events: Attribute.Relation<
+      'api::department.department',
+      'manyToMany',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1382,6 +1387,11 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    events: Attribute.Relation<
+      'api::dpo-course.dpo-course',
+      'manyToMany',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1507,6 +1517,11 @@ export interface ApiEducationalProgramEducationalProgram
           localized: true;
         };
       }>;
+    events: Attribute.Relation<
+      'api::educational-program.educational-program',
+      'manyToMany',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1948,6 +1963,21 @@ export interface ApiEventEvent extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    departments: Attribute.Relation<
+      'api::event.event',
+      'manyToMany',
+      'api::department.department'
+    >;
+    educationalPrograms: Attribute.Relation<
+      'api::event.event',
+      'manyToMany',
+      'api::educational-program.educational-program'
+    >;
+    dpoCourses: Attribute.Relation<
+      'api::event.event',
+      'manyToMany',
+      'api::dpo-course.dpo-course'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

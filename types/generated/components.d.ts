@@ -31,6 +31,20 @@ export interface ConfigEmployeesConfig extends Schema.Component {
   };
 }
 
+export interface ConfigEventsConfig extends Schema.Component {
+  collectionName: 'components_config_events_configs';
+  info: {
+    displayName: 'EventsConfig';
+    icon: 'clock';
+    description: '';
+  };
+  attributes: {
+    view: Attribute.Enumeration<['classic', 'calendar', 'bento']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'calendar'>;
+  };
+}
+
 export interface ConfigNewsConfig extends Schema.Component {
   collectionName: 'components_config_news_configs';
   info: {
@@ -180,6 +194,7 @@ export interface ContentCollectionAll extends Schema.Component {
     departmentsConfig: Attribute.Component<'config.structure-config'>;
     employeesConfig: Attribute.Component<'config.employees-config'>;
     newsConfig: Attribute.Component<'config.news-config'>;
+    eventsConfig: Attribute.Component<'config.events-config'>;
   };
 }
 
@@ -1235,6 +1250,7 @@ declare module '@strapi/types' {
     export interface Components {
       'config.departments-config-slider': ConfigDepartmentsConfigSlider;
       'config.employees-config': ConfigEmployeesConfig;
+      'config.events-config': ConfigEventsConfig;
       'config.news-config': ConfigNewsConfig;
       'config.structure-config': ConfigStructureConfig;
       'content.accordion': ContentAccordion;

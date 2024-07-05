@@ -104,7 +104,26 @@
           "localized": false
         }
       },
-      "type": "text"
+      "type": "text",
+      "regex": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%.,_\\+~#=]{1,256}(?:.[a-zA-Z0-9()]{1,6})\\b(?:[-a-zA-Z0-9()@:%_\\+.,~#?&\\/=]*)$"
+    },
+    "departments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::department.department",
+      "inversedBy": "events"
+    },
+    "educationalPrograms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::educational-program.educational-program",
+      "inversedBy": "events"
+    },
+    "dpoCourses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dpo-course.dpo-course",
+      "inversedBy": "events"
     }
   }
 }
