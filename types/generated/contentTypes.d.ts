@@ -1687,6 +1687,11 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    events: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1978,6 +1983,37 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'manyToMany',
       'api::dpo-course.dpo-course'
     >;
+    employees: Attribute.Relation<
+      'api::event.event',
+      'manyToMany',
+      'api::employee.employee'
+    >;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.slider-video',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.text-video',
+        'content.timeline'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1997,6 +2033,89 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'api::event.event',
       'oneToMany',
       'api::event.event'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiEventsPageEventsPage extends Schema.SingleType {
+  collectionName: 'events_pages';
+  info: {
+    singularName: 'events-page';
+    pluralName: 'events-pages';
+    displayName: '/info/events';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.slider-video',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.text-video',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::events-page.events-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::events-page.events-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::events-page.events-page',
+      'oneToMany',
+      'api::events-page.events-page'
     >;
     locale: Attribute.String;
   };
@@ -2963,6 +3082,7 @@ declare module '@strapi/types' {
       'api::employees-page.employees-page': ApiEmployeesPageEmployeesPage;
       'api::entrance-page.entrance-page': ApiEntrancePageEntrancePage;
       'api::event.event': ApiEventEvent;
+      'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::footer.footer': ApiFooterFooter;
       'api::graduate.graduate': ApiGraduateGraduate;
       'api::hashtag.hashtag': ApiHashtagHashtag;

@@ -1,0 +1,67 @@
+{
+  "kind": "singleType",
+  "collectionName": "events_pages",
+  "info": {
+    "singularName": "events-page",
+    "pluralName": "events-pages",
+    "displayName": "/info/events"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "navBarConfig": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "nav.nav-bar-fields"
+    },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "content.accordion",
+        "content.bento-grid",
+        "content.collection-all",
+        "content.contacts",
+        "content.files-grid",
+        "content.files",
+        "content.form-block",
+        "content.icons-block",
+        "content.numbers",
+        "content.slider-entity",
+        "content.slider-photos",
+        "content.slider-video",
+        "content.text-block",
+        "content.text-grid",
+        "content.text-images",
+        "content.text-video",
+        "content.timeline"
+      ],
+      "required": true
+    }
+  }
+}
