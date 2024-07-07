@@ -2014,6 +2014,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    news: Attribute.Relation<'api::event.event', 'manyToMany', 'api::new.new'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2817,6 +2818,11 @@ export interface ApiNewNew extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    events: Attribute.Relation<
+      'api::new.new',
+      'manyToMany',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

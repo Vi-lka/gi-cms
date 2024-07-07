@@ -157,6 +157,12 @@
         "content.text-video",
         "content.timeline"
       ]
+    },
+    "news": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::new.new",
+      "mappedBy": "events"
     }
   }
 }

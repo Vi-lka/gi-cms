@@ -87,6 +87,12 @@
         "content.timeline"
       ],
       "required": true
+    },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "news"
     }
   }
 }
