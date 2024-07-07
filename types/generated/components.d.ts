@@ -1205,6 +1205,21 @@ export interface NavNavBarFields extends Schema.Component {
   };
 }
 
+export interface SeoKeywords extends Schema.Component {
+  collectionName: 'components_seo_keywords';
+  info: {
+    displayName: 'Keywords';
+    icon: 'emotionHappy';
+  };
+  attributes: {
+    word: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
 export interface StructureContacts extends Schema.Component {
   collectionName: 'components_structure_contacts';
   info: {
@@ -1291,6 +1306,7 @@ declare module '@strapi/types' {
       'items.timeline-item': ItemsTimelineItem;
       'items.video-item': ItemsVideoItem;
       'nav.nav-bar-fields': NavNavBarFields;
+      'seo.keywords': SeoKeywords;
       'structure.contacts': StructureContacts;
       'structure.post': StructurePost;
     }

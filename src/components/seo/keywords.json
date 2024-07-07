@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_seo_keywords",
+  "info": {
+    "displayName": "Keywords",
+    "icon": "emotionHappy"
+  },
+  "options": {},
+  "attributes": {
+    "word": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    }
+  }
+}
