@@ -163,6 +163,16 @@
       "relation": "manyToMany",
       "target": "api::new.new",
       "mappedBy": "events"
+    },
+    "showSchedule": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }

@@ -2015,6 +2015,14 @@ export interface ApiEventEvent extends Schema.CollectionType {
         };
       }>;
     news: Attribute.Relation<'api::event.event', 'manyToMany', 'api::new.new'>;
+    showSchedule: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
