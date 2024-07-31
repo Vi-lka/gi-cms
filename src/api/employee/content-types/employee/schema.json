@@ -141,6 +141,18 @@
       "target": "api::dpo-course.dpo-course",
       "mappedBy": "employees"
     },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "employees"
+    },
+    "eduEducationalPrograms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::edu-educational-program.edu-educational-program",
+      "mappedBy": "employees"
+    },
     "content": {
       "pluginOptions": {
         "i18n": {
@@ -156,6 +168,7 @@
         "content.files-grid",
         "content.files",
         "content.form-block",
+        "content.group-calendar",
         "content.icons-block",
         "content.numbers",
         "content.slider-entity",
@@ -168,18 +181,6 @@
         "content.timeline"
       ],
       "required": true
-    },
-    "events": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::event.event",
-      "mappedBy": "employees"
-    },
-    "eduEducationalPrograms": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::edu-educational-program.edu-educational-program",
-      "mappedBy": "employees"
     }
   }
 }

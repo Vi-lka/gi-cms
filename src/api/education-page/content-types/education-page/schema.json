@@ -4,7 +4,8 @@
   "info": {
     "singularName": "education-page",
     "pluralName": "education-pages",
-    "displayName": "/education"
+    "displayName": "/education",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -50,6 +51,7 @@
         "content.files-grid",
         "content.files",
         "content.form-block",
+        "content.group-calendar",
         "content.icons-block",
         "content.numbers",
         "content.slider-entity",

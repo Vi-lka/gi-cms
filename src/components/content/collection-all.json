@@ -24,6 +24,7 @@
       "type": "customField",
       "options": [
         "Образовательные программы:educational-programs",
+        "Образовательные программы (Обучение):edu-educational-programs",
         "Курсы ДПО:dpo-courses",
         "Выпускники:graduates",
         "Сотрудники:employees",

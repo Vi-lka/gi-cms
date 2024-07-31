@@ -60,6 +60,12 @@
       "unique": false,
       "maxLength": 255
     },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "news"
+    },
     "content": {
       "pluginOptions": {
         "i18n": {
@@ -75,6 +81,7 @@
         "content.files-grid",
         "content.files",
         "content.form-block",
+        "content.group-calendar",
         "content.icons-block",
         "content.numbers",
         "content.slider-entity",
@@ -87,12 +94,6 @@
         "content.timeline"
       ],
       "required": true
-    },
-    "events": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::event.event",
-      "inversedBy": "news"
     }
   }
 }

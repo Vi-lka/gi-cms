@@ -176,6 +176,7 @@ export interface ContentCollectionAll extends Schema.Component {
         'plugin::multi-select.multi-select',
         [
           '\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B:educational-programs',
+          '\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B (\u041E\u0431\u0443\u0447\u0435\u043D\u0438\u0435):edu-educational-programs',
           '\u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E:dpo-courses',
           '\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0438\u043A\u0438:graduates',
           '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees',
@@ -385,6 +386,33 @@ export interface ContentFormBlock extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+  };
+}
+
+export interface ContentGroupCalendar extends Schema.Component {
+  collectionName: 'components_content_group_calendars';
+  info: {
+    displayName: 'GroupCalendar';
+    icon: 'clock';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    connected: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -1400,6 +1428,7 @@ declare module '@strapi/types' {
       'content.files-grid': ContentFilesGrid;
       'content.files': ContentFiles;
       'content.form-block': ContentFormBlock;
+      'content.group-calendar': ContentGroupCalendar;
       'content.icons-block': ContentIconsBlock;
       'content.numbers': ContentNumbers;
       'content.slider-entity': ContentSliderEntity;

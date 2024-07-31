@@ -931,6 +931,7 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -1084,6 +1085,16 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'oneToMany',
       'api::dpo-course.dpo-course'
     >;
+    events: Attribute.Relation<
+      'api::department.department',
+      'manyToMany',
+      'api::event.event'
+    >;
+    eduEducationalPrograms: Attribute.Relation<
+      'api::department.department',
+      'oneToMany',
+      'api::edu-educational-program.edu-educational-program'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -1093,6 +1104,7 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -1111,16 +1123,6 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    events: Attribute.Relation<
-      'api::department.department',
-      'manyToMany',
-      'api::event.event'
-    >;
-    eduEducationalPrograms: Attribute.Relation<
-      'api::department.department',
-      'oneToMany',
-      'api::edu-educational-program.edu-educational-program'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1252,6 +1254,7 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -1365,6 +1368,11 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    events: Attribute.Relation<
+      'api::dpo-course.dpo-course',
+      'manyToMany',
+      'api::event.event'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -1374,6 +1382,7 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -1392,11 +1401,6 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    events: Attribute.Relation<
-      'api::dpo-course.dpo-course',
-      'manyToMany',
-      'api::event.event'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1534,6 +1538,7 @@ export interface ApiEduEducationalProgramEduEducationalProgram
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -1582,6 +1587,7 @@ export interface ApiEducationPageEducationPage extends Schema.SingleType {
     singularName: 'education-page';
     pluralName: 'education-pages';
     displayName: '/education';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1617,6 +1623,7 @@ export interface ApiEducationPageEducationPage extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -1733,6 +1740,11 @@ export interface ApiEducationalProgramEducationalProgram
       'manyToMany',
       'api::employee.employee'
     >;
+    events: Attribute.Relation<
+      'api::educational-program.educational-program',
+      'manyToMany',
+      'api::event.event'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -1742,6 +1754,7 @@ export interface ApiEducationalProgramEducationalProgram
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -1760,11 +1773,6 @@ export interface ApiEducationalProgramEducationalProgram
           localized: true;
         };
       }>;
-    events: Attribute.Relation<
-      'api::educational-program.educational-program',
-      'manyToMany',
-      'api::event.event'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1903,6 +1911,16 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       'manyToMany',
       'api::dpo-course.dpo-course'
     >;
+    events: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::event.event'
+    >;
+    eduEducationalPrograms: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::edu-educational-program.edu-educational-program'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -1912,6 +1930,7 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -1930,16 +1949,6 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    events: Attribute.Relation<
-      'api::employee.employee',
-      'manyToMany',
-      'api::event.event'
-    >;
-    eduEducationalPrograms: Attribute.Relation<
-      'api::employee.employee',
-      'manyToMany',
-      'api::edu-educational-program.edu-educational-program'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2006,6 +2015,7 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -2090,6 +2100,7 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -2236,32 +2247,6 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'manyToMany',
       'api::employee.employee'
     >;
-    content: Attribute.DynamicZone<
-      [
-        'content.accordion',
-        'content.bento-grid',
-        'content.collection-all',
-        'content.contacts',
-        'content.files-grid',
-        'content.files',
-        'content.form-block',
-        'content.icons-block',
-        'content.numbers',
-        'content.slider-entity',
-        'content.slider-photos',
-        'content.slider-video',
-        'content.text-block',
-        'content.text-grid',
-        'content.text-images',
-        'content.text-video',
-        'content.timeline'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     news: Attribute.Relation<'api::event.event', 'manyToMany', 'api::new.new'>;
     showSchedule: Attribute.Boolean &
       Attribute.Required &
@@ -2276,6 +2261,34 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'manyToMany',
       'api::edu-educational-program.edu-educational-program'
     >;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.group-calendar',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.slider-video',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.text-video',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2306,6 +2319,7 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
     singularName: 'events-page';
     pluralName: 'events-pages';
     displayName: '/info/events';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2341,6 +2355,7 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -2851,6 +2866,7 @@ export interface ApiInfoInfo extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -2921,6 +2937,7 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -2989,6 +3006,7 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -3169,6 +3187,11 @@ export interface ApiNewNew extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    events: Attribute.Relation<
+      'api::new.new',
+      'manyToMany',
+      'api::event.event'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -3178,6 +3201,7 @@ export interface ApiNewNew extends Schema.CollectionType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -3196,11 +3220,6 @@ export interface ApiNewNew extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    events: Attribute.Relation<
-      'api::new.new',
-      'manyToMany',
-      'api::event.event'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -3259,6 +3278,7 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',
@@ -3441,6 +3461,7 @@ export interface ApiStructureStructure extends Schema.SingleType {
         'content.files-grid',
         'content.files',
         'content.form-block',
+        'content.group-calendar',
         'content.icons-block',
         'content.numbers',
         'content.slider-entity',

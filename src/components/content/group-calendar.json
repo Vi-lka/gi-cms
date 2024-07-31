@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_content_group_calendars",
+  "info": {
+    "displayName": "GroupCalendar",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "regex": "^\\/?[-a-z0-9_]{1,512}",
+      "maxLength": 255
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "connected": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
