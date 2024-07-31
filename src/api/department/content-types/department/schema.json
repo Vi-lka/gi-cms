@@ -175,6 +175,12 @@
       "relation": "manyToMany",
       "target": "api::event.event",
       "mappedBy": "departments"
+    },
+    "eduEducationalPrograms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::edu-educational-program.edu-educational-program",
+      "mappedBy": "department"
     }
   }
 }

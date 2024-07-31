@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_group_calendar_internships",
+  "info": {
+    "displayName": "Internship",
+    "icon": "shield"
+  },
+  "options": {},
+  "attributes": {
+    "dateStart": {
+      "type": "date",
+      "required": true
+    },
+    "dateEnd": {
+      "type": "date"
+    }
+  }
+}

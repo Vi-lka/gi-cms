@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_group_calendar_holidays",
+  "info": {
+    "displayName": "Holidays",
+    "icon": "emotionHappy"
+  },
+  "options": {},
+  "attributes": {
+    "dateStart": {
+      "type": "date",
+      "required": true
+    },
+    "dateEnd": {
+      "type": "date",
+      "required": false
+    }
+  }
+}

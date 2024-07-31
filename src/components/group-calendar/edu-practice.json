@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_group_calendar_edu_practices",
+  "info": {
+    "displayName": "EduPractice",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "dateStart": {
+      "type": "date",
+      "required": true
+    },
+    "dateEnd": {
+      "type": "date"
+    }
+  }
+}

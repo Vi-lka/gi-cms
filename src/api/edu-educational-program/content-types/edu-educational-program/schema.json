@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "educational_programs",
+  "collectionName": "edu_educational_programs",
   "info": {
-    "singularName": "educational-program",
-    "pluralName": "educational-programs",
-    "displayName": "~A: Образовательные программы (Поступление)",
+    "singularName": "edu-educational-program",
+    "pluralName": "edu-educational-programs",
+    "displayName": "~E: Образовательные программы (Обучение)",
     "description": ""
   },
   "options": {
@@ -17,29 +17,39 @@
   },
   "attributes": {
     "title": {
-      "type": "string",
-      "maxLength": 255,
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "string",
+      "required": true,
+      "maxLength": 255
     },
     "code": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "type": "string",
       "maxLength": 255
     },
     "mainName": {
-      "type": "string",
-      "maxLength": 255,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "string",
+      "maxLength": 255
     },
     "mainCode": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "type": "string",
       "maxLength": 255
     },
@@ -50,10 +60,10 @@
         }
       },
       "type": "string",
-      "maxLength": 255,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
       "required": true,
       "unique": false,
-      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      "maxLength": 255
     },
     "image": {
       "type": "media",
@@ -61,9 +71,19 @@
       "required": false,
       "allowedTypes": [
         "images"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "type": "enumeration",
       "enum": [
         "bachelor",
@@ -73,26 +93,36 @@
       "required": true
     },
     "order": {
-      "type": "integer",
-      "unique": false
-    },
-    "graduates": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::graduate.graduate",
-      "mappedBy": "educational_programs"
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
     },
     "department": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::department.department",
-      "inversedBy": "educationalPrograms"
+      "inversedBy": "eduEducationalPrograms"
     },
     "employees": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::employee.employee",
-      "inversedBy": "educationalPrograms"
+      "inversedBy": "eduEducationalPrograms"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "eduEducationalPrograms"
+    },
+    "groups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::group.group",
+      "mappedBy": "eduEducationalProgram"
     },
     "content": {
       "pluginOptions": {
@@ -121,12 +151,6 @@
         "content.timeline"
       ],
       "required": true
-    },
-    "events": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::event.event",
-      "mappedBy": "educationalPrograms"
     }
   }
 }

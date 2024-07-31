@@ -173,6 +173,12 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "eduEducationalPrograms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::edu-educational-program.edu-educational-program",
+      "mappedBy": "events"
     }
   }
 }

@@ -929,6 +929,131 @@ export interface GraduateOldProgram extends Schema.Component {
   };
 }
 
+export interface GroupCalendarDiploma extends Schema.Component {
+  collectionName: 'components_group_calendar_diplomas';
+  info: {
+    displayName: 'Diploma';
+    icon: 'crown';
+  };
+  attributes: {
+    date: Attribute.DateTime & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    address: Attribute.Text & Attribute.Required;
+    chairman: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
+export interface GroupCalendarEduPractice extends Schema.Component {
+  collectionName: 'components_group_calendar_edu_practices';
+  info: {
+    displayName: 'EduPractice';
+    icon: 'feather';
+  };
+  attributes: {
+    dateStart: Attribute.Date & Attribute.Required;
+    dateEnd: Attribute.Date;
+  };
+}
+
+export interface GroupCalendarExams extends Schema.Component {
+  collectionName: 'components_group_calendar_exams';
+  info: {
+    displayName: 'Exams';
+    icon: 'star';
+    description: '';
+  };
+  attributes: {
+    date: Attribute.DateTime & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    address: Attribute.Text & Attribute.Required;
+    teacher: Attribute.Relation<
+      'group-calendar.exams',
+      'oneToOne',
+      'api::employee.employee'
+    >;
+  };
+}
+
+export interface GroupCalendarHolidays extends Schema.Component {
+  collectionName: 'components_group_calendar_holidays';
+  info: {
+    displayName: 'Holidays';
+    icon: 'emotionHappy';
+  };
+  attributes: {
+    dateStart: Attribute.Date & Attribute.Required;
+    dateEnd: Attribute.Date;
+  };
+}
+
+export interface GroupCalendarInternship extends Schema.Component {
+  collectionName: 'components_group_calendar_internships';
+  info: {
+    displayName: 'Internship';
+    icon: 'shield';
+  };
+  attributes: {
+    dateStart: Attribute.Date & Attribute.Required;
+    dateEnd: Attribute.Date;
+  };
+}
+
+export interface GroupCalendarStateExam extends Schema.Component {
+  collectionName: 'components_group_calendar_state_exams';
+  info: {
+    displayName: 'StateExam';
+    icon: 'emotionUnhappy';
+  };
+  attributes: {
+    date: Attribute.DateTime & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    address: Attribute.Text & Attribute.Required;
+    chairman: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
+export interface GroupCalendarTest extends Schema.Component {
+  collectionName: 'components_group_calendar_tests';
+  info: {
+    displayName: 'Test';
+    icon: 'check';
+  };
+  attributes: {
+    date: Attribute.DateTime & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    address: Attribute.Text & Attribute.Required;
+    teacher: Attribute.Relation<
+      'group-calendar.test',
+      'oneToOne',
+      'api::employee.employee'
+    >;
+  };
+}
+
 export interface ItemsAccordionItem extends Schema.Component {
   collectionName: 'components_items_accordion_items';
   info: {
@@ -1292,6 +1417,13 @@ declare module '@strapi/types' {
       'footer.logos': FooterLogos;
       'footer.social-network': FooterSocialNetwork;
       'graduate.old-program': GraduateOldProgram;
+      'group-calendar.diploma': GroupCalendarDiploma;
+      'group-calendar.edu-practice': GroupCalendarEduPractice;
+      'group-calendar.exams': GroupCalendarExams;
+      'group-calendar.holidays': GroupCalendarHolidays;
+      'group-calendar.internship': GroupCalendarInternship;
+      'group-calendar.state-exam': GroupCalendarStateExam;
+      'group-calendar.test': GroupCalendarTest;
       'items.accordion-item': ItemsAccordionItem;
       'items.bento-item': ItemsBentoItem;
       'items.edu-prog-slider': ItemsEduProgSlider;

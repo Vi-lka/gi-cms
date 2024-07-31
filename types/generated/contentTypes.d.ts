@@ -1116,6 +1116,11 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'manyToMany',
       'api::event.event'
     >;
+    eduEducationalPrograms: Attribute.Relation<
+      'api::department.department',
+      'oneToMany',
+      'api::edu-educational-program.edu-educational-program'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1286,7 +1291,7 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
   info: {
     singularName: 'dpo-course';
     pluralName: 'dpo-courses';
-    displayName: '~E: \u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E';
+    displayName: '~A: \u041A\u0443\u0440\u0441\u044B \u0414\u041F\u041E';
     description: '';
   };
   options: {
@@ -1416,13 +1421,251 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
   };
 }
 
+export interface ApiEduEducationalProgramEduEducationalProgram
+  extends Schema.CollectionType {
+  collectionName: 'edu_educational_programs';
+  info: {
+    singularName: 'edu-educational-program';
+    pluralName: 'edu-educational-programs';
+    displayName: '~E: \u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B (\u041E\u0431\u0443\u0447\u0435\u043D\u0438\u0435)';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    code: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    mainName: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    mainCode: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    type: Attribute.Enumeration<['bachelor', 'magistracy', 'postgraduate']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    department: Attribute.Relation<
+      'api::edu-educational-program.edu-educational-program',
+      'manyToOne',
+      'api::department.department'
+    >;
+    employees: Attribute.Relation<
+      'api::edu-educational-program.edu-educational-program',
+      'manyToMany',
+      'api::employee.employee'
+    >;
+    events: Attribute.Relation<
+      'api::edu-educational-program.edu-educational-program',
+      'manyToMany',
+      'api::event.event'
+    >;
+    groups: Attribute.Relation<
+      'api::edu-educational-program.edu-educational-program',
+      'oneToMany',
+      'api::group.group'
+    >;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.slider-video',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.text-video',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::edu-educational-program.edu-educational-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::edu-educational-program.edu-educational-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::edu-educational-program.edu-educational-program',
+      'oneToMany',
+      'api::edu-educational-program.edu-educational-program'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiEducationPageEducationPage extends Schema.SingleType {
+  collectionName: 'education_pages';
+  info: {
+    singularName: 'education-page';
+    pluralName: 'education-pages';
+    displayName: '/education';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.slider-video',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.text-video',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::education-page.education-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::education-page.education-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::education-page.education-page',
+      'oneToMany',
+      'api::education-page.education-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiEducationalProgramEducationalProgram
   extends Schema.CollectionType {
   collectionName: 'educational_programs';
   info: {
     singularName: 'educational-program';
     pluralName: 'educational-programs';
-    displayName: '~E: \u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B';
+    displayName: '~A: \u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B (\u041F\u043E\u0441\u0442\u0443\u043F\u043B\u0435\u043D\u0438\u0435)';
     description: '';
   };
   options: {
@@ -1691,6 +1934,11 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       'api::employee.employee',
       'manyToMany',
       'api::event.event'
+    >;
+    eduEducationalPrograms: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::edu-educational-program.edu-educational-program'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -2023,6 +2271,11 @@ export interface ApiEventEvent extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    eduEducationalPrograms: Attribute.Relation<
+      'api::event.event',
+      'manyToMany',
+      'api::edu-educational-program.edu-educational-program'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2294,6 +2547,123 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
       'api::graduate.graduate',
       'oneToMany',
       'api::graduate.graduate'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiGroupGroup extends Schema.CollectionType {
+  collectionName: 'groups';
+  info: {
+    singularName: 'group';
+    pluralName: 'groups';
+    displayName: '~E: \u0413\u0440\u0443\u043F\u043F\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    course: Attribute.Enumeration<
+      [
+        'bachelor-1',
+        'bachelor-2',
+        'bachelor-3',
+        'bachelor-4',
+        'magistracy-1',
+        'magistracy-2',
+        'postgraduate-1',
+        'postgraduate-2',
+        'postgraduate-3'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    eduEducationalProgram: Attribute.Relation<
+      'api::group.group',
+      'manyToOne',
+      'api::edu-educational-program.edu-educational-program'
+    >;
+    exams: Attribute.Component<'group-calendar.exams', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    holidays: Attribute.Component<'group-calendar.holidays', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    eduPractice: Attribute.Component<'group-calendar.edu-practice', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    internship: Attribute.Component<'group-calendar.internship', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    test: Attribute.Component<'group-calendar.test', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    diploma: Attribute.Component<'group-calendar.diploma', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    stateExam: Attribute.Component<'group-calendar.state-exam', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::group.group',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::group.group',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::group.group',
+      'oneToMany',
+      'api::group.group'
     >;
     locale: Attribute.String;
   };
@@ -3138,6 +3508,8 @@ declare module '@strapi/types' {
       'api::department-type.department-type': ApiDepartmentTypeDepartmentType;
       'api::dpo.dpo': ApiDpoDpo;
       'api::dpo-course.dpo-course': ApiDpoCourseDpoCourse;
+      'api::edu-educational-program.edu-educational-program': ApiEduEducationalProgramEduEducationalProgram;
+      'api::education-page.education-page': ApiEducationPageEducationPage;
       'api::educational-program.educational-program': ApiEducationalProgramEducationalProgram;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::employees-page.employees-page': ApiEmployeesPageEmployeesPage;
@@ -3146,6 +3518,7 @@ declare module '@strapi/types' {
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::footer.footer': ApiFooterFooter;
       'api::graduate.graduate': ApiGraduateGraduate;
+      'api::group.group': ApiGroupGroup;
       'api::hashtag.hashtag': ApiHashtagHashtag;
       'api::hero-about.hero-about': ApiHeroAboutHeroAbout;
       'api::info.info': ApiInfoInfo;

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_group_calendar_diplomas",
+  "info": {
+    "displayName": "Diploma",
+    "icon": "crown"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "chairman": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    }
+  }
+}

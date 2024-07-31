@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_group_calendar_exams",
+  "info": {
+    "displayName": "Exams",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee"
+    }
+  }
+}

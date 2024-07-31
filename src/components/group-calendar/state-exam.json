@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_group_calendar_state_exams",
+  "info": {
+    "displayName": "StateExam",
+    "icon": "emotionUnhappy"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "chairman": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    }
+  }
+}
