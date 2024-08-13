@@ -2630,31 +2630,31 @@ export interface ApiGroupGroup extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    eduPractice: Attribute.Component<'group-calendar.edu-practice', true> &
+    eduPractices: Attribute.Component<'group-calendar.edu-practice', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    internship: Attribute.Component<'group-calendar.internship', true> &
+    internships: Attribute.Component<'group-calendar.internship', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    test: Attribute.Component<'group-calendar.test', true> &
+    tests: Attribute.Component<'group-calendar.test', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    diploma: Attribute.Component<'group-calendar.diploma', true> &
+    diplomas: Attribute.Component<'group-calendar.diploma', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    stateExam: Attribute.Component<'group-calendar.state-exam', true> &
+    stateExams: Attribute.Component<'group-calendar.state-exam', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
