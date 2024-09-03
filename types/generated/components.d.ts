@@ -150,6 +150,43 @@ export interface ContentBentoGrid extends Schema.Component {
   };
 }
 
+export interface ContentButtonsBlock extends Schema.Component {
+  collectionName: 'components_content_buttons_blocks';
+  info: {
+    displayName: 'ButtonsBlock';
+    icon: 'link';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    alignButtons: Attribute.Enumeration<['left', 'right', 'center']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'center'>;
+    items: Attribute.Component<'items.buttons-block-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+  };
+}
+
 export interface ContentCollectionAll extends Schema.Component {
   collectionName: 'components_content_collection_alls';
   info: {
@@ -1118,6 +1155,23 @@ export interface ItemsBentoItem extends Schema.Component {
   };
 }
 
+export interface ItemsButtonsBlockItem extends Schema.Component {
+  collectionName: 'components_items_buttons_block_items';
+  info: {
+    displayName: 'ButtonsBlockItem';
+    icon: 'plus';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    icon: Attribute.String & Attribute.CustomField<'plugin::react-icons.icon'>;
+    link: Attribute.Text;
+  };
+}
+
 export interface ItemsEduProgSlider extends Schema.Component {
   collectionName: 'components_items_edu_prog_sliders';
   info: {
@@ -1423,6 +1477,7 @@ declare module '@strapi/types' {
       'config.structure-config': ConfigStructureConfig;
       'content.accordion': ContentAccordion;
       'content.bento-grid': ContentBentoGrid;
+      'content.buttons-block': ContentButtonsBlock;
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;
       'content.files-grid': ContentFilesGrid;
@@ -1455,6 +1510,7 @@ declare module '@strapi/types' {
       'group-calendar.test': GroupCalendarTest;
       'items.accordion-item': ItemsAccordionItem;
       'items.bento-item': ItemsBentoItem;
+      'items.buttons-block-item': ItemsButtonsBlockItem;
       'items.edu-prog-slider': ItemsEduProgSlider;
       'items.files-item': ItemsFilesItem;
       'items.form-block-item': ItemsFormBlockItem;

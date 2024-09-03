@@ -926,6 +926,7 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -1099,6 +1100,7 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -1249,6 +1251,7 @@ export interface ApiDpoDpo extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -1377,6 +1380,7 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -1533,6 +1537,7 @@ export interface ApiEduEducationalProgramEduEducationalProgram
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -1618,6 +1623,7 @@ export interface ApiEducationPageEducationPage extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -1749,6 +1755,7 @@ export interface ApiEducationalProgramEducationalProgram
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -1925,6 +1932,7 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -2010,6 +2018,7 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -2095,6 +2104,7 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -2265,6 +2275,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -2350,6 +2361,7 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -2861,6 +2873,7 @@ export interface ApiInfoInfo extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -2932,6 +2945,7 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -3001,6 +3015,7 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -3196,6 +3211,7 @@ export interface ApiNewNew extends Schema.CollectionType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -3273,6 +3289,7 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',
@@ -3456,6 +3473,7 @@ export interface ApiStructureStructure extends Schema.SingleType {
       [
         'content.accordion',
         'content.bento-grid',
+        'content.buttons-block',
         'content.collection-all',
         'content.contacts',
         'content.files-grid',

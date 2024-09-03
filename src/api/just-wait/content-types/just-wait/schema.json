@@ -36,6 +36,7 @@
       "components": [
         "content.accordion",
         "content.bento-grid",
+        "content.buttons-block",
         "content.collection-all",
         "content.contacts",
         "content.files-grid",

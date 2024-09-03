@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_content_buttons_blocks",
+  "info": {
+    "displayName": "ButtonsBlock",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "regex": "^\\/?[-a-z0-9_]{1,512}",
+      "maxLength": 255
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "alignButtons": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "center"
+      ],
+      "default": "center",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.buttons-block-item",
+      "required": true,
+      "min": 1
+    }
+  }
+}
