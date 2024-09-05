@@ -155,6 +155,7 @@ export interface ContentButtonsBlock extends Schema.Component {
   info: {
     displayName: 'ButtonsBlock';
     icon: 'link';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -173,9 +174,11 @@ export interface ContentButtonsBlock extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    alignButtons: Attribute.Enumeration<['left', 'right', 'center']> &
+    alignButtons: Attribute.Enumeration<
+      ['left', 'right', 'center', 'between', 'around', 'evenly']
+    > &
       Attribute.Required &
-      Attribute.DefaultTo<'center'>;
+      Attribute.DefaultTo<'evenly'>;
     items: Attribute.Component<'items.buttons-block-item', true> &
       Attribute.Required &
       Attribute.SetMinMax<
@@ -1160,6 +1163,7 @@ export interface ItemsButtonsBlockItem extends Schema.Component {
   info: {
     displayName: 'ButtonsBlockItem';
     icon: 'plus';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -1168,7 +1172,7 @@ export interface ItemsButtonsBlockItem extends Schema.Component {
         maxLength: 255;
       }>;
     icon: Attribute.String & Attribute.CustomField<'plugin::react-icons.icon'>;
-    link: Attribute.Text;
+    link: Attribute.Text & Attribute.Required;
   };
 }
 

@@ -2,7 +2,8 @@
   "collectionName": "components_items_buttons_block_items",
   "info": {
     "displayName": "ButtonsBlockItem",
-    "icon": "plus"
+    "icon": "plus",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,7 +18,8 @@
     },
     "link": {
       "type": "text",
-      "regex": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%.,_\\+~#=]{1,256}(?:.[a-zA-Z0-9()]{1,6})\\b(?:[-a-zA-Z0-9()@:%_\\+.,~#?&\\/=]*)$"
+      "regex": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%.,_\\+~#=]{1,256}(?:.[a-zA-Z0-9()]{1,6})\\b(?:[-a-zA-Z0-9()@:%_\\+.,~#?&\\/=]*)$",
+      "required": true
     }
   }
 }

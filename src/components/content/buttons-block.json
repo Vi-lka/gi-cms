@@ -2,7 +2,8 @@
   "collectionName": "components_content_buttons_blocks",
   "info": {
     "displayName": "ButtonsBlock",
-    "icon": "link"
+    "icon": "link",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -28,9 +29,12 @@
       "enum": [
         "left",
         "right",
-        "center"
+        "center",
+        "between",
+        "around",
+        "evenly"
       ],
-      "default": "center",
+      "default": "evenly",
       "required": true
     },
     "items": {
