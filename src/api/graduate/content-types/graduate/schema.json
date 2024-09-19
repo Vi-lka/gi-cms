@@ -62,17 +62,30 @@
       }
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "dpoCourses": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::dpo-course.dpo-course",
       "mappedBy": "graduates"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "graduates"
+    },
+    "eduEducationalPrograms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::edu-educational-program.edu-educational-program",
+      "inversedBy": "graduates"
     }
   }
 }

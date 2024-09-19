@@ -30,7 +30,8 @@
         "Сотрудники:employees",
         "Структуры(Подразделения):departments",
         "Новости:news",
-        "Мероприятия:events"
+        "Мероприятия:events",
+        "Проекты:projects"
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"

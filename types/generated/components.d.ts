@@ -222,7 +222,8 @@ export interface ContentCollectionAll extends Schema.Component {
           '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0438:employees',
           '\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B(\u041F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u044F):departments',
           '\u041D\u043E\u0432\u043E\u0441\u0442\u0438:news',
-          '\u041C\u0435\u0440\u043E\u043F\u0440\u0438\u044F\u0442\u0438\u044F:events'
+          '\u041C\u0435\u0440\u043E\u043F\u0440\u0438\u044F\u0442\u0438\u044F:events',
+          '\u041F\u0440\u043E\u0435\u043A\u0442\u044B:projects'
         ]
       >;
     linkDescription: Attribute.Text &
@@ -603,6 +604,11 @@ export interface ContentSliderEntity extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 50;
       }>;
+    projects: Attribute.Relation<
+      'content.slider-entity',
+      'oneToMany',
+      'api::project.project'
+    >;
   };
 }
 
@@ -1416,6 +1422,74 @@ export interface NavNavBarFields extends Schema.Component {
   };
 }
 
+export interface ProjectsProjectHead extends Schema.Component {
+  collectionName: 'components_projects_project_heads';
+  info: {
+    displayName: 'ProjectHead';
+    icon: 'user';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.Text;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    image: Attribute.Media<'images'>;
+  };
+}
+
+export interface ProjectsProjectMemberOutSide extends Schema.Component {
+  collectionName: 'components_projects_project_member_out_sides';
+  info: {
+    displayName: 'ProjectMemberOutSide';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    post: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    image: Attribute.Media<'images'>;
+    link: Attribute.Text;
+  };
+}
+
+export interface ProjectsProjectMember extends Schema.Component {
+  collectionName: 'components_projects_project_members';
+  info: {
+    displayName: 'ProjectMember';
+    icon: 'user';
+    description: '';
+  };
+  attributes: {
+    member: Attribute.Relation<
+      'projects.project-member',
+      'oneToOne',
+      'api::employee.employee'
+    >;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+  };
+}
+
 export interface SeoKeywords extends Schema.Component {
   collectionName: 'components_seo_keywords';
   info: {
@@ -1527,6 +1601,9 @@ declare module '@strapi/types' {
       'items.timeline-item': ItemsTimelineItem;
       'items.video-item': ItemsVideoItem;
       'nav.nav-bar-fields': NavNavBarFields;
+      'projects.project-head': ProjectsProjectHead;
+      'projects.project-member-out-side': ProjectsProjectMemberOutSide;
+      'projects.project-member': ProjectsProjectMember;
       'seo.keywords': SeoKeywords;
       'structure.contacts': StructureContacts;
       'structure.post': StructurePost;

@@ -68,6 +68,11 @@
     "titleAll": {
       "type": "string",
       "maxLength": 50
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
     }
   }
 }

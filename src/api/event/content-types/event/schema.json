@@ -182,6 +182,12 @@
         "content.timeline"
       ],
       "required": true
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "events"
     }
   }
 }

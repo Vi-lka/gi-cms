@@ -153,6 +153,12 @@
         "content.timeline"
       ],
       "required": true
+    },
+    "graduates": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::graduate.graduate",
+      "mappedBy": "eduEducationalPrograms"
     }
   }
 }

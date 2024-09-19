@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_projects_project_heads",
+  "info": {
+    "displayName": "ProjectHead",
+    "icon": "user",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "link": {
+      "type": "text",
+      "regex": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%.,_\\+~#=]{1,256}(?:.[a-zA-Z0-9()]{1,6})\\b(?:[-a-zA-Z0-9()@:%_\\+.,~#?&\\/=]*)$"
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 300
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

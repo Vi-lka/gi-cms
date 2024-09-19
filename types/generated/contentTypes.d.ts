@@ -1125,6 +1125,11 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    projects: Attribute.Relation<
+      'api::department.department',
+      'manyToMany',
+      'api::project.project'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1562,6 +1567,11 @@ export interface ApiEduEducationalProgramEduEducationalProgram
           localized: true;
         };
       }>;
+    graduates: Attribute.Relation<
+      'api::edu-educational-program.edu-educational-program',
+      'manyToMany',
+      'api::graduate.graduate'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1957,6 +1967,11 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    projects: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::project.project'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2300,6 +2315,11 @@ export interface ApiEventEvent extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    projects: Attribute.Relation<
+      'api::event.event',
+      'manyToMany',
+      'api::project.project'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2554,6 +2574,16 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
       'api::graduate.graduate',
       'manyToMany',
       'api::dpo-course.dpo-course'
+    >;
+    projects: Attribute.Relation<
+      'api::graduate.graduate',
+      'manyToMany',
+      'api::project.project'
+    >;
+    eduEducationalPrograms: Attribute.Relation<
+      'api::graduate.graduate',
+      'manyToMany',
+      'api::edu-educational-program.edu-educational-program'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -3236,6 +3266,11 @@ export interface ApiNewNew extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    projects: Attribute.Relation<
+      'api::new.new',
+      'manyToMany',
+      'api::project.project'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -3333,6 +3368,253 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
       'api::news-page.news-page',
       'oneToMany',
       'api::news-page.news-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiProjectProject extends Schema.CollectionType {
+  collectionName: 'projects';
+  info: {
+    singularName: 'project';
+    pluralName: 'projects';
+    displayName: '~D: \u041F\u0440\u043E\u0435\u043A\u0442\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    text: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    year: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    head: Attribute.Component<'projects.project-head'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    members: Attribute.DynamicZone<
+      ['projects.project-member', 'projects.project-member-out-side']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    employees: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::employee.employee'
+    >;
+    departments: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::department.department'
+    >;
+    graduates: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::graduate.graduate'
+    >;
+    news: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::new.new'
+    >;
+    events: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::event.event'
+    >;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.buttons-block',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.group-calendar',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.slider-video',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.text-video',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::project.project'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
+  collectionName: 'projects_pages';
+  info: {
+    singularName: 'projects-page';
+    pluralName: 'projects-pages';
+    displayName: '/projects';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.buttons-block',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.group-calendar',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.slider-video',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.text-video',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::projects-page.projects-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::projects-page.projects-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::projects-page.projects-page',
+      'oneToMany',
+      'api::projects-page.projects-page'
     >;
     locale: Attribute.String;
   };
@@ -3566,6 +3848,8 @@ declare module '@strapi/types' {
       'api::nav-bar.nav-bar': ApiNavBarNavBar;
       'api::new.new': ApiNewNew;
       'api::news-page.news-page': ApiNewsPageNewsPage;
+      'api::project.project': ApiProjectProject;
+      'api::projects-page.projects-page': ApiProjectsPageProjectsPage;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
       'api::structure.structure': ApiStructureStructure;
     }
