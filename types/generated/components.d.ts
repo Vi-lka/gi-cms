@@ -223,7 +223,8 @@ export interface ContentCollectionAll extends Schema.Component {
           '\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B(\u041F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u044F):departments',
           '\u041D\u043E\u0432\u043E\u0441\u0442\u0438:news',
           '\u041C\u0435\u0440\u043E\u043F\u0440\u0438\u044F\u0442\u0438\u044F:events',
-          '\u041F\u0440\u043E\u0435\u043A\u0442\u044B:projects'
+          '\u041F\u0440\u043E\u0435\u043A\u0442\u044B:projects',
+          '\u0416\u0443\u0440\u043D\u0430\u043B\u044B:journals'
         ]
       >;
     linkDescription: Attribute.Text &

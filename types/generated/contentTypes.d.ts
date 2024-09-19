@@ -2944,6 +2944,202 @@ export interface ApiInfoInfo extends Schema.SingleType {
   };
 }
 
+export interface ApiJournalJournal extends Schema.CollectionType {
+  collectionName: 'journals';
+  info: {
+    singularName: 'journal';
+    pluralName: 'journals';
+    displayName: '~D: \u0416\u0443\u0440\u043D\u0430\u043B\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.buttons-block',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.group-calendar',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.slider-video',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.text-video',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::journal.journal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::journal.journal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::journal.journal',
+      'oneToMany',
+      'api::journal.journal'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiJournalsPageJournalsPage extends Schema.SingleType {
+  collectionName: 'journals_pages';
+  info: {
+    singularName: 'journals-page';
+    pluralName: 'journals-pages';
+    displayName: '/journals';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    navBarConfig: Attribute.Component<'nav.nav-bar-fields'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.DynamicZone<
+      [
+        'content.accordion',
+        'content.bento-grid',
+        'content.buttons-block',
+        'content.collection-all',
+        'content.contacts',
+        'content.files-grid',
+        'content.files',
+        'content.form-block',
+        'content.group-calendar',
+        'content.icons-block',
+        'content.numbers',
+        'content.slider-entity',
+        'content.slider-photos',
+        'content.slider-video',
+        'content.text-block',
+        'content.text-grid',
+        'content.text-images',
+        'content.text-video',
+        'content.timeline'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::journals-page.journals-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::journals-page.journals-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::journals-page.journals-page',
+      'oneToMany',
+      'api::journals-page.journals-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiJustWaitJustWait extends Schema.SingleType {
   collectionName: 'just_waits';
   info: {
@@ -3843,6 +4039,8 @@ declare module '@strapi/types' {
       'api::hashtag.hashtag': ApiHashtagHashtag;
       'api::hero-about.hero-about': ApiHeroAboutHeroAbout;
       'api::info.info': ApiInfoInfo;
+      'api::journal.journal': ApiJournalJournal;
+      'api::journals-page.journals-page': ApiJournalsPageJournalsPage;
       'api::just-wait.just-wait': ApiJustWaitJustWait;
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::nav-bar.nav-bar': ApiNavBarNavBar;

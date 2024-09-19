@@ -31,7 +31,8 @@
         "Структуры(Подразделения):departments",
         "Новости:news",
         "Мероприятия:events",
-        "Проекты:projects"
+        "Проекты:projects",
+        "Журналы:journals"
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"
