@@ -86,6 +86,14 @@
       "relation": "manyToMany",
       "target": "api::edu-educational-program.edu-educational-program",
       "inversedBy": "graduates"
+    },
+    "order": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
     }
   }
 }

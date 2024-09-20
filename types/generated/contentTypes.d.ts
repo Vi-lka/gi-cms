@@ -2585,6 +2585,12 @@ export interface ApiGraduateGraduate extends Schema.CollectionType {
       'manyToMany',
       'api::edu-educational-program.edu-educational-program'
     >;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
