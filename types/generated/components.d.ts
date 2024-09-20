@@ -610,6 +610,11 @@ export interface ContentSliderEntity extends Schema.Component {
       'oneToMany',
       'api::project.project'
     >;
+    journals: Attribute.Relation<
+      'content.slider-entity',
+      'oneToMany',
+      'api::journal.journal'
+    >;
   };
 }
 
