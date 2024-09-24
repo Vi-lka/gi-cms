@@ -2,7 +2,8 @@
   "collectionName": "components_group_calendar_tests",
   "info": {
     "displayName": "Test",
-    "icon": "check"
+    "icon": "check",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -23,6 +24,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::employee.employee"
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 300
     }
   }
 }

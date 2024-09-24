@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "weekends",
+  "info": {
+    "singularName": "weekend",
+    "pluralName": "weekends",
+    "displayName": "Выходные (Календарь Групп)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "days": {
+      "type": "component",
+      "repeatable": true,
+      "component": "group-calendar.holidays",
+      "required": true
+    }
+  }
+}

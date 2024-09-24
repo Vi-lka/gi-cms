@@ -121,6 +121,16 @@
         }
       },
       "component": "group-calendar.state-exam"
+    },
+    "preGraduatePractices": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "group-calendar.pre-graduate-practice"
     }
   }
 }

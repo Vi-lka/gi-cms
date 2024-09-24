@@ -2,7 +2,8 @@
   "collectionName": "components_group_calendar_diplomas",
   "info": {
     "displayName": "Diploma",
-    "icon": "crown"
+    "icon": "crown",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -23,6 +24,10 @@
       "type": "string",
       "required": true,
       "maxLength": 255
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 300
     }
   }
 }

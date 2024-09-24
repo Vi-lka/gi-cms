@@ -24,6 +24,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::employee.employee"
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 300
     }
   }
 }

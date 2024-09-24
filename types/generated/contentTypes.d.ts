@@ -2708,6 +2708,15 @@ export interface ApiGroupGroup extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    preGraduatePractices: Attribute.Component<
+      'group-calendar.pre-graduate-practice',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -4006,6 +4015,37 @@ export interface ApiStructureStructure extends Schema.SingleType {
   };
 }
 
+export interface ApiWeekendWeekend extends Schema.SingleType {
+  collectionName: 'weekends';
+  info: {
+    singularName: 'weekend';
+    pluralName: 'weekends';
+    displayName: '\u0412\u044B\u0445\u043E\u0434\u043D\u044B\u0435 (\u041A\u0430\u043B\u0435\u043D\u0434\u0430\u0440\u044C \u0413\u0440\u0443\u043F\u043F)';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    days: Attribute.Component<'group-calendar.holidays', true> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::weekend.weekend',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::weekend.weekend',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -4056,6 +4096,7 @@ declare module '@strapi/types' {
       'api::projects-page.projects-page': ApiProjectsPageProjectsPage;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
       'api::structure.structure': ApiStructureStructure;
+      'api::weekend.weekend': ApiWeekendWeekend;
     }
   }
 }

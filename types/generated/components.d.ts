@@ -1014,6 +1014,7 @@ export interface GroupCalendarDiploma extends Schema.Component {
   info: {
     displayName: 'Diploma';
     icon: 'crown';
+    description: '';
   };
   attributes: {
     date: Attribute.DateTime & Attribute.Required;
@@ -1028,6 +1029,10 @@ export interface GroupCalendarDiploma extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 
@@ -1036,10 +1041,15 @@ export interface GroupCalendarEduPractice extends Schema.Component {
   info: {
     displayName: 'EduPractice';
     icon: 'feather';
+    description: '';
   };
   attributes: {
     dateStart: Attribute.Date & Attribute.Required;
     dateEnd: Attribute.Date;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 
@@ -1063,6 +1073,10 @@ export interface GroupCalendarExams extends Schema.Component {
       'oneToOne',
       'api::employee.employee'
     >;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 
@@ -1071,10 +1085,15 @@ export interface GroupCalendarHolidays extends Schema.Component {
   info: {
     displayName: 'Holidays';
     icon: 'emotionHappy';
+    description: '';
   };
   attributes: {
     dateStart: Attribute.Date & Attribute.Required;
     dateEnd: Attribute.Date;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 
@@ -1083,10 +1102,31 @@ export interface GroupCalendarInternship extends Schema.Component {
   info: {
     displayName: 'Internship';
     icon: 'shield';
+    description: '';
   };
   attributes: {
     dateStart: Attribute.Date & Attribute.Required;
     dateEnd: Attribute.Date;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+  };
+}
+
+export interface GroupCalendarPreGraduatePractice extends Schema.Component {
+  collectionName: 'components_group_calendar_pre_graduate_practices';
+  info: {
+    displayName: 'PreGraduatePractice';
+    icon: 'strikeThrough';
+  };
+  attributes: {
+    dateStart: Attribute.Date & Attribute.Required;
+    dateEnd: Attribute.Date;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 
@@ -1095,6 +1135,7 @@ export interface GroupCalendarStateExam extends Schema.Component {
   info: {
     displayName: 'StateExam';
     icon: 'emotionUnhappy';
+    description: '';
   };
   attributes: {
     date: Attribute.DateTime & Attribute.Required;
@@ -1109,6 +1150,10 @@ export interface GroupCalendarStateExam extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 
@@ -1117,6 +1162,7 @@ export interface GroupCalendarTest extends Schema.Component {
   info: {
     displayName: 'Test';
     icon: 'check';
+    description: '';
   };
   attributes: {
     date: Attribute.DateTime & Attribute.Required;
@@ -1131,6 +1177,10 @@ export interface GroupCalendarTest extends Schema.Component {
       'oneToOne',
       'api::employee.employee'
     >;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 
@@ -1590,6 +1640,7 @@ declare module '@strapi/types' {
       'group-calendar.exams': GroupCalendarExams;
       'group-calendar.holidays': GroupCalendarHolidays;
       'group-calendar.internship': GroupCalendarInternship;
+      'group-calendar.pre-graduate-practice': GroupCalendarPreGraduatePractice;
       'group-calendar.state-exam': GroupCalendarStateExam;
       'group-calendar.test': GroupCalendarTest;
       'items.accordion-item': ItemsAccordionItem;
