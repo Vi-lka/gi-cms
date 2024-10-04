@@ -2717,6 +2717,18 @@ export interface ApiGroupGroup extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    rescheduling: Attribute.Component<'group-calendar.test', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    retakes: Attribute.Component<'group-calendar.test', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

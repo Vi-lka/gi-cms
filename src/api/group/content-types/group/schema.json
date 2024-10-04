@@ -131,6 +131,26 @@
         }
       },
       "component": "group-calendar.pre-graduate-practice"
+    },
+    "rescheduling": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "group-calendar.test"
+    },
+    "retakes": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "group-calendar.test"
     }
   }
 }
