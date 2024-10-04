@@ -1513,10 +1513,6 @@ export interface ProjectsProjectMemberOutSide extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    post: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 300;
-      }>;
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
         maxLength: 300;
