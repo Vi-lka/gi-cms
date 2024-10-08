@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_items_docs_items",
+  "info": {
+    "displayName": "DocsItem",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "file": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 500
+    }
+  }
+}

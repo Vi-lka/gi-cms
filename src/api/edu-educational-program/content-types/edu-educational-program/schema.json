@@ -124,6 +124,12 @@
       "target": "api::group.group",
       "mappedBy": "eduEducationalProgram"
     },
+    "graduates": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::graduate.graduate",
+      "mappedBy": "eduEducationalPrograms"
+    },
     "content": {
       "pluginOptions": {
         "i18n": {
@@ -137,6 +143,7 @@
         "content.buttons-block",
         "content.collection-all",
         "content.contacts",
+        "content.doc-request-form",
         "content.files-grid",
         "content.files",
         "content.form-block",
@@ -152,13 +159,7 @@
         "content.text-video",
         "content.timeline"
       ],
-      "required": true
-    },
-    "graduates": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::graduate.graduate",
-      "mappedBy": "eduEducationalPrograms"
+      "required": false
     }
   }
 }

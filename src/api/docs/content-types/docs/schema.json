@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "documents",
+  "info": {
+    "singularName": "docs",
+    "pluralName": "documents",
+    "displayName": "Документы",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "items.docs-item",
+      "required": true
+    }
+  }
+}

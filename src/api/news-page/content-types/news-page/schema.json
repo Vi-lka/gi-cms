@@ -49,6 +49,7 @@
         "content.buttons-block",
         "content.collection-all",
         "content.contacts",
+        "content.doc-request-form",
         "content.files-grid",
         "content.files",
         "content.form-block",
@@ -63,8 +64,7 @@
         "content.text-images",
         "content.text-video",
         "content.timeline"
-      ],
-      "required": true
+      ]
     }
   }
 }

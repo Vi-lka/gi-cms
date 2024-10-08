@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_content_doc_request_forms",
+  "info": {
+    "displayName": "DocRequestForm",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string",
+      "regex": "^\\/?[-a-z0-9_]{1,512}",
+      "maxLength": 255
+    },
+    "linkTitle": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "linkDescription": {
+      "type": "text",
+      "maxLength": 255
+    }
+  }
+}

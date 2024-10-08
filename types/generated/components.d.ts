@@ -288,6 +288,32 @@ export interface ContentContacts extends Schema.Component {
   };
 }
 
+export interface ContentDocRequestForm extends Schema.Component {
+  collectionName: 'components_content_doc_request_forms';
+  info: {
+    displayName: 'DocRequestForm';
+    icon: 'question';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linkDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
 export interface ContentFilesGrid extends Schema.Component {
   collectionName: 'components_content_files_grids';
   info: {
@@ -1238,6 +1264,26 @@ export interface ItemsButtonsBlockItem extends Schema.Component {
   };
 }
 
+export interface ItemsDocsItem extends Schema.Component {
+  collectionName: 'components_items_docs_items';
+  info: {
+    displayName: 'DocsItem';
+    icon: 'attachment';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    file: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+  };
+}
+
 export interface ItemsEduProgSlider extends Schema.Component {
   collectionName: 'components_items_edu_prog_sliders';
   info: {
@@ -1610,6 +1656,7 @@ declare module '@strapi/types' {
       'content.buttons-block': ContentButtonsBlock;
       'content.collection-all': ContentCollectionAll;
       'content.contacts': ContentContacts;
+      'content.doc-request-form': ContentDocRequestForm;
       'content.files-grid': ContentFilesGrid;
       'content.files': ContentFiles;
       'content.form-block': ContentFormBlock;
@@ -1642,6 +1689,7 @@ declare module '@strapi/types' {
       'items.accordion-item': ItemsAccordionItem;
       'items.bento-item': ItemsBentoItem;
       'items.buttons-block-item': ItemsButtonsBlockItem;
+      'items.docs-item': ItemsDocsItem;
       'items.edu-prog-slider': ItemsEduProgSlider;
       'items.files-item': ItemsFilesItem;
       'items.form-block-item': ItemsFormBlockItem;

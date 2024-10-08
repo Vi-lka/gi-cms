@@ -929,6 +929,7 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -945,7 +946,6 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1096,6 +1096,11 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'oneToMany',
       'api::edu-educational-program.edu-educational-program'
     >;
+    projects: Attribute.Relation<
+      'api::department.department',
+      'manyToMany',
+      'api::project.project'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -1103,6 +1108,7 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -1119,17 +1125,11 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    projects: Attribute.Relation<
-      'api::department.department',
-      'manyToMany',
-      'api::project.project'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1219,6 +1219,46 @@ export interface ApiDepartmentTypeDepartmentType extends Schema.CollectionType {
   };
 }
 
+export interface ApiDocsDocs extends Schema.SingleType {
+  collectionName: 'documents';
+  info: {
+    singularName: 'docs';
+    pluralName: 'documents';
+    displayName: '\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    items: Attribute.Component<'items.docs-item', true> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::docs.docs', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::docs.docs', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::docs.docs',
+      'oneToMany',
+      'api::docs.docs'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDpoDpo extends Schema.SingleType {
   collectionName: 'dpos';
   info: {
@@ -1259,6 +1299,7 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -1275,7 +1316,6 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1388,6 +1428,7 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -1404,7 +1445,6 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1538,6 +1578,11 @@ export interface ApiEduEducationalProgramEduEducationalProgram
       'oneToMany',
       'api::group.group'
     >;
+    graduates: Attribute.Relation<
+      'api::edu-educational-program.edu-educational-program',
+      'manyToMany',
+      'api::graduate.graduate'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -1545,6 +1590,7 @@ export interface ApiEduEducationalProgramEduEducationalProgram
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -1561,17 +1607,11 @@ export interface ApiEduEducationalProgramEduEducationalProgram
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    graduates: Attribute.Relation<
-      'api::edu-educational-program.edu-educational-program',
-      'manyToMany',
-      'api::graduate.graduate'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1636,6 +1676,7 @@ export interface ApiEducationPageEducationPage extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -1652,7 +1693,6 @@ export interface ApiEducationPageEducationPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1768,6 +1808,7 @@ export interface ApiEducationalProgramEducationalProgram
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -1784,7 +1825,6 @@ export interface ApiEducationalProgramEducationalProgram
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1938,6 +1978,11 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
       'manyToMany',
       'api::edu-educational-program.edu-educational-program'
     >;
+    projects: Attribute.Relation<
+      'api::employee.employee',
+      'manyToMany',
+      'api::project.project'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -1945,6 +1990,7 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -1961,17 +2007,11 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    projects: Attribute.Relation<
-      'api::employee.employee',
-      'manyToMany',
-      'api::project.project'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2036,6 +2076,7 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -2052,7 +2093,6 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2122,6 +2162,7 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -2138,7 +2179,6 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2286,6 +2326,11 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'manyToMany',
       'api::edu-educational-program.edu-educational-program'
     >;
+    projects: Attribute.Relation<
+      'api::event.event',
+      'manyToMany',
+      'api::project.project'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -2293,6 +2338,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -2309,17 +2355,11 @@ export interface ApiEventEvent extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    projects: Attribute.Relation<
-      'api::event.event',
-      'manyToMany',
-      'api::project.project'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2384,6 +2424,7 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -2400,7 +2441,6 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2933,6 +2973,7 @@ export interface ApiInfoInfo extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -2949,7 +2990,6 @@ export interface ApiInfoInfo extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3023,6 +3063,12 @@ export interface ApiJournalJournal extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 500;
       }>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -3030,6 +3076,7 @@ export interface ApiJournalJournal extends Schema.CollectionType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -3046,16 +3093,9 @@ export interface ApiJournalJournal extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    order: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -3088,6 +3128,7 @@ export interface ApiJournalsPageJournalsPage extends Schema.SingleType {
     singularName: 'journals-page';
     pluralName: 'journals-pages';
     displayName: '/journals';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -3121,6 +3162,7 @@ export interface ApiJournalsPageJournalsPage extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -3137,7 +3179,6 @@ export interface ApiJournalsPageJournalsPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3201,6 +3242,7 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -3217,7 +3259,6 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3271,6 +3312,7 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -3287,7 +3329,6 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3460,6 +3501,11 @@ export interface ApiNewNew extends Schema.CollectionType {
       'manyToMany',
       'api::event.event'
     >;
+    projects: Attribute.Relation<
+      'api::new.new',
+      'manyToMany',
+      'api::project.project'
+    >;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -3467,6 +3513,7 @@ export interface ApiNewNew extends Schema.CollectionType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -3483,17 +3530,11 @@ export interface ApiNewNew extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    projects: Attribute.Relation<
-      'api::new.new',
-      'manyToMany',
-      'api::project.project'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -3550,6 +3591,7 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -3566,7 +3608,6 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3699,6 +3740,12 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'manyToMany',
       'api::event.event'
     >;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     content: Attribute.DynamicZone<
       [
         'content.accordion',
@@ -3706,6 +3753,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -3722,16 +3770,9 @@ export interface ApiProjectProject extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    order: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -3764,6 +3805,7 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
     singularName: 'projects-page';
     pluralName: 'projects-pages';
     displayName: '/projects';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -3797,6 +3839,7 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -3813,7 +3856,6 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3981,6 +4023,7 @@ export interface ApiStructureStructure extends Schema.SingleType {
         'content.buttons-block',
         'content.collection-all',
         'content.contacts',
+        'content.doc-request-form',
         'content.files-grid',
         'content.files',
         'content.form-block',
@@ -3997,7 +4040,6 @@ export interface ApiStructureStructure extends Schema.SingleType {
         'content.timeline'
       ]
     > &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -4081,6 +4123,7 @@ declare module '@strapi/types' {
       'api::additional-page.additional-page': ApiAdditionalPageAdditionalPage;
       'api::department.department': ApiDepartmentDepartment;
       'api::department-type.department-type': ApiDepartmentTypeDepartmentType;
+      'api::docs.docs': ApiDocsDocs;
       'api::dpo.dpo': ApiDpoDpo;
       'api::dpo-course.dpo-course': ApiDpoCourseDpoCourse;
       'api::edu-educational-program.edu-educational-program': ApiEduEducationalProgramEduEducationalProgram;

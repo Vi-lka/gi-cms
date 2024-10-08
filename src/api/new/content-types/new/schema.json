@@ -66,6 +66,12 @@
       "target": "api::event.event",
       "inversedBy": "news"
     },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "news"
+    },
     "content": {
       "pluginOptions": {
         "i18n": {
@@ -79,6 +85,7 @@
         "content.buttons-block",
         "content.collection-all",
         "content.contacts",
+        "content.doc-request-form",
         "content.files-grid",
         "content.files",
         "content.form-block",
@@ -94,13 +101,7 @@
         "content.text-video",
         "content.timeline"
       ],
-      "required": true
-    },
-    "projects": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::project.project",
-      "mappedBy": "news"
+      "required": false
     }
   }
 }
