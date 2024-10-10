@@ -134,7 +134,7 @@
         "content.text-video",
         "content.timeline"
       ],
-      "required": false
+      "required": true
     }
   }
 }

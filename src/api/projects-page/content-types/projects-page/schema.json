@@ -64,7 +64,8 @@
         "content.text-images",
         "content.text-video",
         "content.timeline"
-      ]
+      ],
+      "required": true
     }
   }
 }

@@ -946,6 +946,7 @@ export interface ApiAdditionalPageAdditionalPage extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1125,6 +1126,7 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1316,6 +1318,7 @@ export interface ApiDpoDpo extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1445,6 +1448,7 @@ export interface ApiDpoCourseDpoCourse extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1607,6 +1611,7 @@ export interface ApiEduEducationalProgramEduEducationalProgram
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1693,6 +1698,7 @@ export interface ApiEducationPageEducationPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1825,6 +1831,7 @@ export interface ApiEducationalProgramEducationalProgram
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2007,6 +2014,7 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2093,6 +2101,7 @@ export interface ApiEmployeesPageEmployeesPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2179,6 +2188,7 @@ export interface ApiEntrancePageEntrancePage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2355,6 +2365,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2441,6 +2452,7 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2990,6 +3002,7 @@ export interface ApiInfoInfo extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3093,6 +3106,7 @@ export interface ApiJournalJournal extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3179,6 +3193,7 @@ export interface ApiJournalsPageJournalsPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3259,6 +3274,7 @@ export interface ApiJustWaitJustWait extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3329,6 +3345,7 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3530,6 +3547,7 @@ export interface ApiNewNew extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3608,6 +3626,7 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3770,6 +3789,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3856,6 +3876,7 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -4040,6 +4061,7 @@ export interface ApiStructureStructure extends Schema.SingleType {
         'content.timeline'
       ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
