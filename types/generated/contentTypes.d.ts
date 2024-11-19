@@ -2704,7 +2704,8 @@ export interface ApiGroupGroup extends Schema.CollectionType {
         'magistracy-2',
         'postgraduate-1',
         'postgraduate-2',
-        'postgraduate-3'
+        'postgraduate-3',
+        'postgraduate-4'
       ]
     > &
       Attribute.Required &

@@ -42,7 +42,8 @@
         "magistracy-2",
         "postgraduate-1",
         "postgraduate-2",
-        "postgraduate-3"
+        "postgraduate-3",
+        "postgraduate-4"
       ],
       "required": true
     },
