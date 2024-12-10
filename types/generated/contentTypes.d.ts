@@ -3657,6 +3657,58 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
   };
 }
 
+export interface ApiPoliticPolitic extends Schema.SingleType {
+  collectionName: 'politics';
+  info: {
+    singularName: 'politic';
+    pluralName: 'politics';
+    displayName: '\u041F\u043E\u043B\u0438\u0442\u0438\u043A\u0430 \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    url: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    file: Attribute.Media<'images' | 'files'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::politic.politic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::politic.politic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::politic.politic',
+      'oneToMany',
+      'api::politic.politic'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiProjectProject extends Schema.CollectionType {
   collectionName: 'projects';
   info: {
@@ -4170,6 +4222,7 @@ declare module '@strapi/types' {
       'api::nav-bar.nav-bar': ApiNavBarNavBar;
       'api::new.new': ApiNewNew;
       'api::news-page.news-page': ApiNewsPageNewsPage;
+      'api::politic.politic': ApiPoliticPolitic;
       'api::project.project': ApiProjectProject;
       'api::projects-page.projects-page': ApiProjectsPageProjectsPage;
       'api::site-description.site-description': ApiSiteDescriptionSiteDescription;
