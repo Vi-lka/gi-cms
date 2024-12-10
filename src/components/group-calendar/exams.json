@@ -8,7 +8,7 @@
   "options": {},
   "attributes": {
     "date": {
-      "type": "datetime",
+      "type": "date",
       "required": true
     },
     "name": {
@@ -28,6 +28,11 @@
     "description": {
       "type": "text",
       "maxLength": 300
+    },
+    "time": {
+      "type": "time",
+      "default": "undefined",
+      "required": false
     }
   }
 }

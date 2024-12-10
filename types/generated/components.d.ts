@@ -1047,7 +1047,7 @@ export interface GroupCalendarDiploma extends Schema.Component {
     description: '';
   };
   attributes: {
-    date: Attribute.DateTime & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
     name: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
@@ -1063,6 +1063,7 @@ export interface GroupCalendarDiploma extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
+    time: Attribute.Time;
   };
 }
 
@@ -1091,7 +1092,7 @@ export interface GroupCalendarExams extends Schema.Component {
     description: '';
   };
   attributes: {
-    date: Attribute.DateTime & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
     name: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
@@ -1107,6 +1108,7 @@ export interface GroupCalendarExams extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
+    time: Attribute.Time & Attribute.DefaultTo<'undefined'>;
   };
 }
 
@@ -1168,7 +1170,7 @@ export interface GroupCalendarStateExam extends Schema.Component {
     description: '';
   };
   attributes: {
-    date: Attribute.DateTime & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
     name: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
@@ -1184,6 +1186,7 @@ export interface GroupCalendarStateExam extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
+    time: Attribute.Time;
   };
 }
 
@@ -1195,7 +1198,7 @@ export interface GroupCalendarTest extends Schema.Component {
     description: '';
   };
   attributes: {
-    date: Attribute.DateTime & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
     name: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
@@ -1211,6 +1214,7 @@ export interface GroupCalendarTest extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
+    time: Attribute.Time;
   };
 }
 
